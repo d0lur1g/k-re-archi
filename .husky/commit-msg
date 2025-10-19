@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+# Ce script vérifie la convention des messages de commit en utilisant commitlint.
+# La syntaxe est correcte.
+# Assure-toi que commitlint est bien installé et configuré (via un fichier commitlint.config.js).
+
+. "$(dirname -- "$0")/_/husky.sh"
+
+npx --no -- commitlint --edit "$1"
