@@ -36,20 +36,23 @@ git checkout -b fix/nom-correction
 
 Faites des commits précis et focalisés sur un seul sujet. Utilisez le format suivant pour vos messages de commit :
 
-```text
 [type] : bref résumé (max 50 caractères)
 
 Description détaillée (optionnel) expliquant le contexte,
 ce qui a été fait et les impacts éventuels.
 
 Types recommandés :
-- feat : nouvelle fonctionnalité
-- fix : correction de bug
-- docs : documentation
-- style : mise en forme, sans impact fonctionnel
-- refactor : refactorisation sans ajout ni correction
-- test : ajout/modification de tests
-- chore : tâches diverses (build, outils, etc.)
+
+- ***feat*** : nouvelle fonctionnalité
+- ***fix*** : correction de bug
+- ***docs*** : documentation
+- ***style*** : mise en forme, sans impact fonctionnel
+- ***refactor*** : refactorisation du code sans ajout ni correction de bug
+- ***test*** : ajout/modification/correction de tests
+- ***chore*** : tâches diverses (build, déploiement, outils, scripts, etc.)
+
+```bash
+git commit -m "feat: ajout du formulaire de contact avec validation"
 ```
 
 ### 4. Poussez votre branche et ouvrez une Pull Request (PR)
@@ -99,6 +102,18 @@ git pull origin main
 ## Fichiers ignorés
 
 Un fichier `.gitignore` est configuré pour exclure les fichiers temporaires, locaux ou binaires inutiles au projet (ex : `.env`, dossiers `node_modules`, logs).
+
+## Nettoyage des fichiers suivis dans Git
+
+Lorsque le fichier .gitignore est mis à jour pour exclure de nouveaux fichiers ou dossiers, Git continue de suivre les fichiers déjà présents dans l’historique, même si ceux-ci devraient être ignorés désormais. Pour nettoyer efficacement le dépôt et enlever ces fichiers du suivi Git sans les supprimer localement, utilisez la commande suivante :
+
+```bash
+git rm -r --cached .
+git add .
+git commit -m "Nettoyage : retirer du suivi les fichiers désormais ignorés par .gitignore"
+```
+
+Cette procédure force Git à réévaluer tous les fichiers à partir de la nouvelle configuration .gitignore, en supprimant du suivi tous les fichiers qui doivent être ignorés. Il s’agit d’une étape importante pour maintenir un dépôt propre et éviter de versionner des fichiers temporaires, secrets ou générés automatiquement. Attention, cette opération modifie la liste des fichiers suivis, donc assurez-vous de bien communiquer avec votre équipe avant de l’exécuter.
 
 ## Conseils et bonnes pratiques
 
