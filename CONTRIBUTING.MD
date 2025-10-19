@@ -32,6 +32,22 @@ Pour corriger un bug, utilisez la convention :
 git checkout -b fix/nom-correction
 ```
 
+Voici les conventions de nommage des branches :
+
+- **main** ou **master** : branche stable, déployable en production.
+- **feature/nom-de-la-fonctionnalité** : pour développer une nouvelle fonctionnalité.
+- **fix/nom-du-bug** : pour corriger un bug spécifique.
+- **hotfix/nom-urgence** : correction urgente directement liée à la production.
+- **release/numéro-de-version** : pour préparer une nouvelle version en phase de test.
+- **experiment/nom** : pour essais ou prototypes.
+
+Exemples :
+
+- feature/ajout-page-portfolio
+- fix/correction-affichage-header
+- hotfix/securite-auth
+- release/v1.2.0
+
 ### 3. Commits clairs et atomiques
 
 Faites des commits précis et focalisés sur un seul sujet. Utilisez le format suivant pour vos messages de commit :
