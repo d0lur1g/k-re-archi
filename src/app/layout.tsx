@@ -14,12 +14,12 @@ ORDRE D'IMPORT CRITIQUE :
 // IMPORTS CSS - ORDRE CRITIQUE
 // ========================================
 import "./globals.css"; // Tailwind + @theme
-import "../styles/custom.css"; // Styles custom EN DERNIER
+import "@/styles/custom.css"; // Styles custom EN DERNIER
 
 // ========================================
 // IMPORTS COMPOSANTS
 // ========================================
-import Header from "../layouts/Header";
+import Header from "@/layouts/Header";
 
 // ========================================
 // MÉTADONNÉES SEO

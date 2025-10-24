@@ -3,7 +3,7 @@
 import { useState } from "react";
 import MenuResponsive from "./MenuResponsive";
 import Image from "next/image";
-import menuIcon from "../assets/images/icons/menu.svg";
+import menuIcon from "@/icons/menu.svg";
 import Link from "next/link";
 
 export default function Header() {

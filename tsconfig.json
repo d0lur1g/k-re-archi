@@ -21,16 +21,10 @@
     "baseUrl": ".", // indispensable si tu utilises paths
     "paths": {
       "@/*": ["./src/*"],
-      "@/assets/*": ["assets/*"],
-      "@/components/*": ["components/*"],
-      "@/context/*": ["contexts/*"],
-      "@/hooks/*": ["hooks/*"],
-      "@/layouts/*": ["layouts/*"],
-      "@/pages/*": ["pages/*"],
-      "@/services/*": ["services/*"],
-      "@/styles/*": ["styles/*"],
-      "@/types/*": ["types/*"],
-      "@/utils/*": ["utils/*"],
+      "@/assets/*": ["./src/assets/*"],
+      "@/icons/*": ["./src/assets/images/icons/*"],
+      "@/layouts/*": ["./src/layouts/*"],
+      "@/styles/*": ["./src/styles/*"],
       "@/fonts/*": ["./public/fonts/*"]
     }
   },

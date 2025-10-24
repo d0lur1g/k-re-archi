@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import closeIcon from "../assets/images/icons/menu-close.svg";
+import closeIcon from "@/icons/menu-close.svg";
 import Image from "next/image";
 import Link from "next/link";
 
