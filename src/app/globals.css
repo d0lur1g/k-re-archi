@@ -1,26 +1,71 @@
+/*
+  Configuration Tailwind CSS 4.1 - K-Ré Architecture
+  CSS-first, optimisée pour une stack Next.js moderne
+*/
+
+/* ========================================
+   IMPORT TAILWIND CSS 4.1
+   ======================================== */
 @import "tailwindcss";
 
+/* ========================================
+   DESIGN TOKENS - @theme
+   Variables custom utilisées par Tailwind
+   ======================================== */
+@theme {
+  /* Polices personnalisées injectées par next/font/local
+     Ces variables sont auto-injectées par Next.js et
+     positionnées sur l'élément <html> via la classe générée.
+     N'utilise PAS de récursion ici.*/
+  --font-amalfi: var(--font-family-amalfi), "Courier New", sans-serif;
+  --font-baiti: var(--font-family-baiti), "Courier New", sans-serif;
+
+  /* Couleurs (valeurs RGB format espace, pour compatibilité Tailwind /alpha) */
+  --color-kre-black: 0 0 0;
+  --color-kre-white: 255 255 255;
+
+  /* Tailles de texte personnalisées */
+  --text-h1: 3.125rem; /* 50px */
+  --text-h2: 3rem; /* 48px */
+  --text-h3: 2rem; /* 32px */
+  --text-h4: 1.875rem; /* 30px */
+  --text-h5: 1.5rem; /* 24px */
+  --text-h6: 1.25rem; /* 20px */
+  --text-h7: 1.1rem; /* 17.6px */
+  --text-body: 16px;
+
+  /* Échelle de tailles pour width/height/spacing */
+  --spacing-22\.5: 22.5px;
+  --spacing-45: 45px;
+  --spacing-90: 90px;
+  --spacing-180: 180px;
+  --spacing-240: 240px;
+  --spacing-360: 360px;
+  --spacing-540: 540px;
+  --spacing-1080: 1080px;
+
+  /* Bordures personnalisées */
+  --border-width-default: 1px;
+  --border-width-3: 3px;
+
+  /* Padding personnalisé */
+  --spacing-5: 5px;
+  --spacing-15: 15px;
+
+  /* Breakpoints personnalisés */
+  --breakpoint-xs: 382px;
+  --breakpoint-sm: 520px;
+  --breakpoint-md: 600px;
+  --breakpoint-lg: 780px;
+  --breakpoint-xl: 900px;
+  --breakpoint-2xl: 1080px;
+}
+
+/* ========================================
+   VARIABLES CSS GLOBAL ROOT
+   Pour usage direct dans custom.css, JS, ou fallback
+   ======================================== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Taille par défaut du body */
+  --body-font-size: 16px;
 }
