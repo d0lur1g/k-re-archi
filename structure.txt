@@ -1,0 +1,96 @@
+=== FICHIERS RACINE ===
+
+    Directory: E:\Documents\01_DEV\00_LOCAL\k-re-archi
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+
+-a--- 26/10/2025 12:59:09   5341 .gitignore
+-a--- 26/10/2025 21:00:10    604 .prettierignore
+-a--- 26/10/2025 20:43:11    221 .prettierrc.json
+-a--- 19/10/2025 21:52:44   6397 CONTRIBUTING.MD
+-a--- 26/10/2025 20:38:14    785 eslint.config.mjs
+-a--- 26/10/2025 22:58:44    251 next-env.d.ts
+-a--- 26/10/2025 12:14:34    133 next.config.ts
+-a--- 26/10/2025 20:27:12 245876 package-lock.json
+-a--- 26/10/2025 20:53:32   1073 package.json
+-a--- 26/10/2025 12:14:34     94 postcss.config.mjs
+-a--- 26/10/2025 12:14:34   1450 README.md
+-a--- 26/10/2025 23:07:12    917 structure-bash.txt
+-a--- 26/10/2025 23:10:13    197 structure.txt
+-a--- 26/10/2025 20:43:12    734 tsconfig.json
+-a--- 26/10/2025 20:54:17  96463 tsconfig.tsbuildinfo
+
+
+=== PUBLIC ===
+Structure du dossier pour le volume Stockage
+Le numÚro de sÚrie du volume est 9427-F695
+E:\DOCUMENTS\01_DEV\00_LOCAL\K-RE-ARCHI\PUBLIC
+|   favicon.ico
+|   
+\---images
+    |   logo-order-architects.svg
+    |   
+    \---socials
+            facebook.svg
+            instagram.svg
+            linkedin.svg
+            pinterest.svg
+            
+
+=== SRC ===
+Structure du dossier pour le volume Stockage
+Le numÚro de sÚrie du volume est 9427-F695
+E:\DOCUMENTS\01_DEV\00_LOCAL\K-RE-ARCHI\SRC
++---app
+|       layout.tsx
+|       page.tsx
+|       
++---assets
+|   +---fonts
+|   |   |   fonts.ts
+|   |   |   
+|   |   +---amalfi-coast
+|   |   |       amalfi-coast.woff2
+|   |   |       
+|   |   \---microsoft-yi-baiti
+|   |           microsoft-yi-baiti.woff2
+|   |           
+|   \---images
+|       +---icons
+|       |       menu-close.svg
+|       |       menu.svg
+|       |       
+|       \---images
+|               ariful-haque-LiVf0Mbo3NU-unsplash.jpg
+|               gallery-bottom.jpg
+|               guido-hofmann-CIODoiAgKY8-unsplash.jpg
+|               hero-top.jpg
+|               julio-angel-berroa-C38X65BQv2I-unsplash.jpg
+|               markus-spiske-c489JFF96VU-unsplash.jpg
+|               matt-pictures-V_PzIS6qorM-unsplash.jpg
+|               ng-jun-xian-RNa9Qc5HBnM-unsplash.jpg
+|               yixin-wang-dEqIirtUjHA-unsplash.jpg
+|               yixin-wang-Ob4p2f7gu0k-unsplash.jpg
+|               
++---components
+|   +---layouts
+|   |       Header.tsx
+|   |       MenuResponsive.tsx
+|   |       
+|   \---sections
+|       \---homepage
+|               Gallery.tsx
+|               Hero.tsx
+|               Introduction.tsx
+|               
++---domain
+|   +---entities
+|   \---usecases
++---infrastructure
+|   \---repositories
++---lib
+\---styles
+        custom.css
+        global.css
+        

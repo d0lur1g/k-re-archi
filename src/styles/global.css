@@ -1,0 +1,22 @@
+/*
+  Configuration Tailwind CSS 4.1 - K-Ré Architecture
+*/
+@import "tailwindcss";
+
+@theme {
+  /* === Polices personnalisées === */
+  --font-amalfi: var(--font-family-amalfi), "Courier New", sans-serif;
+  --font-baiti: var(--font-family-baiti), "Courier New", sans-serif;
+
+  /* === Couleurs === */
+  --color-kre-black: 0 0 0;
+  --color-kre-white: 255 255 255;
+
+  /* Espacements */
+  --spacing: 1px;
+
+  /* Breakpoints */
+  --breakpoint-2xl: 1080px;
+}
+
+/*@source "@/styles/custom.css";*/

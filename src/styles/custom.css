@@ -1,0 +1,91 @@
+/*
+  Styles globaux personnalisés
+  Appliqués EN DERNIER pour override Tailwind si nécessaire
+*/
+
+/* ========================================
+   LAYOUT DE BASE HTML/BODY
+   ======================================== */
+html,
+body,
+:root {
+  height: 100%;
+}
+
+html,
+body {
+  display: flex;
+  width: 100%;
+  background-color: rgb(var(--color-kre-black));
+  font-family: var(--font-baiti), 600;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  max-width: 1080px;
+  max-height: 1080px;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+.container {
+  background-color: rgb(var(--color-kre-white));
+}
+
+/* ========================================
+   CONTENEUR PRINCIPAL
+   ======================================== */
+#root {
+  width: 100%;
+}
+
+/* ========================================
+   RESET ÉLÉMENTS INTERACTIFS
+   ======================================== */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+/* ========================================
+   RESPONSIVE - Mobile
+   ======================================== */
+@media (max-width: 899px) {
+  html,
+  body {
+    display: block;
+  }
+}
+
+/* ========================================
+   ANIMATION
+   ======================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}

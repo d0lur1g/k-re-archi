@@ -1,0 +1,10 @@
+<svg width="88" height="90" viewBox="0 0 88 90" fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <mask id="path-1-inside-1_193_760" fill="white">
+        <path d="M0 0.0214844H88V89.977H0V0.0214844Z"/>
+    </mask>
+    <path d="M0 0.0214844H88V89.977H0V0.0214844Z" fill="white"/>
+    <path d="M24 30H64" stroke="black" stroke-width="3" stroke-linecap="round"/>
+    <path d="M24 45H64" stroke="black" stroke-width="3" stroke-linecap="round"/>
+    <path d="M24 60H64" stroke="black" stroke-width="3" stroke-linecap="round"/>
+</svg>
