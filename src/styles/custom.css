@@ -16,7 +16,6 @@ html,
 body {
   display: flex;
   width: 100%;
-  background-color: rgb(var(--color-kre-black));
   font-family: var(--font-baiti), 600;
   justify-content: center;
   align-items: center;
@@ -35,10 +34,6 @@ h4,
 h5,
 h6 {
   font-weight: 400;
-}
-
-.container {
-  background-color: rgb(var(--color-kre-white));
 }
 
 /* ========================================

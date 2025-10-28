@@ -34,11 +34,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${amalfi.variable} ${baiti.variable}`}>
-      <body>
+      <body className="bg-black">
         <div id="root">
-          <div className="bg-kre-white container flex max-h-1080 w-full max-w-1080 flex-col content-center justify-center">
+          <div className="flex max-h-1080 w-full max-w-1080 flex-col content-center justify-center bg-white">
             <Header />
-            <main className="flex h-270 flex-col bg-white">{children}</main>
+            <main className="flex h-855 flex-col">{children}</main>
           </div>
         </div>
       </body>

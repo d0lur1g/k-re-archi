@@ -1,11 +1,13 @@
 import Hero from "@/components/sections/homepage/Hero";
-/*import Introduction from "@/components/homepage/Introduction";
-import Gallery from "@/components/homepage/Gallery";*/
+import Presentation from "@/components/sections/homepage/Presentation";
+/*import Gallery from "@/components/homepage/Gallery";*/
 
 export default function HomePage() {
   return (
-    <Hero />
-    //<Introduction />
-    //<Gallery />
+    <>
+      <Hero />
+      <Presentation />
+      {/*<Gallery /*>*/}
+    </>
   );
 }
