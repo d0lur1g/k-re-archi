@@ -10,14 +10,13 @@ Mode                 LastWriteTime         Length Name
 -a--- 26/10/2025 20:43:11    221 .prettierrc.json
 -a--- 19/10/2025 21:52:44   6397 CONTRIBUTING.MD
 -a--- 26/10/2025 20:38:14    785 eslint.config.mjs
--a--- 26/10/2025 22:58:44    251 next-env.d.ts
+-a--- 28/10/2025 20:21:56    313 next-env.d.ts
 -a--- 26/10/2025 12:14:34    133 next.config.ts
 -a--- 26/10/2025 20:27:12 245876 package-lock.json
 -a--- 26/10/2025 20:53:32   1073 package.json
 -a--- 26/10/2025 12:14:34     94 postcss.config.mjs
 -a--- 26/10/2025 12:14:34   1450 README.md
--a--- 26/10/2025 23:07:12    917 structure-bash.txt
--a--- 26/10/2025 23:10:13    197 structure.txt
+-a--- 28/10/2025 20:37:13    197 structure.txt
 -a--- 26/10/2025 20:43:12    734 tsconfig.json
 -a--- 26/10/2025 20:54:17  96463 tsconfig.tsbuildinfo
 
@@ -43,7 +42,11 @@ Structure du dossier pour le volume Stockage
 Le numÚro de sÚrie du volume est 9427-F695
 E:\DOCUMENTS\01_DEV\00_LOCAL\K-RE-ARCHI\SRC
 +---app
+|       error.tsx
+|       global-error.tsx
 |       layout.tsx
+|       loading.tsx
+|       not-found.tsx
 |       page.tsx
 |       
 +---assets
@@ -61,19 +64,23 @@ E:\DOCUMENTS\01_DEV\00_LOCAL\K-RE-ARCHI\SRC
 |       |       menu-close.svg
 |       |       menu.svg
 |       |       
-|       \---images
-|               ariful-haque-LiVf0Mbo3NU-unsplash.jpg
-|               gallery-bottom.jpg
-|               guido-hofmann-CIODoiAgKY8-unsplash.jpg
-|               hero-top.jpg
-|               julio-angel-berroa-C38X65BQv2I-unsplash.jpg
-|               markus-spiske-c489JFF96VU-unsplash.jpg
-|               matt-pictures-V_PzIS6qorM-unsplash.jpg
-|               ng-jun-xian-RNa9Qc5HBnM-unsplash.jpg
-|               yixin-wang-dEqIirtUjHA-unsplash.jpg
-|               yixin-wang-Ob4p2f7gu0k-unsplash.jpg
-|               
+|       +---images
+|       |       ariful-haque-LiVf0Mbo3NU-unsplash.jpg
+|       |       gallery-bottom.jpg
+|       |       guido-hofmann-CIODoiAgKY8-unsplash.jpg
+|       |       hero-top.jpg
+|       |       julio-angel-berroa-C38X65BQv2I-unsplash.jpg
+|       |       markus-spiske-c489JFF96VU-unsplash.jpg
+|       |       matt-pictures-V_PzIS6qorM-unsplash.jpg
+|       |       ng-jun-xian-RNa9Qc5HBnM-unsplash.jpg
+|       |       yixin-wang-dEqIirtUjHA-unsplash.jpg
+|       |       yixin-wang-Ob4p2f7gu0k-unsplash.jpg
+|       |       
+|       \---socials
 +---components
+|   +---Button
+|   +---Common
+|   +---Header
 |   +---layouts
 |   |       Header.tsx
 |   |       MenuResponsive.tsx
@@ -84,13 +91,13 @@ E:\DOCUMENTS\01_DEV\00_LOCAL\K-RE-ARCHI\SRC
 |               Hero.tsx
 |               Introduction.tsx
 |               
-+---domain
-|   +---entities
-|   \---usecases
-+---infrastructure
-|   \---repositories
-+---lib
-\---styles
-        custom.css
-        global.css
-        
++---contexts
++---hooks
++---layouts
++---pages
++---services
++---styles
+|       custom.css
+|       global.css
+|       
+\---utils
