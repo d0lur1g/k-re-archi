@@ -35,11 +35,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${amalfi.variable} ${baiti.variable}`}>
-      <body className="flex justify-center bg-black py-4">
-        <div id="root" className="w-full">
-          <div className="flex max-h-1080 w-full max-w-1080 flex-col bg-white">
+      <body className="bg-black p-4">
+        {/* ✅ Wrapper flex pour centrer SANS overflow hidden */}
+        <div className="flex min-h-[calc(100vh-2rem)] items-start justify-center">
+          {/* ✅ items-start + padding auto pour centrer uniquement si place disponible */}
+          <div className="my-auto w-full max-w-1080 bg-white">
+            {/* ✅ my-auto fait le centrage vertical dans le flex parent */}
             <Header />
-            <main className="flex h-855 flex-col">{children}</main>
+            <main className="flex flex-1 flex-col">{children}</main>
             <Footer />
           </div>
         </div>
