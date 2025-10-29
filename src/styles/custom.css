@@ -43,13 +43,6 @@ h6 {
   width: 100%;
 }
 
-/* Centrage vertical seulement si le contenu tient dans le viewport */
-.center-when-fits {
-  display: flex;
-  min-height: 100vh;
-  align-items: start; /* Par défaut : en haut */
-}
-
 /* ========================================
    RESET ÉLÉMENTS INTERACTIFS
    ======================================== */
@@ -64,16 +57,6 @@ button {
   outline: none;
   box-shadow: none;
   cursor: pointer;
-}
-
-/* ========================================
-   RESPONSIVE - Mobile
-   ======================================== */
-@media (min-height: 1120px) {
-  /* Si viewport > 1080px + padding, on centre */
-  .center-when-fits {
-    align-items: center;
-  }
 }
 
 @media (max-width: 899px) {
