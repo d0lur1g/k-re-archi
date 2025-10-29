@@ -19,6 +19,7 @@ import "@/styles/custom.css"; // Styles custom EN DERNIER
 // IMPORTS COMPOSANTS
 // ========================================
 import Header from "@/components/layouts/Header";
+import Footer from "@/components/layouts/Footer";
 
 // ========================================
 // MÉTADONNÉES SEO
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="flex max-h-1080 w-full max-w-1080 flex-col content-center justify-center bg-white">
             <Header />
             <main className="flex h-855 flex-col">{children}</main>
+            <Footer />
           </div>
         </div>
       </body>

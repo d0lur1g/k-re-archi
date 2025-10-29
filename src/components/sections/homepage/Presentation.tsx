@@ -5,7 +5,7 @@ export default function Presentation() {
       <h2 id="presentation-heading" className="sr-only">
         Architecte
       </h2>
-      <div className="flex h-full w-360 flex-col border-b px-12 py-30">
+      <div className="flex h-full w-360 flex-col border-b-3 px-12 py-30">
         <p className="font-amalfi w-full text-[40px]">Delphine</p>
         <p className="font-amalfi w-full text-[40px]">DanielczyK</p>
       </div>
