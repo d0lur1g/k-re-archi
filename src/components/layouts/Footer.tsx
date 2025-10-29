@@ -11,6 +11,11 @@ const socials = [
   { name: "linkedin", url: "https://linkedin.com", alt: "LinkedIn" },
 ] as const;
 
+const footerLinks = [
+  { href: "/faq", label: "FAQ" },
+  { href: "/legal-notice", label: "Mentions Légales" },
+];
+
 export default function Footer() {
   return (
     <>
@@ -24,22 +29,23 @@ export default function Footer() {
             priority
           />
         </div>
-        <div className="font-baiti flex h-full pb-4">
+        <div className="font-baiti mb-4 flex h-full">
           <nav className="flex h-full content-center">
-            <Link href="html/faq.html" className="flex h-full w-180 items-center justify-around">
-              FAQ
-            </Link>
-            <Link
-              href="html/legal-notice.html"
-              className="flex h-full w-180 items-center justify-around"
-            >
-              Mentions Légales
-            </Link>
+            {footerLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="flex h-full w-180 items-center justify-around text-black transition-colors duration-300 ease-in-out hover:bg-black hover:text-white!"
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
           <div className="flex h-full w-360 items-center justify-around">
             &copy; 2025 - Ludovic Girard
           </div>
         </div>
+
         <nav className="flex h-full w-180 justify-around p-5" aria-label="Réseaux sociaux">
           {socials.map((social) => (
             <Link
