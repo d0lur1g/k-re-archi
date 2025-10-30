@@ -59,6 +59,21 @@ button {
   cursor: pointer;
 }
 
+/* Cache la scrollbar horizontale tout en permettant le scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Smooth scroll horizontal */
+.overflow-x-auto {
+  scroll-behavior: smooth;
+}
+
 .social-link {
   transition:
     color 0.3s ease-in-out,

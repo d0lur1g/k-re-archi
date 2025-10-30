@@ -41,7 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {/* ✅ dvh pour meilleure compatibilité mobile */}
           <div className="my-auto w-full max-w-1080 bg-white">
             <Header />
-            <main className="flex flex-1 flex-col">{children}</main>
+            <main className="flex h-855 flex-1 flex-col">{children}</main>
             <Footer />
           </div>
         </div>
