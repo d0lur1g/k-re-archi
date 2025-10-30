@@ -59,6 +59,32 @@ button {
   cursor: pointer;
 }
 
+.social-link {
+  transition:
+    color 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+
+.social-link:hover {
+  transform: scale(1.1);
+}
+
+.social-facebook:hover {
+  color: #1877f2;
+}
+
+.social-instagram:hover {
+  color: #e4405f;
+}
+
+.social-pinterest:hover {
+  color: #e60023;
+}
+
+.social-linkedin:hover {
+  color: #0a66c2;
+}
+
 @media (max-width: 899px) {
   html,
   body {

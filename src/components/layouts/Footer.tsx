@@ -1,15 +1,28 @@
-import Image from "next/image";
 import Link from "next/link";
+import type { FC, SVGProps } from "react";
 
-import logoOrderArchitects from "@/assets/images/logo-order-architects.svg";
-import { socialLogos } from "@/assets/images/socials";
+// ✅ Import des SVG comme composants
+import FacebookIcon from "@/assets/images/socials/facebook.svg";
+import InstagramIcon from "@/assets/images/socials/instagram.svg";
+import PinterestIcon from "@/assets/images/socials/pinterest.svg";
+import LinkedinIcon from "@/assets/images/socials/linkedin.svg";
+import LogoOrderArchitects from "@/assets/images/logo-order-architects.svg";
 
-const socials = [
-  { name: "facebook", url: "https://facebook.com", alt: "Facebook" },
-  { name: "instagram", url: "https://instagram.com", alt: "Instagram" },
-  { name: "pinterest", url: "https://fr.pinterest.com", alt: "Pinterest" },
-  { name: "linkedin", url: "https://linkedin.com", alt: "LinkedIn" },
-] as const;
+type IconComponent = FC<SVGProps<SVGSVGElement>>;
+
+interface Social {
+  name: string;
+  url: string;
+  alt: string;
+  icon: IconComponent;
+}
+
+const socials: Social[] = [
+  { name: "facebook", url: "https://facebook.com", alt: "Facebook", icon: FacebookIcon },
+  { name: "instagram", url: "https://instagram.com", alt: "Instagram", icon: InstagramIcon },
+  { name: "pinterest", url: "https://fr.pinterest.com", alt: "Pinterest", icon: PinterestIcon },
+  { name: "linkedin", url: "https://linkedin.com", alt: "LinkedIn", icon: LinkedinIcon },
+];
 
 const footerLinks = [
   { href: "/faq", label: "FAQ" },
@@ -21,13 +34,7 @@ export default function Footer() {
     <>
       <footer className="flex h-45 content-between items-center">
         <div className="h-full w-180 content-center">
-          <Image
-            src={logoOrderArchitects}
-            alt="Logo - Ordre des Architectes"
-            width={180}
-            height={45}
-            priority
-          />
+          <LogoOrderArchitects className="h-full w-full object-cover" />
         </div>
         <div className="font-baiti mb-4 flex h-full">
           <nav className="flex h-full content-center">
@@ -46,21 +53,18 @@ export default function Footer() {
           </div>
         </div>
 
-        <nav className="flex h-full w-180 justify-around p-5" aria-label="Réseaux sociaux">
-          {socials.map((social) => (
+        {/* Logos sociaux avec changement de couleur */}
+        <nav className="flex w-180 justify-around" aria-label="Réseaux sociaux">
+          {socials.map(({ name, url, alt, icon: SocialIcon }) => (
             <Link
-              key={social.name}
-              className={`${social.name}`}
-              href={social.url}
+              key={name}
+              href={url}
               target="_blank"
               rel="noopener noreferrer"
+              className={`social-link social-${name}`}
+              aria-label={alt}
             >
-              <Image
-                src={socialLogos[social.name as keyof typeof socialLogos]}
-                alt={social.alt}
-                width={34}
-                height={34}
-              />
+              <SocialIcon className="h-34 w-34" />
             </Link>
           ))}
         </nav>

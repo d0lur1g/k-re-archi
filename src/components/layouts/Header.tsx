@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import MenuResponsive from "./MenuResponsive";
-import Image from "next/image";
-import menuIcon from "@/assets/images/icons/menu.svg";
-import closeIcon from "@/assets/images/icons/menu-close.svg";
+import MenuIcon from "@/assets/images/icons/menu.svg";
+import CloseIcon from "@/assets/images/icons/menu-close.svg";
 import Link from "next/link";
 
 export default function Header() {
@@ -18,7 +17,7 @@ export default function Header() {
         {/* LOGO */}
         <Link
           href="/"
-          className="group flex h-180 w-180 items-end justify-center gap-2.5 border-r border-b border-solid border-black pb-10 transition-colors duration-300 ease-in-out hover:bg-black max-2xl:h-auto max-2xl:max-w-90 max-2xl:min-w-90"
+          className="group flex h-180 w-180 items-end justify-center gap-2.5 border-r border-b border-solid border-black pb-10 transition-all duration-300 ease-in-out hover:bg-black max-2xl:h-auto max-2xl:max-w-90 max-2xl:min-w-90"
         >
           <p className="font-amalfi pr-10 text-5xl leading-[202%] text-black transition-colors duration-300 group-hover:text-white max-2xl:text-2xl">
             K
@@ -68,7 +67,7 @@ export default function Header() {
             aria-label={showMenu ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={showMenu}
           >
-            <Image src={showMenu ? closeIcon : menuIcon} alt={showMenu ? "fermer" : "menu"} />
+            {showMenu ? <CloseIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
           </button>
         </nav>
       </header>
