@@ -33,8 +33,8 @@ export default function Footer() {
   return (
     <>
       <footer className="flex h-45 content-between items-center">
-        <div className="h-full w-180 content-center">
-          <LogoOrderArchitects className="h-full w-full object-cover" />
+        <div className="flex h-full w-180 items-center justify-center">
+          <LogoOrderArchitects className="h-auto w-full" />
         </div>
         <div className="font-baiti mb-4 flex h-full">
           <nav className="flex h-full content-center">
