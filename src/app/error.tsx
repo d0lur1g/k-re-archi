@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import Header from "@/components/layouts/Header";
 
 export default function Error({
   error,
@@ -17,7 +16,6 @@ export default function Error({
 
   return (
     <>
-      <Header />
       <main className="bg-kre-black text-kre-white flex min-h-screen flex-col items-center justify-center px-4">
         <h1 className="font-amalfi mb-4 text-6xl">Erreur</h1>
         <h2 className="font-baiti mb-2 text-2xl">{"Une erreur s'est produite"}</h2>
