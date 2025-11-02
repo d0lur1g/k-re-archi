@@ -11,28 +11,29 @@ interface ProjectNavigationProps {
 
 export default function ProjectNavigation({ previousSlug, nextSlug }: ProjectNavigationProps) {
   return (
-    <nav className="font-baiti flex h-45 items-center justify-around bg-white px-12 text-2xl">
-      {/* Projet précédent */}
+    <nav className="font-baiti flex h-45 items-center bg-white text-2xl">
       {previousSlug ? (
-        <Link href={`/projects/${previousSlug}`} className="flex items-center gap-2">
-          <span>←</span>
-          <span>Projet précédent</span>
+        <Link
+          href={`/projects/${previousSlug}`}
+          className="flex h-full w-full items-center justify-center gap-2 px-12 transition-colors duration-300 ease-in-out hover:bg-black hover:text-white!"
+        >
+          <span className="block -translate-y-2">←</span>
+          <span className="block -translate-y-2">Projet précédent</span>
         </Link>
       ) : (
-        <div />
+        <div className="w-full" />
       )}
 
-      {/* Projet suivant */}
       {nextSlug ? (
         <Link
           href={`/projects/${nextSlug}`}
-          className="flex items-center gap-2 text-neutral-600 transition-colors hover:text-neutral-900"
+          className="flex h-full w-full items-center justify-center gap-2 px-12 transition-colors duration-300 ease-in-out hover:bg-black hover:text-white!"
         >
-          <span>Projet suivant</span>
-          <span>→</span>
+          <span className="block -translate-y-2">Projet suivant</span>
+          <span className="block -translate-y-2">→</span>
         </Link>
       ) : (
-        <div />
+        <div className="w-full" />
       )}
     </nav>
   );
