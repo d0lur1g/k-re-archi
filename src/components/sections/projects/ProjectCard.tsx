@@ -29,7 +29,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   };
 
   return (
-    <Link href={`/projets/${slug}`}>
+    <Link href={`/projects/${slug}`}>
       <div
         className="group relative cursor-pointer overflow-hidden bg-neutral-100 transition-all duration-300 hover:shadow-lg"
         style={{
@@ -60,10 +60,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* Overlay avec titre au hover */}
-        <div className="absolute inset-0 flex items-end bg-linear-to-t from-black/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <div className="font-baiti text-2xl text-white" style={{ padding: `${PADDING}px` }}>
+        <div className="absolute inset-0 flex items-end bg-linear-to-t from-black/70 to-transparent p-12 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <div className="font-baiti text-2xl leading-[100%] text-white">
             <p>{title}</p>
-            {location && <p className="font-amalfi text-2xl text-neutral-300">{location}</p>}
+            {location && <p className="font-amalfi pt-12 text-2xl">{location}</p>}
           </div>
         </div>
       </div>
