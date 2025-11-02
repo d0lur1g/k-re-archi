@@ -21,6 +21,7 @@ export interface Project {
   category?: ProjectCategory;
   year?: number;
   location?: string;
+  budget?: string;
   surface_area?: number;
   images: ProjectImage[]; // Toutes les images du projet
   created_at?: string;

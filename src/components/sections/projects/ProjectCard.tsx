@@ -29,7 +29,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   };
 
   return (
-    <Link href={`/projets/${slug}`}>
+    <Link href={`/projects/${slug}`}>
       <div
         className="group relative cursor-pointer overflow-hidden bg-neutral-100 transition-all duration-300 hover:shadow-lg"
         style={{

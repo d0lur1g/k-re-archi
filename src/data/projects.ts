@@ -5,7 +5,8 @@ export const projectsData: Project[] = [
     id: "1",
     title: "Villa Contemporaine",
     slug: "villa-contemporaine-lyon-2024",
-    description: "Une villa contemporaine avec des lignes épurées et des espaces généreux.",
+    description:
+      "Une villa contemporaine avec des lignes épurées et des espaces généreux. orem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum lacus sit amet honcus tempor. Pellentesque nec venenatis lectus. Ut porta eu nisi ac dapibus. Quisque accumsan massa scelerisque odio ultrices sagittis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam vestibulum hendrerit facilisis. Morbi a nunc sapien. Integer non orci ante. Phasellus sollicitudin lobortis cursus.Quisque accumsan massa scelerisque odio ultrices sagittis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam vestibulum hendrerit facilisis. Morbi a nunc sapien. Integer non orci ante. Phasellus sollicitudin lobortis cursus.",
     category: {
       id: "residential",
       name: "Résidentiel",
@@ -13,6 +14,7 @@ export const projectsData: Project[] = [
     },
     year: 2024,
     location: "Lyon",
+    budget: "55,5k€ HT",
     surface_area: 280,
     images: [
       {
@@ -59,6 +61,7 @@ export const projectsData: Project[] = [
     },
     year: 2023,
     location: "Paris",
+    budget: "105,2k€ HT",
     surface_area: 150,
     images: [
       {
@@ -87,6 +90,7 @@ export const projectsData: Project[] = [
     },
     year: 2024,
     location: "Marseille",
+    budget: "1,245M€ HT",
     surface_area: 450,
     images: [
       {
@@ -127,6 +131,7 @@ export const projectsData: Project[] = [
     },
     year: 2025,
     location: "Bordeaux",
+    budget: "5,5k€ HT",
     surface_area: 200,
     images: [
       {
@@ -149,6 +154,7 @@ export const projectsData: Project[] = [
     },
     year: 2024,
     location: "Lyon",
+    budget: "72,3k€ HT",
     surface_area: 280,
     images: [
       {
@@ -195,6 +201,7 @@ export const projectsData: Project[] = [
     },
     year: 2023,
     location: "Paris",
+    budget: "456,58k€ HT",
     surface_area: 150,
     images: [
       {
@@ -223,6 +230,7 @@ export const projectsData: Project[] = [
     },
     year: 2024,
     location: "Marseille",
+    budget: "453,21k€  HT",
     surface_area: 450,
     images: [
       {
@@ -263,6 +271,7 @@ export const projectsData: Project[] = [
     },
     year: 2025,
     location: "Bordeaux",
+    budget: "742€ HT",
     surface_area: 200,
     images: [
       {
