@@ -19,6 +19,7 @@ import "@/styles/custom.css"; // Styles custom EN DERNIER
 // IMPORTS COMPOSANTS
 // ========================================
 import Header from "@/components/layouts/Header";
+import Footer from "@/components/layouts/Footer";
 
 // ========================================
 // MÉTADONNÉES SEO
@@ -33,12 +34,15 @@ export const metadata: Metadata = {
 // ========================================
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${amalfi.variable} ${baiti.variable}`}>
-      <body className="bg-black">
-        <div id="root">
-          <div className="flex max-h-1080 w-full max-w-1080 flex-col content-center justify-center bg-white">
+    <html lang="fr" className={`${amalfi.variable} ${baiti.variable} scroll-smooth`}>
+      {/* ✅ scroll-smooth pour une navigation fluide */}
+      <body className="bg-black p-4">
+        <div className="flex min-h-[calc(100dvh-2rem)] items-start justify-center">
+          {/* ✅ dvh pour meilleure compatibilité mobile */}
+          <div className="my-auto w-full max-w-1080 bg-white">
             <Header />
-            <main className="flex h-855 flex-col">{children}</main>
+            <main className="flex h-855 flex-1 flex-col">{children}</main>
+            <Footer />
           </div>
         </div>
       </body>

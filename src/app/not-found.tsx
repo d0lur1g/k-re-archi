@@ -1,10 +1,8 @@
 import Link from "next/link";
-import Header from "@/components/layouts/Header";
 
 export default function NotFound() {
   return (
     <>
-      <Header />
       <main className="bg-kre-black text-kre-white flex min-h-screen flex-col items-center justify-center px-4">
         <h1 className="font-amalfi text-[120px] leading-none">404</h1>
         <h2 className="font-baiti mt-4 mb-2 text-3xl">Page introuvable</h2>

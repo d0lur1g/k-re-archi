@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import MenuResponsive from "./MenuResponsive";
-import Image from "next/image";
-import menuIcon from "@/assets/images/icons/menu.svg";
-import closeIcon from "@/assets/images/icons/menu-close.svg";
+import MenuIcon from "@/assets/images/icons/menu.svg";
+import CloseIcon from "@/assets/images/icons/menu-close.svg";
 import Link from "next/link";
 
 export default function Header() {
@@ -68,7 +67,7 @@ export default function Header() {
             aria-label={showMenu ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={showMenu}
           >
-            <Image src={showMenu ? closeIcon : menuIcon} alt={showMenu ? "fermer" : "menu"} />
+            {showMenu ? <CloseIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
           </button>
         </nav>
       </header>

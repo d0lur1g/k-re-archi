@@ -59,13 +59,13 @@ ce qui a été fait et les impacts éventuels.
 
 Types recommandés :
 
-- ***feat*** : nouvelle fonctionnalité
-- ***fix*** : correction de bug
-- ***docs*** : documentation
-- ***style*** : mise en forme, sans impact fonctionnel
-- ***refactor*** : refactorisation du code sans ajout ni correction de bug
-- ***test*** : ajout/modification/correction de tests
-- ***chore*** : tâches diverses (build, déploiement, outils, scripts, etc.)
+- **_feat_** : nouvelle fonctionnalité
+- **_fix_** : correction de bug
+- **_docs_** : documentation
+- **_style_** : mise en forme, sans impact fonctionnel
+- **_refactor_** : refactorisation du code sans ajout ni correction de bug
+- **_test_** : ajout/modification/correction de tests
+- **_chore_** : tâches diverses (build, déploiement, outils, scripts, etc.)
 
 ```bash
 git commit -m "feat: ajout du formulaire de contact avec validation"
@@ -141,11 +141,11 @@ Cette procédure force Git à réévaluer tous les fichiers à partir de la nouv
 
 Nous vous remercions pour vos contributions qui font avancer K-Ré - Architecture !
 
-***
+---
 
 Ce guide peut évoluer selon nos besoins, toute suggestion est la bienvenue.
 
-***
+---
 
 Ceci est un guide clair, professionnel et accessible pour faciliter la collaboration Git chez K-Ré - Architecture, structuré pour garantir rigueur et simplicité dans l’usage quotidien.
 
