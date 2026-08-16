@@ -160,7 +160,28 @@ contenu réel justifie une URL publique. À reprendre à ce moment-là :
 - bannière cookies / mesure d'audience si un outil d'analytique est ajouté ;
 - édition autonome du contenu par l'agence (CMS) si le besoin se confirme.
 
-## 4. Journal des décisions
+## 4. Maintenance des dépendances · `chore/maj-dependances`
+
+Chantier transverse, hors séquence des phases : à traiter sur sa propre branche, jamais glissé
+dans une PR fonctionnelle.
+
+État au 16/08/2026, `npm audit` sur le lockfile courant : **14 vulnérabilités (1 critique,
+10 hautes, 2 modérées, 1 faible)**. Toutes sont transitives et cantonnées à l'outillage de build —
+`@babel/core`, `brace-expansion`, `flatted`, `ajv`, `svgo` (via SVGR), `yaml` — plus `sharp`,
+utilisé par `next/image` à la compilation. Aucune n'est atteignable à l'exécution : le site est
+entièrement généré statiquement. L'alerte affichée par GitHub annonce un chiffre plus élevé (76)
+car elle compte par alerte et couvre l'historique du dépôt.
+
+Traitement :
+
+- `npm audit fix` corrige la majorité sans sortir des versions déclarées — sans risque, à faire en
+  premier ;
+- `sharp` ne se résout qu'avec `npm audit fix --force`, qui fait passer Next de 16.0.0 à 16.3.1.
+  Cette montée de version mérite sa propre branche, avec build et vérification visuelle des pages
+  avant fusion ;
+- committer le `package-lock.json` mis à jour et vérifier que la CI reste verte.
+
+## 5. Journal des décisions
 
 | Date       | Décision                                                                                             | Motif                                                                                                                                                                                      |
 | ---------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -168,8 +189,9 @@ contenu réel justifie une URL publique. À reprendre à ce moment-là :
 | 16/08/2026 | **Données en TypeScript, un fichier par projet, derrière un port asynchrone.**                       | Coût nul en phase maquette, diffs Git lisibles, et bascule ultérieure vers une source externe sans toucher aux composants. Un CMS serait prématuré tant que la maquette n'est pas validée. |
 | 16/08/2026 | **Pages institutionnelles en placeholder structuré.**                                                | La structure peut être validée par la cliente avant que les textes existent ; l'insertion du contenu réel ne modifiera pas la mise en page.                                                |
 | 16/08/2026 | **Responsive traité après les pages manquantes.**                                                    | Éviter de refaire l'adaptation deux fois.                                                                                                                                                  |
+| 16/08/2026 | **Vulnérabilités des dépendances traitées comme un chantier de maintenance isolé.**                  | Aucune n'est atteignable à l'exécution ; la seule correction risquée est une montée de version de Next, qui doit être testable seule et non noyée dans une PR fonctionnelle.               |
 
-## 5. Points ouverts
+## 6. Points ouverts
 
 - Hébergement cible (Vercel ou hébergeur imposé) — conditionne la Phase 5.
 - Autonomie d'édition de la cliente : si elle est requise, prévoir un CMS après validation de la maquette.
