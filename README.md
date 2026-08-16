@@ -36,6 +36,7 @@ Le site est servi sur [http://localhost:3000](http://localhost:3000).
 | `npm run format`       | Prettier en écriture                         |
 | `npm run format:check` | Prettier en vérification (utilisé par la CI) |
 | `npm run type-check`   | Vérification TypeScript sans émission        |
+| `npm run structure`    | Régénère `docs/STRUCTURE.md`                 |
 
 ## Organisation
 
@@ -49,6 +50,9 @@ src/assets       polices et images passant par le bundler
 public/images    photos de projets servies statiquement
 ```
 
+L'arborescence complète est dans [docs/STRUCTURE.md](docs/STRUCTURE.md), régénérée par
+`npm run structure`.
+
 Le design repose sur un canvas fixe de 1080 × 1080 px découpé en header 180 / contenu 855 /
 footer 45. Cette contrainte et ses conséquences sont détaillées dans [CLAUDE.md](CLAUDE.md).
 
@@ -56,6 +60,7 @@ footer 45. Cette contrainte et ses conséquences sont détaillées dans [CLAUDE.
 
 - [CLAUDE.md](CLAUDE.md) — repères techniques, conventions et pièges du projet.
 - [docs/ROADMAP.md](docs/ROADMAP.md) — feuille de route, décisions actées, points ouverts.
+- [docs/STRUCTURE.md](docs/STRUCTURE.md) — arborescence générée des fichiers suivis.
 - [CONTRIBUTING.MD](CONTRIBUTING.MD) — conventions de branches, de commits et de PR.
 
 ## Intégration continue

@@ -15,7 +15,8 @@ npm run dev       # serveur de développement (Turbopack) sur :3000
 npm run build     # build de production
 npm run lint      # ESLint
 npm run format    # Prettier (écriture) — format:check pour la vérification
-npm run type-check# tsc --noEmit
+npm run type-check# next typegen puis tsc --noEmit
+npm run structure # régénère docs/STRUCTURE.md depuis les fichiers suivis par Git
 ```
 
 ## Architecture

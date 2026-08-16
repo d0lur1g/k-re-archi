@@ -11,6 +11,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "type-check": "next typegen && tsc --noEmit",
+    "structure": "node scripts/generate-structure.mjs",
     "prepare": "husky"
   },
   "dependencies": {

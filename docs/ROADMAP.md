@@ -48,8 +48,9 @@ arrive en dernier car elle est orthogonale au rendu.
 - [x] `docs/ROADMAP.md` — ce document.
 - [x] `.github/workflows/ci.yml` — lint, format, types et build sur chaque PR et sur `main`.
 - [x] Remplacer le `README.md` de `create-next-app` par une présentation réelle du projet.
-- [ ] Décider du sort de `structure.txt` (généré, périmé depuis le 28/10/2025) : suppression
-      recommandée, le script `scripts/show-structure-pwh.ps1` permet de le régénérer à la demande.
+- [x] Remplacer `structure.txt` (généré, périmé depuis le 28/10/2025, chemins machine et
+      caractères cassés) par `docs/STRUCTURE.md`, régénéré par `npm run structure` à partir des
+      seuls fichiers suivis par Git.
 - [ ] Ménage des branches : les branches locales `feature/footer`, `feature/header`,
       `feature/homepage-gallery`, `feature/projects`, `feature/projects-project` sont fusionnées ;
       la branche distante `feature/header-responsive-menu` provient d'un **historique sans ancêtre
@@ -198,4 +199,5 @@ Traitement :
 - Données légales réelles (SIRET, Ordre des architectes, assurance, hébergeur) — à fournir par l'agence.
 - Formulaire de contact : simple `mailto:` ou envoi applicatif.
 - Photos et textes réels des projets ; les visuels actuels sont des images libres de droits de démonstration.
-- Sort de `structure.txt` et suppression de la branche distante orpheline.
+- Suppression de la branche distante orpheline `feature/header-responsive-menu`, et sort du
+  paramétrage commitlint qu'elle est seule à porter.
