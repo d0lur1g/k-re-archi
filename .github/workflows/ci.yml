@@ -23,10 +23,10 @@ jobs:
 
     steps:
       - name: Récupération du code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Installation de Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
@@ -42,6 +42,9 @@ jobs:
       - name: Formatage
         run: npm run format:check
 
+      # `type-check` génère d'abord les types Next.js (next typegen) : sur un dépôt
+      # fraîchement cloné, next-env.d.ts est absent (gitignoré) et sans lui tsc ne sait
+      # pas typer les imports d'images.
       - name: Types
         run: npm run type-check
 
