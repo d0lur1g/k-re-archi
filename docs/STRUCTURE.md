@@ -14,6 +14,8 @@ Le rôle de chaque dossier est décrit dans [CLAUDE.md](../CLAUDE.md#architectur
 
 ```text
 k-re-archi/
+├── .claude/
+│   └── launch.json
 ├── .github/
 │   └── workflows/
 │       └── ci.yml

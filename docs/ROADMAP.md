@@ -81,6 +81,16 @@ arrive en dernier car elle est orthogonale au rendu.
 **Terminé quand :** lint, format, types et build sont verts, et les trois pages d'erreur
 s'affichent dans le gabarit avec leur habillage noir et blanc.
 
+**État : terminé le 17/08/2026.** Trois défauts non prévus sont apparus en cours de route et ont
+été corrigés dans la foulée :
+
+- `error.tsx` et `not-found.tsx` imbriquaient un second `<main>` dans celui du layout ;
+- déclarer les tokens de marque a rendu visible un contraste blanc sur blanc sur les boutons des
+  pages d'erreur : `custom.css` n'étant dans aucun cascade layer, ses règles d'élément battent les
+  utilitaires Tailwind. Contourné par le suffixe `!`, voir la Phase 3 pour le traitement de fond ;
+- la page d'accueil et la liste de projets n'avaient aucun `h1` une fois celui du `Header`
+  ramené à un `<p>` : un titre réservé aux lecteurs d'écran a été ajouté à chacune.
+
 ---
 
 ### Phase 2 — Pages institutionnelles · `feature/pages-institutionnelles`
@@ -122,6 +132,10 @@ Points spécifiques :
   sous le palier mobile au profit d'un défilement vertical naturel, et respecter
   `prefers-reduced-motion` ;
 - galerie projet : même traitement ;
+- `custom.css` : déplacer ses règles de reset dans `@layer base` pour qu'elles cessent de battre
+  les utilitaires Tailwind. C'est le traitement de fond du contournement par `!` introduit en
+  Phase 1 ; le faire ici, où les styles sont de toute façon repris, plutôt qu'isolément — la portée
+  touche tous les liens et boutons du site ;
 - vérification aux largeurs 360, 768, 1024 et 1440 px.
 
 **Terminé quand :** aucun débordement horizontal ni texte tronqué aux quatre largeurs de contrôle,

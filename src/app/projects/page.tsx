@@ -8,5 +8,12 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
-  return <ProjectsGrid projects={projectsData} />;
+  return (
+    <>
+      {/* La grille se passe de titre visible ; il reste nécessaire pour la navigation
+          au clavier et les lecteurs d'écran. */}
+      <h1 className="sr-only">Projets</h1>
+      <ProjectsGrid projects={projectsData} />
+    </>
+  );
 }
