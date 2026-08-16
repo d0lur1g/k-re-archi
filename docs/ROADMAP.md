@@ -51,10 +51,13 @@ arrive en dernier car elle est orthogonale au rendu.
 - [x] Remplacer `structure.txt` (généré, périmé depuis le 28/10/2025, chemins machine et
       caractères cassés) par `docs/STRUCTURE.md`, régénéré par `npm run structure` à partir des
       seuls fichiers suivis par Git.
-- [ ] Ménage des branches : les branches locales `feature/footer`, `feature/header`,
-      `feature/homepage-gallery`, `feature/projects`, `feature/projects-project` sont fusionnées ;
-      la branche distante `feature/header-responsive-menu` provient d'un **historique sans ancêtre
-      commun** avec `main` (ancien dépôt) et n'est pas fusionnable — à supprimer sur GitHub.
+- [x] Historique orphelin `feature/header-responsive-menu` (ancien dépôt, **aucun ancêtre commun**
+      avec `main`) traité : son seul contenu absent de `main` — commitlint et
+      `.vscode/settings.json` — a été repris, et l'historique est conservé sous le tag
+      `archive/header-responsive-menu`. La branche n'existait déjà plus côté GitHub.
+- [ ] Ménage des branches restantes : les branches locales `feature/footer`, `feature/header`,
+      `feature/homepage-gallery`, `feature/projects`, `feature/projects-project` sont fusionnées et
+      peuvent être supprimées, en local comme sur GitHub pour les deux dernières.
 
 **Terminé quand :** la CI s'exécute et passe sur une PR ouverte vers `main`.
 
@@ -184,13 +187,15 @@ Traitement :
 
 ## 5. Journal des décisions
 
-| Date       | Décision                                                                                             | Motif                                                                                                                                                                                      |
-| ---------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 16/08/2026 | **CI sans CD.** GitHub Actions vérifie lint, format, types et build ; aucun déploiement automatique. | La qualité doit être verrouillée tout de suite ; l'hébergement attendra du contenu réel.                                                                                                   |
-| 16/08/2026 | **Données en TypeScript, un fichier par projet, derrière un port asynchrone.**                       | Coût nul en phase maquette, diffs Git lisibles, et bascule ultérieure vers une source externe sans toucher aux composants. Un CMS serait prématuré tant que la maquette n'est pas validée. |
-| 16/08/2026 | **Pages institutionnelles en placeholder structuré.**                                                | La structure peut être validée par la cliente avant que les textes existent ; l'insertion du contenu réel ne modifiera pas la mise en page.                                                |
-| 16/08/2026 | **Responsive traité après les pages manquantes.**                                                    | Éviter de refaire l'adaptation deux fois.                                                                                                                                                  |
-| 16/08/2026 | **Vulnérabilités des dépendances traitées comme un chantier de maintenance isolé.**                  | Aucune n'est atteignable à l'exécution ; la seule correction risquée est une montée de version de Next, qui doit être testable seule et non noyée dans une PR fonctionnelle.               |
+| Date       | Décision                                                                                                          | Motif                                                                                                                                                                                      |
+| ---------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 16/08/2026 | **CI sans CD.** GitHub Actions vérifie lint, format, types et build ; aucun déploiement automatique.              | La qualité doit être verrouillée tout de suite ; l'hébergement attendra du contenu réel.                                                                                                   |
+| 16/08/2026 | **Données en TypeScript, un fichier par projet, derrière un port asynchrone.**                                    | Coût nul en phase maquette, diffs Git lisibles, et bascule ultérieure vers une source externe sans toucher aux composants. Un CMS serait prématuré tant que la maquette n'est pas validée. |
+| 16/08/2026 | **Pages institutionnelles en placeholder structuré.**                                                             | La structure peut être validée par la cliente avant que les textes existent ; l'insertion du contenu réel ne modifiera pas la mise en page.                                                |
+| 16/08/2026 | **Responsive traité après les pages manquantes.**                                                                 | Éviter de refaire l'adaptation deux fois.                                                                                                                                                  |
+| 16/08/2026 | **Vulnérabilités des dépendances traitées comme un chantier de maintenance isolé.**                               | Aucune n'est atteignable à l'exécution ; la seule correction risquée est une montée de version de Next, qui doit être testable seule et non noyée dans une PR fonctionnelle.               |
+| 17/08/2026 | **commitlint repris de l'historique orphelin, avec `subject-case` désactivée et les longueurs en avertissement.** | Le format conventionnel décrit dans CONTRIBUTING.MD devient vérifiable automatiquement, sans rejeter la façon d'écrire en place (majuscule initiale, en-têtes longs).                      |
+| 17/08/2026 | **Historique orphelin conservé sous le tag `archive/header-responsive-menu` plutôt qu'en branche.**               | La trace reste récupérable sans encombrer la liste des branches ni suggérer une fusion impossible.                                                                                         |
 
 ## 6. Points ouverts
 
@@ -199,5 +204,4 @@ Traitement :
 - Données légales réelles (SIRET, Ordre des architectes, assurance, hébergeur) — à fournir par l'agence.
 - Formulaire de contact : simple `mailto:` ou envoi applicatif.
 - Photos et textes réels des projets ; les visuels actuels sont des images libres de droits de démonstration.
-- Suppression de la branche distante orpheline `feature/header-responsive-menu`, et sort du
-  paramétrage commitlint qu'elle est seule à porter.
+- Suppression des branches fusionnées restantes, en local et sur GitHub.
