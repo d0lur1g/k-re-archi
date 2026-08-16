@@ -18,7 +18,10 @@ k-re-archi/
 │   └── workflows/
 │       └── ci.yml
 ├── .husky/
+│   ├── commit-msg
 │   └── pre-commit
+├── .vscode/
+│   └── settings.json
 ├── docs/
 │   ├── ROADMAP.md
 │   └── STRUCTURE.md
@@ -97,6 +100,7 @@ k-re-archi/
 ├── .prettierignore
 ├── .prettierrc.json
 ├── CLAUDE.md
+├── commitlint.config.mjs
 ├── CONTRIBUTING.MD
 ├── eslint.config.mjs
 ├── next.config.ts

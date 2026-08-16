@@ -85,3 +85,7 @@ import MenuIcon from "@/assets/images/icons/menu.svg";
 Voir [CONTRIBUTING.MD](CONTRIBUTING.MD). En résumé : branche dédiée (`feature/`, `fix/`, `chore/`),
 commits conventionnels rédigés en français (`feat(projet): …`), PR vers `main`.
 Husky + lint-staged formatent et lintent les fichiers à chaque commit.
+
+Le hook `commit-msg` valide le message avec commitlint (`commitlint.config.mjs`) : le type
+conventionnel est exigé, la majuscule initiale du sujet est acceptée, et les dépassements de
+longueur ne produisent qu'un avertissement sans bloquer le commit.
