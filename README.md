@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# K-Ré — Architecture
 
-## Getting Started
+Site vitrine de l'agence **K-Ré**, architecture et architecture d'intérieur.
 
-First, run the development server:
+Le site présente l'agence et ses réalisations : une page d'accueil, une galerie de projets
+parcourue horizontalement, et une fiche par projet. Il est actuellement en **phase de maquette** —
+la structure et le design sont réels, les contenus affichés sont fictifs.
+
+## Stack
+
+| Brique     | Version                    |
+| ---------- | -------------------------- |
+| Next.js    | 16 (App Router, Turbopack) |
+| React      | 19                         |
+| TypeScript | 5, mode strict             |
+| Tailwind   | v4 (configuration en CSS)  |
+| Qualité    | ESLint, Prettier, Husky    |
+
+## Démarrage
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Le site est servi sur [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Commande               | Effet                                        |
+| ---------------------- | -------------------------------------------- |
+| `npm run dev`          | Serveur de développement                     |
+| `npm run build`        | Build de production                          |
+| `npm run start`        | Sert le build de production                  |
+| `npm run lint`         | ESLint                                       |
+| `npm run format`       | Prettier en écriture                         |
+| `npm run format:check` | Prettier en vérification (utilisé par la CI) |
+| `npm run type-check`   | Vérification TypeScript sans émission        |
+| `npm run structure`    | Régénère `docs/STRUCTURE.md`                 |
 
-## Learn More
+## Organisation
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/app          routes App Router (/, /projects, /projects/[slug]) et pages d'erreur
+src/components   layouts (header, footer, menu) et sections rangées par page
+src/data         données de la maquette
+src/lib          accès aux données, calculs de mise en page, constantes
+src/styles       Tailwind (global.css) puis styles personnalisés (custom.css)
+src/assets       polices et images passant par le bundler
+public/images    photos de projets servies statiquement
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+L'arborescence complète est dans [docs/STRUCTURE.md](docs/STRUCTURE.md), régénérée par
+`npm run structure`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Le design repose sur un canvas fixe de 1080 × 1080 px découpé en header 180 / contenu 855 /
+footer 45. Cette contrainte et ses conséquences sont détaillées dans [CLAUDE.md](CLAUDE.md).
 
-## Deploy on Vercel
+## Documentation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [CLAUDE.md](CLAUDE.md) — repères techniques, conventions et pièges du projet.
+- [docs/ROADMAP.md](docs/ROADMAP.md) — feuille de route, décisions actées, points ouverts.
+- [docs/STRUCTURE.md](docs/STRUCTURE.md) — arborescence générée des fichiers suivis.
+- [CONTRIBUTING.MD](CONTRIBUTING.MD) — conventions de branches, de commits et de PR.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Intégration continue
+
+Chaque PR vers `main` déclenche lint, vérification de formatage, contrôle des types et build
+(`.github/workflows/ci.yml`). Aucun déploiement automatique n'est en place à ce stade.
