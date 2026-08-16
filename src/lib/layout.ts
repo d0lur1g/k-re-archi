@@ -24,7 +24,9 @@ export function determineLayout(imageCount: number): ImageLayout {
  * Récupère les images à afficher selon le nombre maximal
  */
 export function getDisplayImages(images: ProjectImage[]): ProjectImage[] {
-  return images.sort((a, b) => a.display_order - b.display_order).slice(0, 4);
+  // La copie est indispensable : sort() trie en place et muterait le tableau du
+  // module de données, partagé entre toutes les requêtes côté serveur.
+  return [...images].sort((a, b) => a.display_order - b.display_order).slice(0, 4);
 }
 
 /**

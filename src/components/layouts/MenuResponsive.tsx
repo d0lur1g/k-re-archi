@@ -20,11 +20,10 @@ export default function MenuResponsive({ closeMenu }: MenuResponsiveProps) {
     };
   }, [closeMenu]);
 
+  // Le menu ne s'ouvre qu'en dessous de 1024 px, où le header mesure 90 px. On utilise dvh
+  // et non vh, pour ne pas déborder sous la barre d'adresse des navigateurs mobiles.
   return (
-    <div
-      className="fixed top-180 left-0 z-40 flex w-full flex-col items-center justify-center bg-white max-lg:top-90"
-      style={{ height: "calc(100vh - 180px)" }}
-    >
+    <div className="fixed top-180 left-0 z-40 flex h-[calc(100dvh-180px)] w-full flex-col items-center justify-center bg-white max-lg:top-90 max-lg:h-[calc(100dvh-90px)]">
       {/* Navigation - Même style que les liens desktop avec bordures */}
       <nav className="flex w-full max-w-540 flex-col items-stretch">
         <Link

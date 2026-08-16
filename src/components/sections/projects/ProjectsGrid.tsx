@@ -2,7 +2,6 @@
 
 import { Project, DisplayedProject } from "@/types/project";
 import { createDisplayedProject } from "@/lib/layout";
-import { PROJECT_CARD } from "@/lib/constants";
 import { useHorizontalScroll } from "@/hooks/useHorizontalScroll";
 import ProjectCard from "./ProjectCard";
 
@@ -21,12 +20,8 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
   const topRow = displayedProjects.filter((_, index) => index % 2 === 0);
   const bottomRow = displayedProjects.filter((_, index) => index % 2 === 1);
 
-  // Calculer la hauteur totale nécessaire pour les colonnes
-  //const fixedHeight = 2 * PROJECT_CARD.BASE_SIZE + 16; // 360 + 360 + 16 gap = 736px
-
   return (
     <>
-      {/* Zone de scroll horizontal */}
       {/* Zone de scroll horizontal */}
       <section
         ref={scrollRef}

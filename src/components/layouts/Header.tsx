@@ -29,32 +29,34 @@ export default function Header() {
 
         {/* AGENCY TEXT */}
         <div className="font-baiti flex h-180 w-360 items-start border-b-3 border-solid border-black pt-15 pr-5 pb-5 pl-15 text-4xl leading-[70%] max-2xl:h-auto max-2xl:w-full max-2xl:min-w-180 max-2xl:p-5 max-2xl:text-2xl">
-          <h1>
+          {/* Baseline de marque, présente sur toutes les pages : ce n'est pas le titre
+              de la page courante, d'où le <p> et non un <h1>. */}
+          <p>
             <span className="text-5xl leading-[30%] max-2xl:text-3xl">A</span>
             gence <br />
             <span className="text-5xl leading-[30%] max-2xl:text-3xl">A</span>
             rchitecture & <br />
             <span className="text-5xl leading-[30%] max-2xl:text-3xl">A</span>
             rchitecture d&apos;intérieur
-          </h1>
+          </p>
         </div>
 
         <nav className="flex items-end max-2xl:w-full max-lg:w-auto">
           {/* Navigation Desktop - Cachée sur mobile */}
           <Link
-            className="font-baiti hover:font-amalfi max-2xl:hover:text-body flex h-90 w-180 items-center justify-center border-b border-solid border-black text-3xl transition-all duration-300 ease-in hover:border-b-3 hover:text-xl max-2xl:w-full max-2xl:p-4 max-2xl:text-2xl max-2xl:hover:items-end max-lg:hidden"
+            className="font-baiti hover:font-amalfi flex h-90 w-180 items-center justify-center border-b border-solid border-black text-3xl transition-all duration-300 ease-in hover:border-b-3 hover:text-xl max-2xl:w-full max-2xl:p-4 max-2xl:text-2xl max-2xl:hover:items-end max-lg:hidden"
             href="/projects"
           >
             Projets
           </Link>
           <Link
-            className="font-baiti hover:font-amalfi max-2xl:hover:text-body flex h-90 w-180 items-center justify-center border-b border-solid border-black text-3xl transition-all duration-300 ease-in hover:border-b-3 hover:text-xl max-2xl:w-full max-2xl:p-4 max-2xl:text-2xl max-2xl:hover:items-end max-lg:hidden"
+            className="font-baiti hover:font-amalfi flex h-90 w-180 items-center justify-center border-b border-solid border-black text-3xl transition-all duration-300 ease-in hover:border-b-3 hover:text-xl max-2xl:w-full max-2xl:p-4 max-2xl:text-2xl max-2xl:hover:items-end max-lg:hidden"
             href="/missions"
           >
             Missions
           </Link>
           <Link
-            className="font-baiti hover:font-amalfi max-2xl:hover:text-body flex h-90 w-180 items-center justify-center border-b border-solid border-black text-3xl transition-all duration-300 ease-in hover:border-b-3 hover:text-xl max-2xl:w-full max-2xl:p-4 max-2xl:text-2xl max-2xl:hover:items-end max-lg:hidden"
+            className="font-baiti hover:font-amalfi flex h-90 w-180 items-center justify-center border-b border-solid border-black text-3xl transition-all duration-300 ease-in hover:border-b-3 hover:text-xl max-2xl:w-full max-2xl:p-4 max-2xl:text-2xl max-2xl:hover:items-end max-lg:hidden"
             href="/contact"
           >
             Contact

@@ -1,7 +1,5 @@
 // src/components/sections/projects/ProjectNavigation.tsx
 
-"use client";
-
 import Link from "next/link";
 
 interface ProjectNavigationProps {

@@ -63,6 +63,11 @@ Le breakpoint `2xl` est redéfini à 1080 px (`max-2xl:` = sous le canvas).
 - `src/styles/custom.css` : chargé **après**, peut écraser Tailwind (reset, scrollbar, réseaux sociaux).
 - Une classe utilitaire dont le token n'existe pas dans `@theme` n'est **pas** générée et échoue
   en silence. Vérifier que la couleur ou la taille utilisée est bien déclarée.
+- `custom.css` n'appartient à aucun cascade layer, alors que les utilitaires Tailwind vivent dans
+  `@layer utilities`. Ses règles d'élément — `a { color: inherit }`, `button { background: none }` —
+  l'emportent donc sur les utilitaires **quelle que soit la spécificité**. Colorer un lien ou donner
+  un fond à un bouton exige le suffixe `!` : `text-kre-black!`, `bg-kre-white!`. C'est la raison des
+  `hover:text-white!` du `Footer`.
 
 ## Polices
 

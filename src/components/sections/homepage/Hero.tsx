@@ -4,6 +4,11 @@ import imgHeroTop from "@/assets/images/images/hero-top.jpg";
 export default function Hero() {
   return (
     <section className="flex h-270 items-start justify-center">
+      {/* Titre de la page d'accueil : la composition typographique ci-dessous en tient
+          lieu visuellement, le titre reste donc réservé aux lecteurs d'écran. */}
+      <h1 className="sr-only">
+        K-Ré, agence d&apos;architecture et d&apos;architecture d&apos;intérieur
+      </h1>
       <div className="flex h-full w-540 flex-col px-195">
         <div className="flex h-full w-full flex-col justify-around py-15">
           <div className="gap-10">
@@ -12,7 +17,7 @@ export default function Hero() {
           </div>
           <div className="gap-10">
             <span className="font-baiti text-6xl leading-[30%]">R</span>
-            <span className="font-baiti text-600 text-3xl font-medium">
+            <span className="font-baiti text-3xl font-medium">
               éhabiliter <br />
             </span>
           </div>

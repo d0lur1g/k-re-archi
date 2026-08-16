@@ -4,6 +4,12 @@
 @import "tailwindcss";
 
 @theme {
+  /* === Couleurs de marque ===
+     Utilisées par les pages d'erreur et de chargement. Sans ces tokens, les
+     classes bg-kre-black / text-kre-white ne sont tout simplement pas générées. */
+  --color-kre-black: #000000;
+  --color-kre-white: #ffffff;
+
   /* === Polices personnalisées === */
   --font-amalfi: var(--font-family-amalfi), "Courier New", sans-serif;
   --font-baiti: var(--font-family-baiti), "Courier New", sans-serif;

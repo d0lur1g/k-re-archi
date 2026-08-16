@@ -8,7 +8,7 @@
   - les limites de longueur passent en avertissement, ce qui signale les messages
     trop longs sans jamais bloquer un commit.
 */
-export default {
+const configuration = {
   extends: ["@commitlint/config-conventional"],
   rules: {
     "subject-case": [0],
@@ -16,3 +16,5 @@ export default {
     "body-max-line-length": [1, "always", 100],
   },
 };
+
+export default configuration;
