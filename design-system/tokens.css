@@ -1,24 +1,33 @@
 /*
-  tokens.css : projection Tailwind v4 des tokens de design-system/tokens.json.
+  tokens.css : SOURCE DE VÉRITÉ des tokens du design system K-Ré (décision D9,
+  arbitrage du 18/08/2026 : bloc @theme unique, sans fichier DTCG parallèle).
 
-  Généré le 2026-08-17. Snapshot source : 92699ee168a8b046e57ba09d9c2f69cb547481db (main).
+  Généré le 2026-08-17 depuis l'audit du snapshot 92699ee168a8b046e57ba09d9c2f69cb547481db.
   Couverture : code 100 % (35/35 fichiers), Figma en échantillon. Mode : outillé.
+  Toute valeur provient du relevé (fichier:ligne ou nœud Figma) : aucune valeur inventée.
 
-  Usage : ce fichier est importé par src/styles/global.css (depuis le lot 1 de
-  MIGRATION.md). Il génère les utilitaires bg-surface, text-ink, border-line,
-  font-display, text-heading, rounded-ui, max-canvas:, etc.
+  Usage : ce fichier est importé par src/styles/global.css. Il génère les utilitaires
+  bg-surface, text-ink, border-line, font-display, text-heading, rounded-ui, max-canvas:.
 
   Thèmes : non applicable. Le site est mono-thème (noir et blanc, décision D7) ;
   aucune variante claire/sombre n'est gérée.
 
   Règles :
   - Les composants ne consomment que la couche sémantique ci-dessous.
-  - Les valeurs littérales sont recopiées depuis tokens.json (un seul niveau d'alias,
-    aplati ici car Tailwind ne résout pas les alias DTCG).
+  - Tout ajout ou changement suit la règle de GOVERNANCE.md (valeur relevée, rôle
+    récurrent, ligne de correspondance MIGRATION.md dans le même commit).
+
+  Correspondance Figma (relevé du 18/08/2026, page Design System, nœud 67:379) :
+  la variable Figma « Primary » vaut #000000 (nos rôles ink, surface-inverse, line,
+  overlay) et « Secondary » vaut #ffffff (surface, ink-inverse). Le nommage Figma
+  ne porte pas encore les rôles d'usage : à aligner en revue design.
 */
 
 @theme {
-  /* === Couleurs sémantiques (source : tokens.json > semantic.color) === */
+  /* === Couleurs sémantiques ===
+     Primitives relevées : noir #000000 et blanc #ffffff (uniques couleurs de marque),
+     gris Tailwind v4 neutral-100/300/700 convertis (oklch achromatique),
+     4 couleurs de marque des réseaux sociaux (custom.css historique). */
   --color-surface: #ffffff; /* fond du canvas et des blocs */
   --color-surface-inverse: #000000; /* hovers, pages système, cadre du canvas */
   --color-ink: #000000; /* texte courant */
@@ -33,7 +42,10 @@
   --color-social-pinterest: #e60023;
   --color-social-linkedin: #0a66c2;
 
-  /* === Typographie (source : tokens.json > semantic.font, text, leading) === */
+  /* === Typographie ===
+     display = Amalfi Coast (graisse unique 400, accents et lettrines),
+     body = Microsoft Yi Baiti (graisse unique 500, texte courant).
+     Fallback Courier New hérité de l'existant, à confirmer côté design. */
   --font-display: var(--font-family-amalfi), "Courier New", sans-serif;
   --font-body: var(--font-family-baiti), "Courier New", sans-serif;
 

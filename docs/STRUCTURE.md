@@ -34,8 +34,7 @@ k-re-archi/
 │   ├── DESIGN-SYSTEM.md
 │   ├── GOVERNANCE.md
 │   ├── MIGRATION.md
-│   ├── tokens.css
-│   └── tokens.json
+│   └── tokens.css
 ├── docs/
 │   ├── ROADMAP.md
 │   └── STRUCTURE.md

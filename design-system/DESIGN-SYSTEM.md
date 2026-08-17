@@ -5,7 +5,7 @@
 > Mode : outillé (extraction scriptée, calculs ΔE2000 et contrastes exécutés, voir `audit/`).
 
 Ce fichier est le registre des décisions du design system et de leurs justifications.
-Ce n'est pas un catalogue : l'inventaire des valeurs vit dans `tokens.json`, les
+Ce n'est pas un catalogue : l'inventaire des valeurs vit dans `tokens.css`, les
 correspondances dans `MIGRATION.md`, les composants dans `COMPONENTS.md`.
 
 ## Décisions actées
@@ -83,13 +83,16 @@ contraire fond blanc et traits noirs en dur : toute nouvelle icône doit être d
 en `currentColor`, sans fond intégré. La refonte des deux icônes menu est liée à la
 décision ouverte O2 (taille de rendu).
 
-### D9. Source de vérité des tokens
+### D9. Source de vérité des tokens : le bloc @theme unique
 
-`tokens.json` (format DTCG) est la source de vérité, `tokens.css` sa projection
-Tailwind v4 maintenue à la main. Le projet n'utilise aucun outil de la chaîne DTCG
-(Style Dictionary ou équivalent) : un format maison réduit au seul bloc `@theme`
-suffirait techniquement. Arbitrage demandé au propriétaire, voir GOVERNANCE.md ;
-en attendant, toute modification se fait dans les deux fichiers, dans le même commit.
+Arbitrage rendu par l'owner le 18/08/2026 : `tokens.css` (bloc `@theme` Tailwind v4)
+est l'unique source de vérité ; le fichier DTCG parallèle `tokens.json` a été supprimé.
+Motif : le fichier consommé par le build ne peut pas diverger de lui-même, et aucun
+outil de la chaîne DTCG n'était branché pour justifier la double maintenance. La
+provenance des valeurs (relevés, contrastes mesurés, correspondance des variables
+Figma) vit en commentaires de `tokens.css`. Si un outillage DTCG ou une synchro Figma
+Variables devient nécessaire, un `tokens.json` sera régénéré depuis le CSS à ce
+moment-là (voir GOVERNANCE.md).
 
 ### D10. Les compositions typographiques restent hors système
 
@@ -124,7 +127,7 @@ Chaque décision ouverte a un déclencheur concret : aucun report sans condition
 - Écrire les espacements en px de la liste blanche ; documenter toute valeur de composition.
 - Donner un état `focus-visible` et un état vide à tout nouveau composant interactif ou piloté par données.
 - Dessiner toute nouvelle icône en `currentColor`, sans fond intégré.
-- Modifier `tokens.json` et `tokens.css` ensemble, dans le même commit, avec la ligne de correspondance MIGRATION.md à jour.
+- Modifier `tokens.css` (source unique) avec la ligne de correspondance MIGRATION.md à jour, dans le même commit.
 
 **Don't**
 

@@ -60,7 +60,7 @@ Le breakpoint `2xl` est redéfini à 1080 px (`max-2xl:` = sous le canvas).
 ## Styles
 
 - `src/styles/global.css` : `@import "tailwindcss"` + `@import "../../design-system/tokens.css"`
-  (le bloc `@theme` vit dans les tokens du design system, source : `design-system/tokens.json`).
+  (le bloc `@theme` de `design-system/tokens.css` est la source de vérité unique des tokens).
   Les composants consomment la couche sémantique : `bg-surface`, `text-ink`, `border-line`,
   jamais `bg-black`, `text-white` ni un hex.
 - `src/styles/custom.css` : chargé **après**, peut écraser Tailwind (reset, scrollbar, réseaux sociaux).

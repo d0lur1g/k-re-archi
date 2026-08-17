@@ -82,8 +82,8 @@ Lecture aller : chaque valeur relevée en phase 1 a une destination ou une menti
 | `my-auto` (1)                                                                 | conservé hors système (centrage, pas une longueur)                                  |                                                                       |
 | `max-w-md` (3, pages système)                                                 | `max-w-448` si O1 validée (valeur explicite en px, iso-valeur : md = 28rem = 448px) | échapper à l'échelle rem                                              |
 
-Si O1 est validée, les valeurs 16 et 32 entrent dans la liste blanche : étendre D3,
-le commentaire de tokens.css et la section spacing de tokens.json dans le même commit.
+O1 validée le 18/08/2026 : les valeurs 16 et 32 entrent dans la liste blanche (D3 et
+commentaire de tokens.css mis à jour au lot 3).
 
 ### Tailles hors module (rappel, catégorie dimensionnelle)
 
