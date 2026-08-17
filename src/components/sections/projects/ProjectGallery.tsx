@@ -17,7 +17,7 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
   return (
     <section
       ref={scrollRef}
-      className="scrollbar-hide h-630 overflow-x-auto overflow-y-hidden bg-white py-12"
+      className="scrollbar-hide h-630 overflow-x-auto overflow-y-hidden scroll-smooth bg-white py-12"
     >
       <div
         className={`flex h-full gap-6 px-12 ${

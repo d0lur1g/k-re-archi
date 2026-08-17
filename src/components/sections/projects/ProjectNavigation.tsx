@@ -13,7 +13,7 @@ export default function ProjectNavigation({ previousSlug, nextSlug }: ProjectNav
       {previousSlug ? (
         <Link
           href={`/projects/${previousSlug}`}
-          className="flex h-full w-full items-center justify-center gap-2 px-12 transition-colors duration-300 ease-in-out hover:bg-black hover:text-white!"
+          className="flex h-full w-full items-center justify-center gap-2 px-12 transition-colors duration-300 ease-in-out hover:bg-black hover:text-white"
         >
           <span className="block -translate-y-2">←</span>
           <span className="block -translate-y-2">Projet précédent</span>
@@ -25,7 +25,7 @@ export default function ProjectNavigation({ previousSlug, nextSlug }: ProjectNav
       {nextSlug ? (
         <Link
           href={`/projects/${nextSlug}`}
-          className="flex h-full w-full items-center justify-center gap-2 px-12 transition-colors duration-300 ease-in-out hover:bg-black hover:text-white!"
+          className="flex h-full w-full items-center justify-center gap-2 px-12 transition-colors duration-300 ease-in-out hover:bg-black hover:text-white"
         >
           <span className="block -translate-y-2">Projet suivant</span>
           <span className="block -translate-y-2">→</span>

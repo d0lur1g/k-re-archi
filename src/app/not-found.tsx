@@ -8,11 +8,9 @@ export default function NotFound() {
       <p className="font-baiti mb-8 max-w-md text-center text-base opacity-80">
         {"La page que vous recherchez n'existe pas ou a été déplacée."}
       </p>
-      {/* text-kre-black! : custom.css n'étant pas dans un cascade layer, sa règle
-          « a { color: inherit } » l'emporterait sur l'utilitaire sans le ! */}
       <Link
         href="/"
-        className="bg-kre-white text-kre-black! font-baiti rounded-sm px-8 py-3 transition-opacity hover:opacity-90"
+        className="bg-kre-white text-kre-black font-baiti rounded-sm px-8 py-3 transition-opacity hover:opacity-90"
       >
         {"Retour à l'accueil"}
       </Link>

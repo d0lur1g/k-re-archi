@@ -21,11 +21,9 @@ export default function Error({
       <p className="font-baiti mb-8 max-w-md text-center text-sm opacity-60">
         {error.message || "Quelque chose s'est mal passé."}
       </p>
-      {/* bg-kre-white! : custom.css n'étant pas dans un cascade layer, sa règle
-          « button { background: none } » l'emporterait sur l'utilitaire sans le ! */}
       <button
         onClick={reset}
-        className="bg-kre-white! text-kre-black font-baiti rounded-sm px-8 py-3 transition-opacity hover:opacity-90"
+        className="bg-kre-white text-kre-black font-baiti rounded-sm px-8 py-3 transition-opacity hover:opacity-90"
       >
         Réessayer
       </button>
