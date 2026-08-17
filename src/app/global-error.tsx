@@ -1,5 +1,7 @@
 "use client";
 
+import BoutonSysteme from "@/components/ui/BoutonSysteme";
+
 export default function GlobalError({
   error,
   reset,
@@ -15,10 +17,7 @@ export default function GlobalError({
           <p className="mb-16 max-w-448 text-center opacity-80">
             {error.message || "Le site a rencontré une erreur critique."}
           </p>
-          {/* Même recette que le bouton des autres pages système (factorisation au lot 5) */}
-          <button onClick={reset} className="bg-surface text-ink rounded-ui px-32 py-12">
-            Recharger la page
-          </button>
+          <BoutonSysteme onClick={reset}>Recharger la page</BoutonSysteme>
         </div>
       </body>
     </html>

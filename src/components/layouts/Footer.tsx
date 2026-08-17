@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { FC, SVGProps } from "react";
+import ActionInverse from "@/components/ui/ActionInverse";
 
 // ✅ Import des SVG comme composants
 import FacebookIcon from "@/assets/images/socials/facebook.svg";
@@ -39,13 +40,13 @@ export default function Footer() {
         <div className="font-body mb-4 flex h-full">
           <nav className="flex h-full content-center">
             {footerLinks.map((link) => (
-              <Link
+              <ActionInverse
                 key={link.href}
                 href={link.href}
-                className="text-ink hover:bg-surface-inverse hover:text-ink-inverse flex h-full w-180 items-center justify-around transition-colors duration-300 ease-in-out"
+                className="text-ink flex h-full w-180 items-center justify-around"
               >
                 {link.label}
-              </Link>
+              </ActionInverse>
             ))}
           </nav>
           <div className="flex h-full w-360 items-center justify-around">

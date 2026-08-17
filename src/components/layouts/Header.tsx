@@ -5,6 +5,7 @@ import MenuResponsive from "./MenuResponsive";
 import MenuIcon from "@/assets/images/icons/menu.svg";
 import CloseIcon from "@/assets/images/icons/menu-close.svg";
 import Link from "next/link";
+import NavLink from "@/components/ui/NavLink";
 
 export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
@@ -43,24 +44,9 @@ export default function Header() {
 
         <nav className="max-canvas:w-full flex items-end max-lg:w-auto">
           {/* Navigation Desktop - Cachée sur mobile */}
-          <Link
-            className="font-body hover:font-display border-line text-nav hover:text-meta max-canvas:text-subtitle max-canvas:w-full max-canvas:p-5 max-canvas:hover:items-end flex h-90 w-180 items-center justify-center border-b border-solid transition-all duration-300 ease-in hover:border-b-3 max-lg:hidden"
-            href="/projects"
-          >
-            Projets
-          </Link>
-          <Link
-            className="font-body hover:font-display border-line text-nav hover:text-meta max-canvas:text-subtitle max-canvas:w-full max-canvas:p-5 max-canvas:hover:items-end flex h-90 w-180 items-center justify-center border-b border-solid transition-all duration-300 ease-in hover:border-b-3 max-lg:hidden"
-            href="/missions"
-          >
-            Missions
-          </Link>
-          <Link
-            className="font-body hover:font-display border-line text-nav hover:text-meta max-canvas:text-subtitle max-canvas:w-full max-canvas:p-5 max-canvas:hover:items-end flex h-90 w-180 items-center justify-center border-b border-solid transition-all duration-300 ease-in hover:border-b-3 max-lg:hidden"
-            href="/contact"
-          >
-            Contact
-          </Link>
+          <NavLink href="/projects">Projets</NavLink>
+          <NavLink href="/missions">Missions</NavLink>
+          <NavLink href="/contact">Contact</NavLink>
 
           {/* Bouton Menu/Close - Visible uniquement sur mobile */}
           <button

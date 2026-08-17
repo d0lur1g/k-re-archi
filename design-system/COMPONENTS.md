@@ -9,29 +9,29 @@ Statuts : **stable** (conforme à son rôle actuel), **à refactoriser** (dette 
 
 ## Vue d'ensemble
 
-| Composant         | Fichier                                                | Statut                 | Dette principale                                                                |
-| ----------------- | ------------------------------------------------------ | ---------------------- | ------------------------------------------------------------------------------- |
-| Header            | src/components/layouts/Header.tsx                      | à refactoriser         | Recette de lien dupliquée x3, pas d'état page courante, icônes 6px              |
-| MenuResponsive    | src/components/layouts/MenuResponsive.tsx              | à refactoriser         | Recette dupliquée x3, pas de focus trap ni role dialog                          |
-| Footer            | src/components/layouts/Footer.tsx                      | à refactoriser (léger) | Tailles Figma non appliquées (O5), logo Ordre sans nom accessible               |
-| Hero              | src/components/sections/homepage/Hero.tsx              | stable                 | Classes flex inertes à purger (lignes 14, 18, 42), font-medium isolé (ligne 20) |
-| Presentation      | src/components/sections/homepage/Presentation.tsx      | stable                 | Contenu lorem à injecter (phase contenu)                                        |
-| Gallery           | src/components/sections/homepage/Gallery.tsx           | à refactoriser (léger) | Alt générique, pas de lien vers /projects malgré le rôle d'appel                |
-| ProjectsGrid      | src/components/sections/projects/ProjectsGrid.tsx      | à refactoriser         | Zone de scroll non focusable, état vide muet                                    |
-| ProjectCard       | src/components/sections/projects/ProjectCard.tsx       | à refactoriser         | Overlay titre invisible au clavier, état vide muet                              |
-| ProjectGallery    | src/components/sections/projects/ProjectGallery.tsx    | à refactoriser         | Zone de scroll non focusable, état vide muet                                    |
-| ProjectHeader     | src/components/sections/projects/ProjectHeader.tsx     | à refactoriser         | Tooltip maison souris seule, budget conditionné par category                    |
-| ProjectNavigation | src/components/sections/projects/ProjectNavigation.tsx | à refactoriser         | Écart maquette O11 (boutons 180x45 centrés, flèches image), nav sans aria-label |
-| RootLayout        | src/app/layout.tsx                                     | stable                 | p-4 du body (4px) à trancher en O1, pas de skip link                            |
-| Error             | src/app/error.tsx                                      | à refactoriser (léger) | Espacements O1, bouton sans focus visible                                       |
-| GlobalError       | src/app/global-error.tsx                               | à refactoriser (léger) | Notations black/white hors tokens, pas de hover, espacements O1                 |
-| Loading           | src/app/loading.tsx                                    | stable                 | role="status" manquant                                                          |
-| NotFound          | src/app/not-found.tsx                                  | à refactoriser (léger) | Espacements O1                                                                  |
-| NavLink           | n'existe pas                                           | à créer                | Factorise 6 recettes identiques (Header x3, MenuResponsive x3)                  |
-| ActionInverse     | n'existe pas                                           | à créer                | Factorise le motif hover inversé (Footer x2, ProjectNavigation x2)              |
-| BoutonSysteme     | n'existe pas                                           | à créer                | Factorise les 3 recettes des pages système                                      |
-| InfoCard          | n'existe pas (Figma 34:417, 48:245)                    | à créer                | Remplace le tooltip maison ; variantes Info et Warning                          |
-| PageContact       | n'existe pas (Figma 183:658)                           | à créer (hors passe 1) | Page absente du code, traitée à son chantier roadmap                            |
+| Composant         | Fichier                                                | Statut                      | Dette principale                                                                                                        |
+| ----------------- | ------------------------------------------------------ | --------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Header            | src/components/layouts/Header.tsx                      | stable (18/08/2026)         | Liens factorisés en NavLink, icônes plein bouton (O2) ; reste l'état page courante (O8)                                 |
+| MenuResponsive    | src/components/layouts/MenuResponsive.tsx              | à refactoriser              | Liens factorisés en NavLink (18/08/2026) ; reste focus trap et role dialog                                              |
+| Footer            | src/components/layouts/Footer.tsx                      | à refactoriser (léger)      | Liens factorisés en ActionInverse (18/08/2026) ; restent O5 et le nom accessible du logo Ordre                          |
+| Hero              | src/components/sections/homepage/Hero.tsx              | stable                      | Classes inertes purgées et font-medium retiré (18/08/2026)                                                              |
+| Presentation      | src/components/sections/homepage/Presentation.tsx      | stable                      | Contenu lorem à injecter (phase contenu)                                                                                |
+| Gallery           | src/components/sections/homepage/Gallery.tsx           | à refactoriser (léger)      | Alt générique, pas de lien vers /projects malgré le rôle d'appel                                                        |
+| ProjectsGrid      | src/components/sections/projects/ProjectsGrid.tsx      | à refactoriser              | Zone de scroll non focusable, état vide muet                                                                            |
+| ProjectCard       | src/components/sections/projects/ProjectCard.tsx       | à refactoriser              | Overlay titre invisible au clavier, état vide muet                                                                      |
+| ProjectGallery    | src/components/sections/projects/ProjectGallery.tsx    | à refactoriser              | Zone de scroll non focusable, état vide muet                                                                            |
+| ProjectHeader     | src/components/sections/projects/ProjectHeader.tsx     | à refactoriser (léger)      | Tooltip corrigé au clavier (O6, 18/08/2026) ; reste budget conditionné par category                                     |
+| ProjectNavigation | src/components/sections/projects/ProjectNavigation.tsx | à refactoriser (léger)      | ActionInverse + aria-label + flèches masquées (18/08/2026) ; reste l'écart maquette O11                                 |
+| RootLayout        | src/app/layout.tsx                                     | stable                      | Cadre p-16 appliqué (O1 fermée) ; reste le skip link                                                                    |
+| Error             | src/app/error.tsx                                      | stable (18/08/2026)         | Espacements corrigés (O1), BoutonSysteme, focus D6                                                                      |
+| GlobalError       | src/app/global-error.tsx                               | stable (18/08/2026)         | Tokens, espacements (O1) et BoutonSysteme appliqués ; vérifier le chargement CSS hors layout racine avant mise en ligne |
+| Loading           | src/app/loading.tsx                                    | stable                      | role="status" manquant                                                                                                  |
+| NotFound          | src/app/not-found.tsx                                  | stable (18/08/2026)         | Espacements corrigés (O1), BoutonSysteme                                                                                |
+| NavLink           | src/components/ui/NavLink.tsx                          | stable (créé le 18/08/2026) | Variantes desktop et mobile ; remplace 6 recettes identiques                                                            |
+| ActionInverse     | src/components/ui/ActionInverse.tsx                    | stable (créé le 18/08/2026) | Inversion surface/encre au survol ; géométrie au point d'usage                                                          |
+| BoutonSysteme     | src/components/ui/BoutonSysteme.tsx                    | stable (créé le 18/08/2026) | Lien ou bouton selon les props ; recette unique des pages système                                                       |
+| InfoCard          | abandonné (18/08/2026)                                 | hors produit                | L'info_card Figma (34:417, 48:245) est une annotation interne de maquette ; le tooltip est corrigé dans ProjectHeader   |
+| PageContact       | n'existe pas (Figma 183:658)                           | à créer (hors passe 1)      | Page absente du code, traitée à son chantier roadmap                                                                    |
 
 ## Fiches
 
@@ -40,8 +40,8 @@ Statuts : **stable** (conforme à son rôle actuel), **à refactoriser** (dette 
 Anatomie : logo (cellule 180x180, lettrine K Amalfi + « -Ré » Baiti), baseline agence
 (360px, 3 lignes à majuscules), nav desktop (3 liens 180x90), bouton menu mobile (90x90).
 Variantes : aucune prop ; bascule mobile sous `lg`, canvas sous `canvas`.
-États : default et hover présents ; focus-visible absent (le bouton menu n'a aucun
-indicateur, voir D6) ; page courante absente (Figma définit projects/missions/contact
+États : default et hover présents ; focus-visible couvert par le style global D6
+(depuis le lot 0) ; page courante absente (Figma définit projects/missions/contact
 actifs, nœud 85:760, décision O8).
 Contenu : liens codés en dur ; /missions et /contact pointent vers des routes vides.
 
@@ -80,7 +80,7 @@ scroll). Loading et error délégués aux conventions Next au niveau route.
 
 Gallery : scroll horizontal, ratio 4/3 inline, cas 1 image géré, vide muet.
 Header : h1 titre, description line-clamp-6 avec tooltip maison (souris seule, sans
-role tooltip ni aria-describedby : remplacé par InfoCard en O6) ; métadonnées
+role tooltip ni aria-describedby : corrigé au lot 5, fermeture d'O6) ; métadonnées
 category/budget/year/location/surface_area optionnelles ; incohérence : budget affiché
 seulement si category est présent.
 Navigation : liens précédent/suivant pleine largeur avec inversion au hover ; écart
@@ -109,8 +109,10 @@ ProjectNavigation. Le `!` actuel disparaît avec D5.
 **BoutonSysteme** : action des pages système, surface claire sur fond inversé,
 rounded-ui, espacements tranchés en O1, focus-visible D6.
 
-**InfoCard** (Figma 34:417, 48:245) : variantes Info et Warning ; remplace le tooltip
-de ProjectHeader avec un vrai contrat clavier (focus, aria-describedby) ; ferme O6.
+**InfoCard** : abandonné le 18/08/2026. L'extraction du nœud Figma 34:417 a montré que
+l'info_card est une annotation interne de maquette (couleurs et polices hors identité).
+Le tooltip de ProjectHeader a été corrigé dans le système à la place (bordure line,
+rounded-ui, focus clavier et Escape, role tooltip) : O6 fermée.
 
 ## Mapping vers les champs de contenu
 

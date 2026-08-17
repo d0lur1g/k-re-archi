@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import Link from "next/link";
+import NavLink from "@/components/ui/NavLink";
 
 interface MenuResponsiveProps {
   closeMenu: () => void;
@@ -26,27 +26,15 @@ export default function MenuResponsive({ closeMenu }: MenuResponsiveProps) {
     <div className="bg-surface fixed top-180 left-0 z-40 flex h-[calc(100dvh-180px)] w-full flex-col items-center justify-center max-lg:top-90 max-lg:h-[calc(100dvh-90px)]">
       {/* Navigation - Même style que les liens desktop avec bordures */}
       <nav className="flex w-full max-w-540 flex-col items-stretch">
-        <Link
-          className="font-body hover:font-display border-line text-ink text-tagline hover:text-meta flex h-90 items-center justify-center border-b border-solid transition-all duration-300 ease-in"
-          href="/projects"
-          onClick={closeMenu}
-        >
+        <NavLink variant="mobile" href="/projects" onClick={closeMenu}>
           Projets
-        </Link>
-        <Link
-          className="font-body hover:font-display border-line text-ink text-tagline hover:text-meta flex h-90 items-center justify-center border-b border-solid transition-all duration-300 ease-in"
-          href="/missions"
-          onClick={closeMenu}
-        >
+        </NavLink>
+        <NavLink variant="mobile" href="/missions" onClick={closeMenu}>
           Missions
-        </Link>
-        <Link
-          className="font-body hover:font-display border-line text-ink text-tagline hover:text-meta flex h-90 items-center justify-center border-b border-solid transition-all duration-300 ease-in"
-          href="/contact"
-          onClick={closeMenu}
-        >
+        </NavLink>
+        <NavLink variant="mobile" href="/contact" onClick={closeMenu}>
           Contact
-        </Link>
+        </NavLink>
       </nav>
     </div>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import BoutonSysteme from "@/components/ui/BoutonSysteme";
 
 export default function Error({
   error,
@@ -21,12 +22,7 @@ export default function Error({
       <p className="font-body text-caption mb-32 max-w-448 text-center opacity-60">
         {error.message || "Quelque chose s'est mal passé."}
       </p>
-      <button
-        onClick={reset}
-        className="bg-surface text-ink font-body rounded-ui px-32 py-12 transition-opacity hover:opacity-90"
-      >
-        Réessayer
-      </button>
+      <BoutonSysteme onClick={reset}>Réessayer</BoutonSysteme>
     </section>
   );
 }

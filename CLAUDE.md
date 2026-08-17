@@ -21,17 +21,18 @@ npm run structure # régénère docs/STRUCTURE.md depuis les fichiers suivis par
 
 ## Architecture
 
-| Dossier                   | Rôle                                                            |
-| ------------------------- | --------------------------------------------------------------- |
-| `src/app`                 | Routes App Router, pages d'erreur, layout racine                |
-| `src/components/layouts`  | Header, Footer, menu responsive — présents sur toutes les pages |
-| `src/components/sections` | Blocs de page, rangés par route (`homepage/`, `projects/`)      |
-| `src/data`                | Données de la maquette                                          |
-| `src/lib`                 | Accès aux données, calculs de layout, constantes                |
-| `src/types`               | Types métier partagés                                           |
-| `src/hooks`               | Hooks React réutilisables                                       |
-| `src/assets`              | Polices et images importées par le bundler                      |
-| `public/images`           | Images servies telles quelles (photos de projets)               |
+| Dossier                   | Rôle                                                                         |
+| ------------------------- | ---------------------------------------------------------------------------- |
+| `src/app`                 | Routes App Router, pages d'erreur, layout racine                             |
+| `src/components/layouts`  | Header, Footer, menu responsive — présents sur toutes les pages              |
+| `src/components/ui`       | Composants d'interface réutilisables (NavLink, ActionInverse, BoutonSysteme) |
+| `src/components/sections` | Blocs de page, rangés par route (`homepage/`, `projects/`)                   |
+| `src/data`                | Données de la maquette                                                       |
+| `src/lib`                 | Accès aux données, calculs de layout, constantes                             |
+| `src/types`               | Types métier partagés                                                        |
+| `src/hooks`               | Hooks React réutilisables                                                    |
+| `src/assets`              | Polices et images importées par le bundler                                   |
+| `public/images`           | Images servies telles quelles (photos de projets)                            |
 
 Alias d'import : `@/*` → `src/*`.
 

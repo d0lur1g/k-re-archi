@@ -11,11 +11,11 @@ export default function Hero() {
       </h1>
       <div className="flex h-full w-540 flex-col px-195">
         <div className="flex h-full w-full flex-col justify-around py-15">
-          <div className="gap-10">
+          <div>
             <span className="font-body text-display leading-[30%]">R</span>
             <span className="font-body text-nav">éinventer</span>
           </div>
-          <div className="gap-10">
+          <div>
             <span className="font-body text-display leading-[30%]">R</span>
             <span className="font-body text-nav">
               éhabiliter <br />
@@ -39,7 +39,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <div className="relative w-540 items-start justify-start gap-10">
+      <div className="relative w-540">
         <Image
           className="h-270 self-stretch object-cover"
           src={imgHeroTop}

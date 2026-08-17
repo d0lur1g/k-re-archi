@@ -34,7 +34,8 @@
   --color-ink-inverse: #ffffff; /* texte sur fond inversé */
   --color-ink-muted: #404040; /* texte secondaire (tooltip), 10,37:1 sur surface */
   --color-line: #000000; /* trame de grille, séparateurs 1px et 3px */
-  --color-line-muted: #d4d4d4; /* bordure discrète ; 1,48:1 : non conforme 1.4.11 en frontière seule, à réévaluer */
+  /* line-muted (#d4d4d4) retiré le 18/08/2026 à la fermeture d'O6 : 1,48:1 sur
+     surface, non conforme WCAG 1.4.11 en frontière seule, et plus aucun usage. */
   --color-placeholder: #f5f5f5; /* fond d'attente des images (absorbe l'ancien neutral-200) */
   --color-overlay: #000000; /* voile photo, consommé à 70 % : from-overlay/70 */
   --color-social-facebook: #1877f2;

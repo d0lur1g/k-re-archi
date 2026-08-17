@@ -1,4 +1,4 @@
-import Link from "next/link";
+import BoutonSysteme from "@/components/ui/BoutonSysteme";
 
 export default function NotFound() {
   return (
@@ -8,12 +8,7 @@ export default function NotFound() {
       <p className="font-body text-body mb-32 max-w-448 text-center opacity-80">
         {"La page que vous recherchez n'existe pas ou a été déplacée."}
       </p>
-      <Link
-        href="/"
-        className="bg-surface text-ink font-body rounded-ui px-32 py-12 transition-opacity hover:opacity-90"
-      >
-        {"Retour à l'accueil"}
-      </Link>
+      <BoutonSysteme href="/">{"Retour à l'accueil"}</BoutonSysteme>
     </section>
   );
 }
