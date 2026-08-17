@@ -11,7 +11,7 @@ const allTracked = execSync("git ls-files", { cwd: ROOT, encoding: "utf8" })
   .split(/\r?\n/)
   .filter(Boolean);
 const files = allTracked.filter(
-  (f) => ELIGIBLE_EXT.test(f) && !f.includes("node_modules") && !/\.min\./.test(f),
+  (f) => ELIGIBLE_EXT.test(f) && !f.includes("node_modules") && !/\.min\./.test(f)
 );
 const svgFiles = allTracked.filter((f) => f.endsWith(".svg"));
 
@@ -54,7 +54,8 @@ for (const f of files) {
 }
 
 // ---- Extraction des classes Tailwind depuis les littéraux de chaîne ----
-const VARIANT = /^(hover|focus|focus-visible|active|disabled|group-hover|group-focus|max-2xl|max-lg|max-md|max-sm|max-xl|2xl|xl|lg|md|sm|dark|first|last|odd|even)$/;
+const VARIANT =
+  /^(hover|focus|focus-visible|active|disabled|group-hover|group-focus|max-2xl|max-lg|max-md|max-sm|max-xl|2xl|xl|lg|md|sm|dark|first|last|odd|even)$/;
 
 const CATEGORIES = [
   ["fontFamily", /^font-(amalfi|baiti)!?$/],
@@ -62,9 +63,15 @@ const CATEGORIES = [
   ["fontSize", /^text-(xs|sm|base|lg|xl|[2-9]xl)!?$/],
   ["fontSizeArbitrary", /^text-\[\d+(?:\.\d+)?(px|rem|em)\]!?$/],
   ["textAlign", /^text-(left|center|right|justify)!?$/],
-  ["textColor", /^text-(black|white|kre-black|kre-white|transparent|current|inherit|neutral-\d{2,3})(\/\d{1,3})?!?$/],
+  [
+    "textColor",
+    /^text-(black|white|kre-black|kre-white|transparent|current|inherit|neutral-\d{2,3})(\/\d{1,3})?!?$/,
+  ],
   ["bgColor", /^bg-(black|white|kre-black|kre-white|transparent|neutral-\d{2,3})(\/\d{1,3})?!?$/],
-  ["gradient", /^(bg-linear-to-(t|b|l|r|tl|tr|bl|br)|from-[a-z0-9/-]+|via-[a-z0-9/-]+|to-[a-z0-9/-]+)!?$/],
+  [
+    "gradient",
+    /^(bg-linear-to-(t|b|l|r|tl|tr|bl|br)|from-[a-z0-9/-]+|via-[a-z0-9/-]+|to-[a-z0-9/-]+)!?$/,
+  ],
   ["borderColor", /^border-(black|white|kre-black|kre-white|neutral-\d{2,3})!?$/],
   ["borderWidth", /^border(-[trblxye])?(-\d+)?!?$/],
   ["borderStyle", /^border-(solid|dashed|dotted|none)!?$/],
@@ -73,17 +80,27 @@ const CATEGORIES = [
   ["opacity", /^opacity-\d{1,3}!?$/],
   ["leading", /^leading-(none|tight|snug|normal|relaxed|loose|\d+|\[[^\]]+\])!?$/],
   ["tracking", /^tracking-[a-z-]+!?$/],
-  ["spacing", /^-?(p|px|py|pt|pr|pb|pl|m|mx|my|mt|mr|mb|ml|gap|gap-x|gap-y|space-x|space-y)-(\d+(?:\.\d+)?|auto|\[[^\]]+\])!?$/],
-  ["inset", /^-?(top|right|bottom|left|inset|inset-x|inset-y)-(\d+(?:\.\d+)?|auto|full|\[[^\]]+\])!?$/],
+  [
+    "spacing",
+    /^-?(p|px|py|pt|pr|pb|pl|m|mx|my|mt|mr|mb|ml|gap|gap-x|gap-y|space-x|space-y)-(\d+(?:\.\d+)?|auto|\[[^\]]+\])!?$/,
+  ],
+  [
+    "inset",
+    /^-?(top|right|bottom|left|inset|inset-x|inset-y)-(\d+(?:\.\d+)?|auto|full|\[[^\]]+\])!?$/,
+  ],
   ["translate", /^-?translate-(x|y)-(\d+(?:\.\d+)?|\[[^\]]+\])!?$/],
-  ["sizing", /^(w|h|min-w|max-w|min-h|max-h|size)-(\d+(?:\.\d+)?|full|auto|screen|min|max|fit|px|md|\[[^\]]+\])!?$/],
+  [
+    "sizing",
+    /^(w|h|min-w|max-w|min-h|max-h|size)-(\d+(?:\.\d+)?|full|auto|screen|min|max|fit|px|md|\[[^\]]+\])!?$/,
+  ],
   ["zIndex", /^-?z-(\d+|auto)!?$/],
   ["transition", /^(transition(-[a-z]+)?|duration-\d+|ease-[a-z-]+|delay-\d+)!?$/],
   ["animation", /^animate-[a-zA-Z-]+!?$/],
   ["filters", /^(grayscale|invert|blur|brightness|contrast|saturate|sepia)(-\d+)?!?$/],
 ];
 
-const LAYOUT_PREFIX = /^(flex|grid|items|justify|content|self|place|block|hidden|inline|inline-block|absolute|relative|fixed|sticky|static|overflow|object|shrink|grow|basis|order|col|row|sr-only|not-sr-only|line-clamp|whitespace|break|select|cursor|pointer-events|list|underline|no-underline|uppercase|lowercase|capitalize|normal-case|truncate|scroll|snap|touch|will-change|isolate|container|aspect|group|peer|scrollbar-hide|social-link|social-[a-z]+|antialiased|visible|invisible|collapse)/;
+const LAYOUT_PREFIX =
+  /^(flex|grid|items|justify|content|self|place|block|hidden|inline|inline-block|absolute|relative|fixed|sticky|static|overflow|object|shrink|grow|basis|order|col|row|sr-only|not-sr-only|line-clamp|whitespace|break|select|cursor|pointer-events|list|underline|no-underline|uppercase|lowercase|capitalize|normal-case|truncate|scroll|snap|touch|will-change|isolate|container|aspect|group|peer|scrollbar-hide|social-link|social-[a-z]+|antialiased|visible|invisible|collapse)/;
 
 function splitVariants(token) {
   const parts = [];
@@ -251,9 +268,9 @@ const out = {
         Object.entries(tokens).map(([tok, locs]) => [
           tok,
           { count: locs.length, locations: locs.map((l) => `${l.file}:${l.line}`) },
-        ]),
+        ])
       ),
-    ]),
+    ])
   ),
   variants: variantCount,
   unrecognized,

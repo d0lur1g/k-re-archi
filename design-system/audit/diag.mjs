@@ -32,16 +32,22 @@ function rgbToLab([r, g, b]) {
 
 // --- CIEDE2000 ---
 function deltaE2000(lab1, lab2) {
-  const [L1, a1, b1] = lab1, [L2, a2, b2] = lab2;
-  const rad = Math.PI / 180, deg = 180 / Math.PI;
-  const C1 = Math.hypot(a1, b1), C2 = Math.hypot(a2, b2);
+  const [L1, a1, b1] = lab1,
+    [L2, a2, b2] = lab2;
+  const rad = Math.PI / 180,
+    deg = 180 / Math.PI;
+  const C1 = Math.hypot(a1, b1),
+    C2 = Math.hypot(a2, b2);
   const Cbar = (C1 + C2) / 2;
   const G = 0.5 * (1 - Math.sqrt(Math.pow(Cbar, 7) / (Math.pow(Cbar, 7) + Math.pow(25, 7))));
-  const a1p = a1 * (1 + G), a2p = a2 * (1 + G);
-  const C1p = Math.hypot(a1p, b1), C2p = Math.hypot(a2p, b2);
-  const h1p = C1p === 0 ? 0 : ((Math.atan2(b1, a1p) * deg) + 360) % 360;
-  const h2p = C2p === 0 ? 0 : ((Math.atan2(b2, a2p) * deg) + 360) % 360;
-  const dLp = L2 - L1, dCp = C2p - C1p;
+  const a1p = a1 * (1 + G),
+    a2p = a2 * (1 + G);
+  const C1p = Math.hypot(a1p, b1),
+    C2p = Math.hypot(a2p, b2);
+  const h1p = C1p === 0 ? 0 : (Math.atan2(b1, a1p) * deg + 360) % 360;
+  const h2p = C2p === 0 ? 0 : (Math.atan2(b2, a2p) * deg + 360) % 360;
+  const dLp = L2 - L1,
+    dCp = C2p - C1p;
   let dhp = 0;
   if (C1p * C2p !== 0) {
     dhp = h2p - h1p;
@@ -49,20 +55,32 @@ function deltaE2000(lab1, lab2) {
     else if (dhp < -180) dhp += 360;
   }
   const dHp = 2 * Math.sqrt(C1p * C2p) * Math.sin((dhp / 2) * rad);
-  const Lbarp = (L1 + L2) / 2, Cbarp = (C1p + C2p) / 2;
+  const Lbarp = (L1 + L2) / 2,
+    Cbarp = (C1p + C2p) / 2;
   let hbarp = h1p + h2p;
   if (C1p * C2p !== 0) {
-    if (Math.abs(h1p - h2p) > 180) hbarp = h1p + h2p < 360 ? (h1p + h2p + 360) / 2 : (h1p + h2p - 360) / 2;
+    if (Math.abs(h1p - h2p) > 180)
+      hbarp = h1p + h2p < 360 ? (h1p + h2p + 360) / 2 : (h1p + h2p - 360) / 2;
     else hbarp = (h1p + h2p) / 2;
   }
-  const T = 1 - 0.17 * Math.cos((hbarp - 30) * rad) + 0.24 * Math.cos(2 * hbarp * rad) + 0.32 * Math.cos((3 * hbarp + 6) * rad) - 0.2 * Math.cos((4 * hbarp - 63) * rad);
+  const T =
+    1 -
+    0.17 * Math.cos((hbarp - 30) * rad) +
+    0.24 * Math.cos(2 * hbarp * rad) +
+    0.32 * Math.cos((3 * hbarp + 6) * rad) -
+    0.2 * Math.cos((4 * hbarp - 63) * rad);
   const dTheta = 30 * Math.exp(-Math.pow((hbarp - 275) / 25, 2));
   const RC = 2 * Math.sqrt(Math.pow(Cbarp, 7) / (Math.pow(Cbarp, 7) + Math.pow(25, 7)));
   const SL = 1 + (0.015 * Math.pow(Lbarp - 50, 2)) / Math.sqrt(20 + Math.pow(Lbarp - 50, 2));
   const SC = 1 + 0.045 * Cbarp;
   const SH = 1 + 0.015 * Cbarp * T;
   const RT = -Math.sin(2 * dTheta * rad) * RC;
-  return Math.sqrt(Math.pow(dLp / SL, 2) + Math.pow(dCp / SC, 2) + Math.pow(dHp / SH, 2) + RT * (dCp / SC) * (dHp / SH));
+  return Math.sqrt(
+    Math.pow(dLp / SL, 2) +
+      Math.pow(dCp / SC, 2) +
+      Math.pow(dHp / SH, 2) +
+      RT * (dCp / SC) * (dHp / SH)
+  );
 }
 
 // --- Contraste WCAG ---
@@ -75,18 +93,25 @@ function luminance([r, g, b]) {
   return 0.2126 * R + 0.7152 * G + 0.0722 * B;
 }
 function contrast(hex1, hex2) {
-  const l1 = luminance(hexToRgb(hex1)), l2 = luminance(hexToRgb(hex2));
+  const l1 = luminance(hexToRgb(hex1)),
+    l2 = luminance(hexToRgb(hex2));
   return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
 }
 function blend(fgHex, alpha, bgHex) {
-  const f = hexToRgb(fgHex), b = hexToRgb(bgHex);
+  const f = hexToRgb(fgHex),
+    b = hexToRgb(bgHex);
   const m = f.map((v, i) => Math.round(v * alpha + b[i] * (1 - alpha)));
   return "#" + m.map((x) => x.toString(16).padStart(2, "0")).join("");
 }
 
 // --- Conversion des neutres Tailwind v4 (oklch releve dans node_modules/tailwindcss/theme.css) ---
 console.log("== CONVERSIONS OKLCH -> HEX (Tailwind v4 theme.css) ==");
-const neutrals = { "neutral-100": 0.97, "neutral-200": 0.922, "neutral-300": 0.87, "neutral-700": 0.371 };
+const neutrals = {
+  "neutral-100": 0.97,
+  "neutral-200": 0.922,
+  "neutral-300": 0.87,
+  "neutral-700": 0.371,
+};
 const hexOf = {};
 for (const [name, L] of Object.entries(neutrals)) {
   hexOf[name] = oklchGrayToHex(L);
@@ -119,10 +144,26 @@ console.log("\n== CONTRASTES WCAG 2.2 (paires observees) ==");
 const pairs = [
   ["texte noir / fond blanc (site entier)", "#000000", "#ffffff"],
   ["texte blanc / fond noir (hovers, pages erreur)", "#ffffff", "#000000"],
-  ["texte neutral-700 / fond blanc (tooltip ProjectHeader.tsx:37)", hexOf["neutral-700"], "#ffffff"],
-  ["texte blanc opacity-60 / fond noir (error.tsx:21)", blend("#ffffff", 0.6, "#000000"), "#000000"],
-  ["texte blanc opacity-80 / fond noir (not-found.tsx:8, global-error.tsx:15)", blend("#ffffff", 0.8, "#000000"), "#000000"],
-  ["texte noir opacity-90 / fond blanc (hover boutons erreur)", blend("#000000", 0.9, "#ffffff"), "#ffffff"],
+  [
+    "texte neutral-700 / fond blanc (tooltip ProjectHeader.tsx:37)",
+    hexOf["neutral-700"],
+    "#ffffff",
+  ],
+  [
+    "texte blanc opacity-60 / fond noir (error.tsx:21)",
+    blend("#ffffff", 0.6, "#000000"),
+    "#000000",
+  ],
+  [
+    "texte blanc opacity-80 / fond noir (not-found.tsx:8, global-error.tsx:15)",
+    blend("#ffffff", 0.8, "#000000"),
+    "#000000",
+  ],
+  [
+    "texte noir opacity-90 / fond blanc (hover boutons erreur)",
+    blend("#000000", 0.9, "#ffffff"),
+    "#ffffff",
+  ],
   ["bordure noire / fond blanc (non textuel)", "#000000", "#ffffff"],
   ["icone facebook hover / fond blanc (non textuel)", "#1877f2", "#ffffff"],
   ["icone instagram hover / fond blanc (non textuel)", "#e4405f", "#ffffff"],
