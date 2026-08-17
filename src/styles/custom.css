@@ -1,124 +1,111 @@
 /*
-  Styles globaux personnalisés
-  Appliqués EN DERNIER pour override Tailwind si nécessaire
+  Styles de base personnalisés.
+  Placés dans les cascade layers Tailwind (base, components) : les utilitaires
+  (layer utilities, déclaré après) gardent la priorité, aucun suffixe ! n'est
+  nécessaire. Décision D5 du design system (design-system/DESIGN-SYSTEM.md).
 */
 
 /* ========================================
-   LAYOUT DE BASE HTML/BODY
-   ======================================== */
-html,
-body,
-:root {
-  height: 100%;
-}
+   BASE : layout html/body, resets d'éléments
+   ======================================== */
+@layer base {
+  html,
+  body,
+  :root {
+    height: 100%;
+  }
 
-html,
-body {
-  display: flex;
-  width: 100%;
-  font-family: var(--font-baiti), 600;
-  justify-content: center;
-  align-items: center;
-}
-
-body {
-  max-width: 1080px;
-  max-height: 1080px;
-  flex-direction: column;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 400;
-}
-
-/* ========================================
-   CONTENEUR PRINCIPAL
-   ======================================== */
-#root {
-  width: 100%;
-}
-
-/* ========================================
-   RESET ÉLÉMENTS INTERACTIFS
-   ======================================== */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-button {
-  background: none;
-  border: none;
-  outline: none;
-  box-shadow: none;
-  cursor: pointer;
-}
-
-/* Cache la scrollbar horizontale tout en permettant le scroll */
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
-/* Smooth scroll horizontal */
-.overflow-x-auto {
-  scroll-behavior: smooth;
-}
-
-.social-link {
-  transition:
-    color 0.3s ease-in-out,
-    transform 0.3s ease-in-out;
-}
-
-.social-link:hover {
-  transform: scale(1.1);
-}
-
-.social-facebook:hover {
-  color: #1877f2;
-}
-
-.social-instagram:hover {
-  color: #e4405f;
-}
-
-.social-pinterest:hover {
-  color: #e60023;
-}
-
-.social-linkedin:hover {
-  color: #0a66c2;
-}
-
-@media (max-width: 899px) {
   html,
   body {
-    display: block;
+    display: flex;
+    width: 100%;
+    font-family: var(--font-body);
+    justify-content: center;
+    align-items: center;
+  }
+
+  body {
+    max-width: 1080px;
+    max-height: 1080px;
+    flex-direction: column;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 400;
+  }
+
+  #root {
+    width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Indicateur de focus unique du site (décision D6) : currentColor garantit
+     le contraste sur fond clair comme sur fond inversé. */
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 899px) {
+    html,
+    body {
+      display: block;
+    }
   }
 }
 
 /* ========================================
-   ANIMATION
-   ======================================== */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+   COMPONENTS : classes réutilisables hors utilitaires
+   ======================================== */
+@layer components {
+  /* Cache la scrollbar horizontale tout en permettant le scroll */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
-  to {
-    opacity: 1;
-  }
-}
 
-.animate-fadeIn {
-  animation: fadeIn 0.3s ease-in-out;
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .social-link {
+    transition:
+      color 300ms ease-in-out,
+      transform 300ms ease-in-out;
+  }
+
+  .social-link:hover {
+    transform: scale(1.1);
+  }
+
+  .social-facebook:hover {
+    color: var(--color-social-facebook);
+  }
+
+  .social-instagram:hover {
+    color: var(--color-social-instagram);
+  }
+
+  .social-pinterest:hover {
+    color: var(--color-social-pinterest);
+  }
+
+  .social-linkedin:hover {
+    color: var(--color-social-linkedin);
+  }
 }

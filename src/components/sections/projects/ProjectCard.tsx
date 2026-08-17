@@ -29,7 +29,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link href={`/projects/${slug}`}>
       <div
-        className="group relative cursor-pointer overflow-hidden bg-neutral-100 transition-all duration-300 hover:shadow-lg"
+        className="group bg-placeholder relative cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-lg"
         style={{
           width: `${BASE_SIZE}px`,
           height: `${BASE_SIZE}px`,
@@ -45,7 +45,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           }}
         >
           {displayImages.map((image) => (
-            <div key={image.id} className="relative h-full w-full overflow-hidden bg-neutral-200">
+            <div key={image.id} className="bg-placeholder relative h-full w-full overflow-hidden">
               <Image
                 src={image.url}
                 alt={image.alt}
@@ -58,10 +58,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* Overlay avec titre au hover */}
-        <div className="absolute inset-0 flex items-end bg-linear-to-t from-black/70 to-transparent p-12 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <div className="font-baiti text-2xl leading-[100%] text-white">
+        <div className="from-overlay/70 absolute inset-0 flex items-end bg-linear-to-t to-transparent p-12 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <div className="font-body text-ink-inverse text-subtitle leading-flush">
             <p>{title}</p>
-            {location && <p className="font-amalfi pt-12 text-2xl">{location}</p>}
+            {location && <p className="font-display text-subtitle pt-12">{location}</p>}
           </div>
         </div>
       </div>

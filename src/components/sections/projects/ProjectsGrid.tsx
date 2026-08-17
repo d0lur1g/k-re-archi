@@ -25,7 +25,7 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
       {/* Zone de scroll horizontal */}
       <section
         ref={scrollRef}
-        className="scrollbar-hide flex h-855 w-full items-center overflow-x-auto overflow-y-hidden"
+        className="scrollbar-hide flex h-855 w-full items-center overflow-x-auto overflow-y-hidden scroll-smooth"
       >
         {/* Wrapper avec colonnes pour le scroll horizontal */}
         <div className="flex px-12" style={{ minWidth: "min-content" }}>

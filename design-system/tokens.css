@@ -4,8 +4,8 @@
   Généré le 2026-08-17. Snapshot source : 92699ee168a8b046e57ba09d9c2f69cb547481db (main).
   Couverture : code 100 % (35/35 fichiers), Figma en échantillon. Mode : outillé.
 
-  Usage : ce bloc @theme a vocation à remplacer le bloc @theme de src/styles/global.css
-  au lot 1 de MIGRATION.md. Il génère les utilitaires bg-surface, text-ink, border-line,
+  Usage : ce fichier est importé par src/styles/global.css (depuis le lot 1 de
+  MIGRATION.md). Il génère les utilitaires bg-surface, text-ink, border-line,
   font-display, text-heading, rounded-ui, max-canvas:, etc.
 
   Thèmes : non applicable. Le site est mono-thème (noir et blanc, décision D7) ;
@@ -33,17 +33,9 @@
   --color-social-pinterest: #e60023;
   --color-social-linkedin: #0a66c2;
 
-  /* Dépréciés : conservés le temps du lot 1 de migration, puis à supprimer. */
-  --color-kre-black: #000000;
-  --color-kre-white: #ffffff;
-
   /* === Typographie (source : tokens.json > semantic.font, text, leading) === */
   --font-display: var(--font-family-amalfi), "Courier New", sans-serif;
   --font-body: var(--font-family-baiti), "Courier New", sans-serif;
-
-  /* Dépréciés : alias historiques, à supprimer en fin de lot 2. */
-  --font-amalfi: var(--font-family-amalfi), "Courier New", sans-serif;
-  --font-baiti: var(--font-family-baiti), "Courier New", sans-serif;
 
   /* Échelle en px, iso-visuelle avec l'existant. Les écarts Figma (15, 35, 50 px)
      sont des décisions ouvertes : ne changer une valeur qu'après arbitrage. */

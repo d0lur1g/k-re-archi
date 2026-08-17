@@ -13,13 +13,13 @@ export default function ProjectHeader({ project }: ProjectHeaderProps) {
   const [showTooltip, setShowTooltip] = useState(false);
 
   return (
-    <section className="flex h-180 items-center bg-white">
+    <section className="bg-surface flex h-180 items-center">
       {/* Description à gauche - 720px */}
-      <div className="font-baiti h-full w-720 content-around border-b pr-24 pb-12 pl-12 text-justify">
-        <h1 className="mb-4 text-5xl">{title}</h1>
+      <div className="font-body h-full w-720 content-around border-b pr-24 pb-12 pl-12 text-justify">
+        <h1 className="text-heading mb-4">{title}</h1>
         <div className="relative">
           <p
-            className="line-clamp-6 text-[18px] leading-[100%]"
+            className="text-reading leading-flush line-clamp-6"
             onMouseEnter={(e) => {
               // Vérifier si le texte est tronqué
               const element = e.currentTarget;
@@ -33,8 +33,8 @@ export default function ProjectHeader({ project }: ProjectHeaderProps) {
           </p>
           {/* Tooltip au survol */}
           {showTooltip && description && (
-            <div className="absolute z-50 mt-2 w-full rounded-lg border border-neutral-300 bg-white p-4">
-              <p className="text-[18px] leading-[100%] text-neutral-700">{description}</p>
+            <div className="border-line-muted bg-surface absolute z-50 mt-2 w-full rounded-lg border p-4">
+              <p className="text-ink-muted text-reading leading-flush">{description}</p>
             </div>
           )}
         </div>
@@ -45,18 +45,18 @@ export default function ProjectHeader({ project }: ProjectHeaderProps) {
         <div className="flex flex-row justify-between pr-12">
           {category && (
             <div>
-              <p className="font-baiti text-3xl">{category.name}</p>
+              <p className="font-body text-nav">{category.name}</p>
             </div>
           )}
 
           {category && (
             <div>
-              <p className="font-baiti inline-block h-full content-end-safe text-xl">{budget}</p>
+              <p className="font-body text-meta inline-block h-full content-end-safe">{budget}</p>
             </div>
           )}
         </div>
 
-        <div className="font-baiti flex w-full flex-row justify-between border-t-3 pr-12 text-xl">
+        <div className="font-body text-meta flex w-full flex-row justify-between border-t-3 pr-12">
           {year && (
             <div>
               <p className="">{year}</p>

@@ -12,30 +12,30 @@ export default function Hero() {
       <div className="flex h-full w-540 flex-col px-195">
         <div className="flex h-full w-full flex-col justify-around py-15">
           <div className="gap-10">
-            <span className="font-baiti text-6xl leading-[30%]">R</span>
-            <span className="font-baiti text-3xl">éinventer</span>
+            <span className="font-body text-display leading-[30%]">R</span>
+            <span className="font-body text-nav">éinventer</span>
           </div>
           <div className="gap-10">
-            <span className="font-baiti text-6xl leading-[30%]">R</span>
-            <span className="font-baiti text-3xl font-medium">
+            <span className="font-body text-display leading-[30%]">R</span>
+            <span className="font-body text-nav">
               éhabiliter <br />
             </span>
           </div>
           <div>
-            <span className="font-baiti text-6xl leading-[30%]">R</span>
-            <span className="font-baiti text-3xl">
+            <span className="font-body text-display leading-[30%]">R</span>
+            <span className="font-body text-nav">
               énover <br />
             </span>
           </div>
           <div>
-            <span className="font-baiti text-6xl leading-[30%]">R</span>
-            <span className="font-baiti text-3xl">
+            <span className="font-body text-display leading-[30%]">R</span>
+            <span className="font-body text-nav">
               éaliser <br />
             </span>
           </div>
           <div>
-            <span className="font-baiti text-6xl leading-[30%]">R</span>
-            <span className="font-baiti text-3xl">êver</span>
+            <span className="font-body text-display leading-[30%]">R</span>
+            <span className="font-body text-nav">êver</span>
           </div>
         </div>
       </div>

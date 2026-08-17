@@ -53,27 +53,34 @@ Chaque page doit tenir dans le budget de 855 px du `<main>` :
 - accueil : Hero 270 + Présentation 180 + Gallery 405
 - page projet : ProjectHeader 180 + ProjectGallery 630 + ProjectNavigation 45
 
-Tailwind v4 est configuré avec `--spacing: 1px` dans `src/styles/global.css`. Les classes
+Tailwind v4 est configuré avec `--spacing: 1px` dans `design-system/tokens.css`. Les classes
 numériques valent donc des pixels : `h-855` = 855 px, `w-540` = 540 px, `px-12` = 12 px.
 Le breakpoint `2xl` est redéfini à 1080 px (`max-2xl:` = sous le canvas).
 
 ## Styles
 
-- `src/styles/global.css` : `@import "tailwindcss"` + bloc `@theme` (polices, spacing, breakpoint).
+- `src/styles/global.css` : `@import "tailwindcss"` + `@import "../../design-system/tokens.css"`
+  (le bloc `@theme` vit dans les tokens du design system, source : `design-system/tokens.json`).
+  Les composants consomment la couche sémantique : `bg-surface`, `text-ink`, `border-line`,
+  jamais `bg-black`, `text-white` ni un hex.
 - `src/styles/custom.css` : chargé **après**, peut écraser Tailwind (reset, scrollbar, réseaux sociaux).
 - Une classe utilitaire dont le token n'existe pas dans `@theme` n'est **pas** générée et échoue
   en silence. Vérifier que la couleur ou la taille utilisée est bien déclarée.
-- `custom.css` n'appartient à aucun cascade layer, alors que les utilitaires Tailwind vivent dans
-  `@layer utilities`. Ses règles d'élément — `a { color: inherit }`, `button { background: none }` —
-  l'emportent donc sur les utilitaires **quelle que soit la spécificité**. Colorer un lien ou donner
-  un fond à un bouton exige le suffixe `!` : `text-kre-black!`, `bg-kre-white!`. C'est la raison des
-  `hover:text-white!` du `Footer`.
+- `custom.css` vit dans les cascade layers Tailwind (`@layer base` pour les resets,
+  `@layer components` pour scrollbar et réseaux sociaux) : les utilitaires l'emportent
+  toujours, le suffixe `!` est interdit (décision D5, voir
+  [design-system/DESIGN-SYSTEM.md](design-system/DESIGN-SYSTEM.md)).
+- L'indicateur de focus clavier du site est défini une seule fois dans `custom.css`
+  (`:focus-visible`, décision D6) : ne pas poser d'`outline: none` ni de style de focus local.
 
 ## Polices
 
 `src/assets/fonts/fonts.ts` expose `amalfi` (titres, accents) et `baiti` (texte courant), chargées
 en local via `next/font/local`. Elles sont importées **avant** les CSS dans `src/app/layout.tsx`.
-Utilisation : classes `font-amalfi` / `font-baiti`.
+Utilisation : classes sémantiques `font-display` (Amalfi, accents) / `font-body` (Baiti, texte
+courant). Les tailles passent par l'échelle de rôle du design system (`text-caption` 14px à
+`text-giant` 120px, voir `design-system/tokens.css`) : l'échelle rem par défaut de Tailwind
+(`text-sm`, `text-xl`...) est interdite (décision D4).
 
 ## SVG
 

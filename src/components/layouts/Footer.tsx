@@ -36,13 +36,13 @@ export default function Footer() {
         <div className="flex h-full w-180 items-center justify-center">
           <LogoOrderArchitects className="h-auto w-full" />
         </div>
-        <div className="font-baiti mb-4 flex h-full">
+        <div className="font-body mb-4 flex h-full">
           <nav className="flex h-full content-center">
             {footerLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="flex h-full w-180 items-center justify-around text-black transition-colors duration-300 ease-in-out hover:bg-black hover:text-white!"
+                className="text-ink hover:bg-surface-inverse hover:text-ink-inverse flex h-full w-180 items-center justify-around transition-colors duration-300 ease-in-out"
               >
                 {link.label}
               </Link>
