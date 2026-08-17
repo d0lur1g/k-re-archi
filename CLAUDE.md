@@ -77,7 +77,10 @@ Le breakpoint `2xl` est redéfini à 1080 px (`max-2xl:` = sous le canvas).
 
 `src/assets/fonts/fonts.ts` expose `amalfi` (titres, accents) et `baiti` (texte courant), chargées
 en local via `next/font/local`. Elles sont importées **avant** les CSS dans `src/app/layout.tsx`.
-Utilisation : classes `font-amalfi` / `font-baiti`.
+Utilisation : classes sémantiques `font-display` (Amalfi, accents) / `font-body` (Baiti, texte
+courant). Les tailles passent par l'échelle de rôle du design system (`text-caption` 14px à
+`text-giant` 120px, voir `design-system/tokens.css`) : l'échelle rem par défaut de Tailwind
+(`text-sm`, `text-xl`...) est interdite (décision D4).
 
 ## SVG
 

@@ -59,9 +59,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
         {/* Overlay avec titre au hover */}
         <div className="from-overlay/70 absolute inset-0 flex items-end bg-linear-to-t to-transparent p-12 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <div className="font-baiti text-ink-inverse text-2xl leading-[100%]">
+          <div className="font-body text-ink-inverse text-subtitle leading-flush">
             <p>{title}</p>
-            {location && <p className="font-amalfi pt-12 text-2xl">{location}</p>}
+            {location && <p className="font-display text-subtitle pt-12">{location}</p>}
           </div>
         </div>
       </div>

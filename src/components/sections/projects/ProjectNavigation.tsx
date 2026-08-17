@@ -9,7 +9,7 @@ interface ProjectNavigationProps {
 
 export default function ProjectNavigation({ previousSlug, nextSlug }: ProjectNavigationProps) {
   return (
-    <nav className="font-baiti bg-surface flex h-45 items-center text-2xl">
+    <nav className="font-body bg-surface text-subtitle flex h-45 items-center">
       {previousSlug ? (
         <Link
           href={`/projects/${previousSlug}`}

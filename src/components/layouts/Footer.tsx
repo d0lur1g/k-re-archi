@@ -36,7 +36,7 @@ export default function Footer() {
         <div className="flex h-full w-180 items-center justify-center">
           <LogoOrderArchitects className="h-auto w-full" />
         </div>
-        <div className="font-baiti mb-4 flex h-full">
+        <div className="font-body mb-4 flex h-full">
           <nav className="flex h-full content-center">
             {footerLinks.map((link) => (
               <Link

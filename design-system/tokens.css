@@ -37,10 +37,6 @@
   --font-display: var(--font-family-amalfi), "Courier New", sans-serif;
   --font-body: var(--font-family-baiti), "Courier New", sans-serif;
 
-  /* Dépréciés : alias historiques, à supprimer en fin de lot 2. */
-  --font-amalfi: var(--font-family-amalfi), "Courier New", sans-serif;
-  --font-baiti: var(--font-family-baiti), "Courier New", sans-serif;
-
   /* Échelle en px, iso-visuelle avec l'existant. Les écarts Figma (15, 35, 50 px)
      sont des décisions ouvertes : ne changer une valeur qu'après arbitrage. */
   --text-caption: 14px; /* mention secondaire */

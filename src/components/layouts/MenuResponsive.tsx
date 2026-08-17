@@ -27,21 +27,21 @@ export default function MenuResponsive({ closeMenu }: MenuResponsiveProps) {
       {/* Navigation - Même style que les liens desktop avec bordures */}
       <nav className="flex w-full max-w-540 flex-col items-stretch">
         <Link
-          className="font-baiti hover:font-amalfi border-line text-ink flex h-90 items-center justify-center border-b border-solid text-4xl transition-all duration-300 ease-in hover:text-xl"
+          className="font-body hover:font-display border-line text-ink text-tagline hover:text-meta flex h-90 items-center justify-center border-b border-solid transition-all duration-300 ease-in"
           href="/projects"
           onClick={closeMenu}
         >
           Projets
         </Link>
         <Link
-          className="font-baiti hover:font-amalfi border-line text-ink flex h-90 items-center justify-center border-b border-solid text-4xl transition-all duration-300 ease-in hover:text-xl"
+          className="font-body hover:font-display border-line text-ink text-tagline hover:text-meta flex h-90 items-center justify-center border-b border-solid transition-all duration-300 ease-in"
           href="/missions"
           onClick={closeMenu}
         >
           Missions
         </Link>
         <Link
-          className="font-baiti hover:font-amalfi border-line text-ink flex h-90 items-center justify-center border-b border-solid text-4xl transition-all duration-300 ease-in hover:text-xl"
+          className="font-body hover:font-display border-line text-ink text-tagline hover:text-meta flex h-90 items-center justify-center border-b border-solid transition-all duration-300 ease-in"
           href="/contact"
           onClick={closeMenu}
         >

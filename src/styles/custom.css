@@ -19,7 +19,7 @@
   body {
     display: flex;
     width: 100%;
-    font-family: var(--font-baiti);
+    font-family: var(--font-body);
     justify-content: center;
     align-items: center;
   }
