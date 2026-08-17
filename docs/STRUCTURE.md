@@ -24,6 +24,18 @@ k-re-archi/
 │   └── pre-commit
 ├── .vscode/
 │   └── settings.json
+├── design-system/
+│   ├── audit/
+│   │   ├── diag.mjs
+│   │   ├── inventaire-phase1.json
+│   │   └── scan.mjs
+│   ├── CHECKLIST-RECETTE.md
+│   ├── COMPONENTS.md
+│   ├── DESIGN-SYSTEM.md
+│   ├── GOVERNANCE.md
+│   ├── MIGRATION.md
+│   ├── tokens.css
+│   └── tokens.json
 ├── docs/
 │   ├── ROADMAP.md
 │   └── STRUCTURE.md

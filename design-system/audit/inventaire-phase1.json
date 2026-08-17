@@ -1,0 +1,682 @@
+{
+  "meta": {
+    "snapshot": "92699ee168a8b046e57ba09d9c2f69cb547481db",
+    "date": "2026-08-17",
+    "fichiers_scannes": 35,
+    "fichiers_eligibles": 35,
+    "svg_scannes": 7,
+    "couverture": "100%",
+    "mode": "outille",
+    "procedure": "scan.mjs + diag.mjs (scratchpad session)"
+  },
+  "css": {
+    "hex": {
+      "#1877f2": { "n": 1, "loc": ["src/styles/custom.css:88"] },
+      "#e4405f": { "n": 1, "loc": ["src/styles/custom.css:92"] },
+      "#e60023": { "n": 1, "loc": ["src/styles/custom.css:96"] },
+      "#0a66c2": { "n": 1, "loc": ["src/styles/custom.css:100"] },
+      "#000000": { "n": 1, "loc": ["src/styles/global.css:10"] },
+      "#ffffff": { "n": 1, "loc": ["src/styles/global.css:11"] }
+    },
+    "typographie": {
+      "font-family: var(--font-baiti), 600": { "n": 1, "loc": ["src/styles/custom.css:19"] },
+      "font-weight: 400": { "n": 1, "loc": ["src/styles/custom.css:36"] }
+    },
+    "media": { "@media (max-width: 899px)": { "n": 1, "loc": ["src/styles/custom.css:103"] } },
+    "animation": {
+      "transition:\n    color 0.3s ease-in-out,\n    transform 0.3s ease-in-out": {
+        "n": 1,
+        "loc": ["src/styles/custom.css:78"]
+      },
+      "animation: fadein 0.3s ease-in-out": { "n": 1, "loc": ["src/styles/custom.css:123"] }
+    },
+    "bordures_opacite": {
+      "box-shadow: none": { "n": 1, "loc": ["src/styles/custom.css:58"] },
+      "opacity: 0": { "n": 1, "loc": ["src/styles/custom.css:115"] },
+      "opacity: 1": { "n": 1, "loc": ["src/styles/custom.css:118"] }
+    }
+  },
+  "tailwind": {
+    "bgColor": {
+      "bg-white": {
+        "n": 7,
+        "loc": [
+          "src/app/global-error.tsx:18",
+          "src/app/layout.tsx:42",
+          "src/components/layouts/MenuResponsive.tsx:26"
+        ]
+      },
+      "hover:bg-black": {
+        "n": 5,
+        "loc": [
+          "src/components/layouts/Footer.tsx:45",
+          "src/components/layouts/Header.tsx:20",
+          "src/components/layouts/Header.tsx:67"
+        ]
+      },
+      "bg-kre-black": {
+        "n": 3,
+        "loc": ["src/app/error.tsx:18", "src/app/loading.tsx:3", "src/app/not-found.tsx:5"]
+      },
+      "bg-black": { "n": 2, "loc": ["src/app/global-error.tsx:12", "src/app/layout.tsx:39"] },
+      "bg-neutral-100": {
+        "n": 2,
+        "loc": [
+          "src/components/sections/projects/ProjectCard.tsx:32",
+          "src/components/sections/projects/ProjectGallery.tsx:31"
+        ]
+      },
+      "bg-kre-white!": { "n": 1, "loc": ["src/app/error.tsx:28"] },
+      "bg-kre-white": { "n": 1, "loc": ["src/app/not-found.tsx:15"] },
+      "bg-neutral-200": { "n": 1, "loc": ["src/components/sections/projects/ProjectCard.tsx:48"] }
+    },
+    "textColor": {
+      "text-black": {
+        "n": 7,
+        "loc": [
+          "src/app/global-error.tsx:18",
+          "src/components/layouts/Footer.tsx:45",
+          "src/components/layouts/Header.tsx:22"
+        ]
+      },
+      "text-kre-white": {
+        "n": 3,
+        "loc": ["src/app/error.tsx:18", "src/app/loading.tsx:4", "src/app/not-found.tsx:5"]
+      },
+      "hover:text-white!": {
+        "n": 3,
+        "loc": [
+          "src/components/layouts/Footer.tsx:45",
+          "src/components/sections/projects/ProjectNavigation.tsx:16",
+          "src/components/sections/projects/ProjectNavigation.tsx:28"
+        ]
+      },
+      "text-white": {
+        "n": 2,
+        "loc": [
+          "src/app/global-error.tsx:12",
+          "src/components/sections/projects/ProjectCard.tsx:62"
+        ]
+      },
+      "group-hover:text-white": {
+        "n": 2,
+        "loc": ["src/components/layouts/Header.tsx:22", "src/components/layouts/Header.tsx:25"]
+      },
+      "text-kre-black": { "n": 1, "loc": ["src/app/error.tsx:28"] },
+      "text-kre-black!": { "n": 1, "loc": ["src/app/not-found.tsx:15"] },
+      "text-neutral-700": {
+        "n": 1,
+        "loc": ["src/components/sections/projects/ProjectHeader.tsx:37"]
+      }
+    },
+    "sizing": {
+      "h-full": {
+        "n": 21,
+        "loc": ["src/app/error.tsx:18", "src/app/loading.tsx:3", "src/app/not-found.tsx:5"]
+      },
+      "w-full": {
+        "n": 19,
+        "loc": [
+          "src/app/layout.tsx:42",
+          "src/components/layouts/Footer.tsx:37",
+          "src/components/layouts/MenuResponsive.tsx:26"
+        ]
+      },
+      "w-180": {
+        "n": 9,
+        "loc": [
+          "src/components/layouts/Footer.tsx:36",
+          "src/components/layouts/Footer.tsx:45",
+          "src/components/layouts/Footer.tsx:57"
+        ]
+      },
+      "h-90": {
+        "n": 7,
+        "loc": [
+          "src/components/layouts/Header.tsx:47",
+          "src/components/layouts/Header.tsx:53",
+          "src/components/layouts/Header.tsx:59"
+        ]
+      },
+      "max-2xl:w-full": {
+        "n": 6,
+        "loc": [
+          "src/components/layouts/Header.tsx:16",
+          "src/components/layouts/Header.tsx:31",
+          "src/components/layouts/Header.tsx:44"
+        ]
+      },
+      "h-180": {
+        "n": 5,
+        "loc": [
+          "src/components/layouts/Header.tsx:16",
+          "src/components/layouts/Header.tsx:20",
+          "src/components/layouts/Header.tsx:31"
+        ]
+      },
+      "max-w-md": {
+        "n": 3,
+        "loc": ["src/app/error.tsx:21", "src/app/global-error.tsx:15", "src/app/not-found.tsx:8"]
+      },
+      "w-360": {
+        "n": 3,
+        "loc": [
+          "src/components/layouts/Footer.tsx:51",
+          "src/components/layouts/Header.tsx:31",
+          "src/components/sections/homepage/Presentation.tsx:8"
+        ]
+      },
+      "w-540": {
+        "n": 3,
+        "loc": [
+          "src/components/sections/homepage/Gallery.tsx:9",
+          "src/components/sections/homepage/Hero.tsx:12",
+          "src/components/sections/homepage/Hero.tsx:42"
+        ]
+      },
+      "h-855": {
+        "n": 2,
+        "loc": ["src/app/layout.tsx:44", "src/components/sections/projects/ProjectsGrid.tsx:28"]
+      },
+      "h-45": {
+        "n": 2,
+        "loc": [
+          "src/components/layouts/Footer.tsx:35",
+          "src/components/sections/projects/ProjectNavigation.tsx:12"
+        ]
+      },
+      "max-2xl:h-auto": {
+        "n": 2,
+        "loc": ["src/components/layouts/Header.tsx:20", "src/components/layouts/Header.tsx:31"]
+      },
+      "h-6": {
+        "n": 2,
+        "loc": ["src/components/layouts/Header.tsx:72", "src/components/layouts/Header.tsx:72"]
+      },
+      "w-6": {
+        "n": 2,
+        "loc": ["src/components/layouts/Header.tsx:72", "src/components/layouts/Header.tsx:72"]
+      },
+      "h-270": {
+        "n": 2,
+        "loc": [
+          "src/components/sections/homepage/Hero.tsx:6",
+          "src/components/sections/homepage/Hero.tsx:44"
+        ]
+      },
+      "w-720": {
+        "n": 2,
+        "loc": [
+          "src/components/sections/homepage/Presentation.tsx:14",
+          "src/components/sections/projects/ProjectHeader.tsx:18"
+        ]
+      },
+      "min-h-screen": { "n": 1, "loc": ["src/app/global-error.tsx:13"] },
+      "min-h-[calc(100dvh-2rem)]": { "n": 1, "loc": ["src/app/layout.tsx:40"] },
+      "max-w-1080": { "n": 1, "loc": ["src/app/layout.tsx:42"] },
+      "h-auto": { "n": 1, "loc": ["src/components/layouts/Footer.tsx:37"] },
+      "h-34": { "n": 1, "loc": ["src/components/layouts/Footer.tsx:67"] },
+      "w-34": { "n": 1, "loc": ["src/components/layouts/Footer.tsx:67"] },
+      "max-2xl:h-90": { "n": 1, "loc": ["src/components/layouts/Header.tsx:16"] },
+      "max-2xl:max-w-90": { "n": 1, "loc": ["src/components/layouts/Header.tsx:20"] },
+      "max-2xl:min-w-90": { "n": 1, "loc": ["src/components/layouts/Header.tsx:20"] },
+      "max-2xl:min-w-180": { "n": 1, "loc": ["src/components/layouts/Header.tsx:31"] },
+      "max-lg:w-auto": { "n": 1, "loc": ["src/components/layouts/Header.tsx:44"] },
+      "w-90": { "n": 1, "loc": ["src/components/layouts/Header.tsx:67"] },
+      "max-lg:min-h-90": { "n": 1, "loc": ["src/components/layouts/Header.tsx:67"] },
+      "max-lg:min-w-90": { "n": 1, "loc": ["src/components/layouts/Header.tsx:67"] },
+      "h-[calc(100dvh-180px)]": { "n": 1, "loc": ["src/components/layouts/MenuResponsive.tsx:26"] },
+      "max-lg:h-[calc(100dvh-90px)]": {
+        "n": 1,
+        "loc": ["src/components/layouts/MenuResponsive.tsx:26"]
+      },
+      "max-w-540": { "n": 1, "loc": ["src/components/layouts/MenuResponsive.tsx:28"] },
+      "h-405": { "n": 1, "loc": ["src/components/sections/homepage/Gallery.tsx:6"] },
+      "w-1080": { "n": 1, "loc": ["src/components/sections/homepage/Gallery.tsx:6"] },
+      "h-108": { "n": 1, "loc": ["src/components/sections/homepage/Presentation.tsx:15"] },
+      "h-72": { "n": 1, "loc": ["src/components/sections/homepage/Presentation.tsx:26"] },
+      "h-630": { "n": 1, "loc": ["src/components/sections/projects/ProjectGallery.tsx:20"] }
+    },
+    "spacing": {
+      "mb-4": {
+        "n": 5,
+        "loc": [
+          "src/app/error.tsx:19",
+          "src/app/global-error.tsx:14",
+          "src/app/global-error.tsx:15"
+        ]
+      },
+      "px-12": {
+        "n": 5,
+        "loc": [
+          "src/components/sections/homepage/Presentation.tsx:8",
+          "src/components/sections/projects/ProjectGallery.tsx:23",
+          "src/components/sections/projects/ProjectNavigation.tsx:16"
+        ]
+      },
+      "px-4": {
+        "n": 3,
+        "loc": ["src/app/error.tsx:18", "src/app/global-error.tsx:13", "src/app/not-found.tsx:5"]
+      },
+      "max-2xl:p-4": {
+        "n": 3,
+        "loc": [
+          "src/components/layouts/Header.tsx:47",
+          "src/components/layouts/Header.tsx:53",
+          "src/components/layouts/Header.tsx:59"
+        ]
+      },
+      "gap-10": {
+        "n": 3,
+        "loc": [
+          "src/components/sections/homepage/Hero.tsx:14",
+          "src/components/sections/homepage/Hero.tsx:18",
+          "src/components/sections/homepage/Hero.tsx:42"
+        ]
+      },
+      "mb-2": { "n": 2, "loc": ["src/app/error.tsx:20", "src/app/not-found.tsx:7"] },
+      "mb-8": { "n": 2, "loc": ["src/app/error.tsx:21", "src/app/not-found.tsx:8"] },
+      "px-8": { "n": 2, "loc": ["src/app/error.tsx:28", "src/app/not-found.tsx:15"] },
+      "py-3": { "n": 2, "loc": ["src/app/error.tsx:28", "src/app/not-found.tsx:15"] },
+      "px-6": {
+        "n": 2,
+        "loc": [
+          "src/app/global-error.tsx:18",
+          "src/components/sections/homepage/Presentation.tsx:14"
+        ]
+      },
+      "py-2": {
+        "n": 2,
+        "loc": ["src/app/global-error.tsx:18", "src/components/sections/homepage/Gallery.tsx:9"]
+      },
+      "p-4": {
+        "n": 2,
+        "loc": ["src/app/layout.tsx:39", "src/components/sections/projects/ProjectHeader.tsx:36"]
+      },
+      "pr-12": {
+        "n": 2,
+        "loc": [
+          "src/components/sections/projects/ProjectHeader.tsx:45",
+          "src/components/sections/projects/ProjectHeader.tsx:59"
+        ]
+      },
+      "gap-2": {
+        "n": 2,
+        "loc": [
+          "src/components/sections/projects/ProjectNavigation.tsx:16",
+          "src/components/sections/projects/ProjectNavigation.tsx:28"
+        ]
+      },
+      "my-auto": { "n": 1, "loc": ["src/app/layout.tsx:42"] },
+      "mt-4": { "n": 1, "loc": ["src/app/not-found.tsx:7"] },
+      "gap-2.5": { "n": 1, "loc": ["src/components/layouts/Header.tsx:20"] },
+      "pb-10": { "n": 1, "loc": ["src/components/layouts/Header.tsx:20"] },
+      "pr-10": { "n": 1, "loc": ["src/components/layouts/Header.tsx:22"] },
+      "pt-15": { "n": 1, "loc": ["src/components/layouts/Header.tsx:31"] },
+      "pr-5": { "n": 1, "loc": ["src/components/layouts/Header.tsx:31"] },
+      "pb-5": { "n": 1, "loc": ["src/components/layouts/Header.tsx:31"] },
+      "pl-15": { "n": 1, "loc": ["src/components/layouts/Header.tsx:31"] },
+      "max-2xl:p-5": { "n": 1, "loc": ["src/components/layouts/Header.tsx:31"] },
+      "px-195": { "n": 1, "loc": ["src/components/sections/homepage/Hero.tsx:12"] },
+      "py-15": { "n": 1, "loc": ["src/components/sections/homepage/Hero.tsx:13"] },
+      "py-30": { "n": 1, "loc": ["src/components/sections/homepage/Presentation.tsx:8"] },
+      "p-12": { "n": 1, "loc": ["src/components/sections/projects/ProjectCard.tsx:61"] },
+      "pt-12": { "n": 1, "loc": ["src/components/sections/projects/ProjectCard.tsx:64"] },
+      "gap-6": { "n": 1, "loc": ["src/components/sections/projects/ProjectGallery.tsx:23"] },
+      "py-12": { "n": 1, "loc": ["src/components/sections/projects/ProjectGallery.tsx:20"] },
+      "pr-24": { "n": 1, "loc": ["src/components/sections/projects/ProjectHeader.tsx:18"] },
+      "pb-12": { "n": 1, "loc": ["src/components/sections/projects/ProjectHeader.tsx:18"] },
+      "pl-12": { "n": 1, "loc": ["src/components/sections/projects/ProjectHeader.tsx:18"] },
+      "mt-2": { "n": 1, "loc": ["src/components/sections/projects/ProjectHeader.tsx:36"] }
+    },
+    "fontFamily": {
+      "font-baiti": {
+        "n": 33,
+        "loc": ["src/app/error.tsx:20", "src/app/error.tsx:21", "src/app/error.tsx:28"]
+      },
+      "font-amalfi": {
+        "n": 11,
+        "loc": ["src/app/error.tsx:19", "src/app/loading.tsx:4", "src/app/not-found.tsx:6"]
+      },
+      "hover:font-amalfi": {
+        "n": 6,
+        "loc": [
+          "src/components/layouts/Header.tsx:47",
+          "src/components/layouts/Header.tsx:53",
+          "src/components/layouts/Header.tsx:59"
+        ]
+      }
+    },
+    "fontSize": {
+      "text-3xl": {
+        "n": 10,
+        "loc": [
+          "src/app/not-found.tsx:7",
+          "src/components/layouts/Header.tsx:47",
+          "src/components/layouts/Header.tsx:53"
+        ]
+      },
+      "text-6xl": {
+        "n": 7,
+        "loc": [
+          "src/app/error.tsx:19",
+          "src/components/layouts/Header.tsx:25",
+          "src/components/sections/homepage/Hero.tsx:15"
+        ]
+      },
+      "text-5xl": {
+        "n": 6,
+        "loc": [
+          "src/app/global-error.tsx:14",
+          "src/components/layouts/Header.tsx:22",
+          "src/components/layouts/Header.tsx:35"
+        ]
+      },
+      "max-2xl:text-2xl": {
+        "n": 6,
+        "loc": [
+          "src/components/layouts/Header.tsx:22",
+          "src/components/layouts/Header.tsx:25",
+          "src/components/layouts/Header.tsx:31"
+        ]
+      },
+      "hover:text-xl": {
+        "n": 6,
+        "loc": [
+          "src/components/layouts/Header.tsx:47",
+          "src/components/layouts/Header.tsx:53",
+          "src/components/layouts/Header.tsx:59"
+        ]
+      },
+      "text-2xl": {
+        "n": 5,
+        "loc": [
+          "src/app/error.tsx:20",
+          "src/app/loading.tsx:4",
+          "src/components/sections/projects/ProjectCard.tsx:62"
+        ]
+      },
+      "text-4xl": {
+        "n": 4,
+        "loc": [
+          "src/components/layouts/Header.tsx:31",
+          "src/components/layouts/MenuResponsive.tsx:30",
+          "src/components/layouts/MenuResponsive.tsx:37"
+        ]
+      },
+      "max-2xl:text-3xl": {
+        "n": 3,
+        "loc": [
+          "src/components/layouts/Header.tsx:35",
+          "src/components/layouts/Header.tsx:37",
+          "src/components/layouts/Header.tsx:39"
+        ]
+      },
+      "text-xl": {
+        "n": 2,
+        "loc": [
+          "src/components/sections/projects/ProjectHeader.tsx:54",
+          "src/components/sections/projects/ProjectHeader.tsx:59"
+        ]
+      },
+      "text-sm": { "n": 1, "loc": ["src/app/error.tsx:21"] },
+      "text-base": { "n": 1, "loc": ["src/app/not-found.tsx:8"] }
+    },
+    "textAlign": {
+      "text-center": {
+        "n": 3,
+        "loc": ["src/app/error.tsx:21", "src/app/global-error.tsx:15", "src/app/not-found.tsx:8"]
+      },
+      "text-justify": { "n": 1, "loc": ["src/components/sections/projects/ProjectHeader.tsx:18"] }
+    },
+    "opacity": {
+      "hover:opacity-90": { "n": 2, "loc": ["src/app/error.tsx:28", "src/app/not-found.tsx:15"] },
+      "opacity-80": { "n": 2, "loc": ["src/app/global-error.tsx:15", "src/app/not-found.tsx:8"] },
+      "opacity-60": { "n": 1, "loc": ["src/app/error.tsx:21"] },
+      "opacity-0": { "n": 1, "loc": ["src/components/sections/projects/ProjectCard.tsx:61"] },
+      "group-hover:opacity-100": {
+        "n": 1,
+        "loc": ["src/components/sections/projects/ProjectCard.tsx:61"]
+      }
+    },
+    "radius": {
+      "rounded-sm": { "n": 2, "loc": ["src/app/error.tsx:28", "src/app/not-found.tsx:15"] },
+      "rounded": { "n": 1, "loc": ["src/app/global-error.tsx:18"] },
+      "rounded-lg": { "n": 1, "loc": ["src/components/sections/projects/ProjectHeader.tsx:36"] }
+    },
+    "transition": {
+      "duration-300": {
+        "n": 15,
+        "loc": [
+          "src/components/layouts/Footer.tsx:45",
+          "src/components/layouts/Header.tsx:20",
+          "src/components/layouts/Header.tsx:22"
+        ]
+      },
+      "transition-all": {
+        "n": 10,
+        "loc": [
+          "src/components/layouts/Header.tsx:20",
+          "src/components/layouts/Header.tsx:47",
+          "src/components/layouts/Header.tsx:53"
+        ]
+      },
+      "ease-in": {
+        "n": 6,
+        "loc": [
+          "src/components/layouts/Header.tsx:47",
+          "src/components/layouts/Header.tsx:53",
+          "src/components/layouts/Header.tsx:59"
+        ]
+      },
+      "transition-colors": {
+        "n": 5,
+        "loc": [
+          "src/components/layouts/Footer.tsx:45",
+          "src/components/layouts/Header.tsx:22",
+          "src/components/layouts/Header.tsx:25"
+        ]
+      },
+      "ease-in-out": {
+        "n": 4,
+        "loc": [
+          "src/components/layouts/Footer.tsx:45",
+          "src/components/layouts/Header.tsx:20",
+          "src/components/sections/projects/ProjectNavigation.tsx:16"
+        ]
+      },
+      "transition-opacity": {
+        "n": 3,
+        "loc": [
+          "src/app/error.tsx:28",
+          "src/app/not-found.tsx:15",
+          "src/components/sections/projects/ProjectCard.tsx:61"
+        ]
+      },
+      "duration-500": { "n": 1, "loc": ["src/components/sections/projects/ProjectCard.tsx:42"] }
+    },
+    "animation": { "animate-pulse": { "n": 1, "loc": ["src/app/loading.tsx:4"] } },
+    "fontSizeArbitrary": {
+      "text-[18px]": {
+        "n": 4,
+        "loc": [
+          "src/components/sections/homepage/Presentation.tsx:17",
+          "src/components/sections/homepage/Presentation.tsx:28",
+          "src/components/sections/projects/ProjectHeader.tsx:22"
+        ]
+      },
+      "text-[40px]": {
+        "n": 2,
+        "loc": [
+          "src/components/sections/homepage/Presentation.tsx:9",
+          "src/components/sections/homepage/Presentation.tsx:10"
+        ]
+      },
+      "text-[20px]": {
+        "n": 2,
+        "loc": [
+          "src/components/sections/homepage/Presentation.tsx:16",
+          "src/components/sections/homepage/Presentation.tsx:27"
+        ]
+      },
+      "text-[120px]": { "n": 1, "loc": ["src/app/not-found.tsx:6"] }
+    },
+    "leading": {
+      "leading-[30%]": {
+        "n": 8,
+        "loc": [
+          "src/components/layouts/Header.tsx:35",
+          "src/components/layouts/Header.tsx:37",
+          "src/components/layouts/Header.tsx:39"
+        ]
+      },
+      "leading-[100%]": {
+        "n": 4,
+        "loc": [
+          "src/components/sections/homepage/Presentation.tsx:14",
+          "src/components/sections/projects/ProjectCard.tsx:62",
+          "src/components/sections/projects/ProjectHeader.tsx:22"
+        ]
+      },
+      "leading-none": { "n": 1, "loc": ["src/app/not-found.tsx:6"] },
+      "leading-[202%]": { "n": 1, "loc": ["src/components/layouts/Header.tsx:22"] },
+      "leading-[70%]": { "n": 1, "loc": ["src/components/layouts/Header.tsx:31"] }
+    },
+    "borderWidth": {
+      "border-b": {
+        "n": 10,
+        "loc": [
+          "src/components/layouts/Header.tsx:20",
+          "src/components/layouts/Header.tsx:47",
+          "src/components/layouts/Header.tsx:53"
+        ]
+      },
+      "border-b-3": {
+        "n": 4,
+        "loc": [
+          "src/components/layouts/Header.tsx:31",
+          "src/components/sections/homepage/Gallery.tsx:8",
+          "src/components/sections/homepage/Gallery.tsx:9"
+        ]
+      },
+      "hover:border-b-3": {
+        "n": 3,
+        "loc": [
+          "src/components/layouts/Header.tsx:47",
+          "src/components/layouts/Header.tsx:53",
+          "src/components/layouts/Header.tsx:59"
+        ]
+      },
+      "border-r": { "n": 1, "loc": ["src/components/layouts/Header.tsx:20"] },
+      "border": { "n": 1, "loc": ["src/components/sections/projects/ProjectHeader.tsx:36"] },
+      "border-t-3": { "n": 1, "loc": ["src/components/sections/projects/ProjectHeader.tsx:59"] }
+    },
+    "borderStyle": {
+      "border-solid": {
+        "n": 9,
+        "loc": [
+          "src/components/layouts/Header.tsx:20",
+          "src/components/layouts/Header.tsx:31",
+          "src/components/layouts/Header.tsx:47"
+        ]
+      }
+    },
+    "borderColor": {
+      "border-black": {
+        "n": 9,
+        "loc": [
+          "src/components/layouts/Header.tsx:20",
+          "src/components/layouts/Header.tsx:31",
+          "src/components/layouts/Header.tsx:47"
+        ]
+      },
+      "border-neutral-300": {
+        "n": 1,
+        "loc": ["src/components/sections/projects/ProjectHeader.tsx:36"]
+      }
+    },
+    "filters": {
+      "hover:invert": { "n": 1, "loc": ["src/components/layouts/Header.tsx:67"] },
+      "grayscale": { "n": 1, "loc": ["src/components/sections/projects/ProjectCard.tsx:42"] },
+      "group-hover:grayscale-0": {
+        "n": 1,
+        "loc": ["src/components/sections/projects/ProjectCard.tsx:42"]
+      }
+    },
+    "inset": {
+      "top-180": { "n": 1, "loc": ["src/components/layouts/MenuResponsive.tsx:26"] },
+      "left-0": { "n": 1, "loc": ["src/components/layouts/MenuResponsive.tsx:26"] },
+      "max-lg:top-90": { "n": 1, "loc": ["src/components/layouts/MenuResponsive.tsx:26"] },
+      "inset-0": { "n": 1, "loc": ["src/components/sections/projects/ProjectCard.tsx:61"] }
+    },
+    "zIndex": {
+      "z-40": { "n": 1, "loc": ["src/components/layouts/MenuResponsive.tsx:26"] },
+      "z-50": { "n": 1, "loc": ["src/components/sections/projects/ProjectHeader.tsx:36"] }
+    },
+    "fontWeight": {
+      "font-medium": { "n": 1, "loc": ["src/components/sections/homepage/Hero.tsx:20"] }
+    },
+    "shadow": {
+      "hover:shadow-lg": { "n": 1, "loc": ["src/components/sections/projects/ProjectCard.tsx:32"] }
+    },
+    "gradient": {
+      "bg-linear-to-t": { "n": 1, "loc": ["src/components/sections/projects/ProjectCard.tsx:61"] },
+      "from-black/70": { "n": 1, "loc": ["src/components/sections/projects/ProjectCard.tsx:61"] },
+      "to-transparent": { "n": 1, "loc": ["src/components/sections/projects/ProjectCard.tsx:61"] }
+    },
+    "translate": {
+      "-translate-y-2": {
+        "n": 4,
+        "loc": [
+          "src/components/sections/projects/ProjectNavigation.tsx:18",
+          "src/components/sections/projects/ProjectNavigation.tsx:19",
+          "src/components/sections/projects/ProjectNavigation.tsx:30"
+        ]
+      }
+    }
+  },
+  "variantes": { "hover": 30, "max-2xl": 28, "group-hover": 4, "max-lg": 9 },
+  "tokenisation": { "var_usages": 3, "declarations_hex": 6 },
+  "svg": {
+    "style=\"fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none\"": {
+      "n": 6,
+      "loc": ["src/assets/images/logo-order-architects.svg:20"]
+    },
+    "stroke=\"black\"": { "n": 5, "loc": ["src/assets/images/icons/menu-close.svg:7"] },
+    "fill=\"white\"": { "n": 4, "loc": ["src/assets/images/icons/menu-close.svg:3"] },
+    "fill=\"currentcolor\"": { "n": 4, "loc": ["src/assets/images/socials/facebook.svg:4"] },
+    "fill=\"none\"": { "n": 2, "loc": ["src/assets/images/icons/menu-close.svg:1"] },
+    "style=\"font-variant:normal;font-weight:normal;font-size:55px;font-family:verdana;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none\"": {
+      "n": 2,
+      "loc": ["src/assets/images/logo-order-architects.svg:17"]
+    },
+    "style=\"fill:none;stroke:#000000;stroke-width:23.9638;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1\"": {
+      "n": 1,
+      "loc": ["src/assets/images/logo-order-architects.svg:15"]
+    }
+  },
+  "equivalences_theme_v4": {
+    "--color-neutral-100": "oklch(97% 0 0)",
+    "--color-neutral-200": "oklch(92.2% 0 0)",
+    "--color-neutral-300": "oklch(87% 0 0)",
+    "--color-neutral-700": "oklch(37.1% 0 0)",
+    "--color-black": "#000",
+    "--color-white": "#fff",
+    "--text-xs": "0.75rem",
+    "--text-sm": "0.875rem",
+    "--text-base": "1rem",
+    "--text-lg": "1.125rem",
+    "--text-xl": "1.25rem",
+    "--text-2xl": "1.5rem",
+    "--text-3xl": "1.875rem",
+    "--text-4xl": "2.25rem",
+    "--text-5xl": "3rem",
+    "--text-6xl": "3.75rem",
+    "--container-md": "28rem",
+    "--radius-sm": "0.25rem",
+    "--radius-lg": "0.5rem",
+    "--shadow-lg": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+    "--ease-in": "cubic-bezier(0.4, 0, 1, 1)",
+    "--ease-in-out": "cubic-bezier(0.4, 0, 0.2, 1)"
+  }
+}

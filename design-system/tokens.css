@@ -1,0 +1,82 @@
+/*
+  tokens.css : projection Tailwind v4 des tokens de design-system/tokens.json.
+
+  Généré le 2026-08-17. Snapshot source : 92699ee168a8b046e57ba09d9c2f69cb547481db (main).
+  Couverture : code 100 % (35/35 fichiers), Figma en échantillon. Mode : outillé.
+
+  Usage : ce bloc @theme a vocation à remplacer le bloc @theme de src/styles/global.css
+  au lot 1 de MIGRATION.md. Il génère les utilitaires bg-surface, text-ink, border-line,
+  font-display, text-heading, rounded-ui, max-canvas:, etc.
+
+  Thèmes : non applicable. Le site est mono-thème (noir et blanc, décision D7) ;
+  aucune variante claire/sombre n'est gérée.
+
+  Règles :
+  - Les composants ne consomment que la couche sémantique ci-dessous.
+  - Les valeurs littérales sont recopiées depuis tokens.json (un seul niveau d'alias,
+    aplati ici car Tailwind ne résout pas les alias DTCG).
+*/
+
+@theme {
+  /* === Couleurs sémantiques (source : tokens.json > semantic.color) === */
+  --color-surface: #ffffff; /* fond du canvas et des blocs */
+  --color-surface-inverse: #000000; /* hovers, pages système, cadre du canvas */
+  --color-ink: #000000; /* texte courant */
+  --color-ink-inverse: #ffffff; /* texte sur fond inversé */
+  --color-ink-muted: #404040; /* texte secondaire (tooltip), 10,37:1 sur surface */
+  --color-line: #000000; /* trame de grille, séparateurs 1px et 3px */
+  --color-line-muted: #d4d4d4; /* bordure discrète ; 1,48:1 : non conforme 1.4.11 en frontière seule, à réévaluer */
+  --color-placeholder: #f5f5f5; /* fond d'attente des images (absorbe l'ancien neutral-200) */
+  --color-overlay: #000000; /* voile photo, consommé à 70 % : from-overlay/70 */
+  --color-social-facebook: #1877f2;
+  --color-social-instagram: #e4405f;
+  --color-social-pinterest: #e60023;
+  --color-social-linkedin: #0a66c2;
+
+  /* Dépréciés : conservés le temps du lot 1 de migration, puis à supprimer. */
+  --color-kre-black: #000000;
+  --color-kre-white: #ffffff;
+
+  /* === Typographie (source : tokens.json > semantic.font, text, leading) === */
+  --font-display: var(--font-family-amalfi), "Courier New", sans-serif;
+  --font-body: var(--font-family-baiti), "Courier New", sans-serif;
+
+  /* Dépréciés : alias historiques, à supprimer en fin de lot 2. */
+  --font-amalfi: var(--font-family-amalfi), "Courier New", sans-serif;
+  --font-baiti: var(--font-family-baiti), "Courier New", sans-serif;
+
+  /* Échelle en px, iso-visuelle avec l'existant. Les écarts Figma (15, 35, 50 px)
+     sont des décisions ouvertes : ne changer une valeur qu'après arbitrage. */
+  --text-caption: 14px; /* mention secondaire */
+  --text-body: 16px; /* corps par défaut, footer */
+  --text-reading: 18px; /* descriptions */
+  --text-meta: 20px; /* métadonnées projet, lettrines, hover nav */
+  --text-subtitle: 24px; /* sous-titres, overlay cartes, nav mobile */
+  --text-nav: 30px; /* liens de navigation au repos */
+  --text-tagline: 36px; /* baseline agence, menu mobile */
+  --text-name: 40px; /* nom de l'architecte */
+  --text-heading: 48px; /* h1 projet, logo K, majuscules baseline */
+  --text-display: 60px; /* majuscules R, logo -Ré, h1 erreur */
+  --text-giant: 120px; /* chiffre 404 */
+
+  --leading-flush: 1; /* fusionne leading-none et leading-[100%] */
+
+  /* === Espacement (décision D3 : utilitaires numériques px conservés) ===
+     Base 1px : les classes numériques valent des pixels (px-12 = 12px).
+     Liste blanche des valeurs d'échelle : 2, 5, 6, 10, 12, 15, 24, 30.
+     Valeurs de composition hors échelle : 2.5 et 4 (constants.ts), 195 (hero),
+     module dimensionnel 45 pour les tailles de cellules. */
+  --spacing: 1px;
+
+  /* === Rayon === */
+  --radius-ui: 4px; /* pages système ; fusionne rounded et rounded-sm */
+
+  /* === Breakpoints ===
+     Règle : une seule unité (px) pour tout le namespace --breakpoint-*. Tailwind
+     ordonne les variantes en comparant l'unité avant la valeur : mélanger px et rem
+     inverserait l'ordre des variantes min-width empilées. */
+  --breakpoint-canvas: 1080px; /* sous le canvas fixe ; remplace le 2xl redéfini */
+  --breakpoint-lg: 1024px; /* bascule menu mobile ; iso-valeur avec le défaut 64rem */
+  /* Déprécié : à supprimer en fin de lot 4, après grep confirmant zéro max-2xl:. */
+  --breakpoint-2xl: 1080px;
+}
