@@ -5,7 +5,7 @@
 > Mode : outillé (extraction scriptée, calculs ΔE2000 et contrastes exécutés, voir `audit/`).
 
 Ce fichier est le registre des décisions du design system et de leurs justifications.
-Ce n'est pas un catalogue : l'inventaire des valeurs vit dans `tokens.json`, les
+Ce n'est pas un catalogue : l'inventaire des valeurs vit dans `tokens.css`, les
 correspondances dans `MIGRATION.md`, les composants dans `COMPONENTS.md`.
 
 ## Décisions actées
@@ -33,9 +33,11 @@ Le canvas fixe 1080 x 1080 avec `--spacing: 1px` est le contrat géométrique du
 `px-12` se lit « 12 pixels » et l'arithmétique du module 45 (45, 90, 180, 270...) reste
 lisible. Une couche sémantique d'espacement masquerait ce calcul pour un gain nul.
 En contrepartie, l'échelle est contrainte par une liste blanche : **2, 5, 6, 10, 12,
-15, 24, 30**, plus les valeurs de composition documentées (2.5 et 4 dans
-`src/lib/constants.ts`, 195 pour le retrait du hero, module 45 pour les tailles).
-Toute autre valeur numérique est une erreur à corriger ou une composition à documenter.
+15, 16, 24, 30, 32** (16 et 32 ajoutés le 18/08/2026 à la fermeture d'O1), plus les
+valeurs de composition documentées (2.5 et 4 dans `src/lib/constants.ts`, 195 pour le
+retrait du hero, 448 pour la largeur des textes des pages système, module 45 pour les
+tailles). Toute autre valeur numérique est une erreur à corriger ou une composition à
+documenter.
 
 ### D4. Échelle typographique en px explicite, échelle rem par défaut bannie
 
@@ -83,13 +85,16 @@ contraire fond blanc et traits noirs en dur : toute nouvelle icône doit être d
 en `currentColor`, sans fond intégré. La refonte des deux icônes menu est liée à la
 décision ouverte O2 (taille de rendu).
 
-### D9. Source de vérité des tokens
+### D9. Source de vérité des tokens : le bloc @theme unique
 
-`tokens.json` (format DTCG) est la source de vérité, `tokens.css` sa projection
-Tailwind v4 maintenue à la main. Le projet n'utilise aucun outil de la chaîne DTCG
-(Style Dictionary ou équivalent) : un format maison réduit au seul bloc `@theme`
-suffirait techniquement. Arbitrage demandé au propriétaire, voir GOVERNANCE.md ;
-en attendant, toute modification se fait dans les deux fichiers, dans le même commit.
+Arbitrage rendu par l'owner le 18/08/2026 : `tokens.css` (bloc `@theme` Tailwind v4)
+est l'unique source de vérité ; le fichier DTCG parallèle `tokens.json` a été supprimé.
+Motif : le fichier consommé par le build ne peut pas diverger de lui-même, et aucun
+outil de la chaîne DTCG n'était branché pour justifier la double maintenance. La
+provenance des valeurs (relevés, contrastes mesurés, correspondance des variables
+Figma) vit en commentaires de `tokens.css`. Si un outillage DTCG ou une synchro Figma
+Variables devient nécessaire, un `tokens.json` sera régénéré depuis le CSS à ce
+moment-là (voir GOVERNANCE.md).
 
 ### D10. Les compositions typographiques restent hors système
 
@@ -100,19 +105,19 @@ face à la maquette (écarts relevés : Figma utilise 0.5, 0.7 et 64 %).
 
 ## Décisions ouvertes (avec déclencheur de fermeture)
 
-| Id  | Sujet                                                                                                                                                                        | Options en présence                                                             | Déclencheur de fermeture                                                      |
-| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| O1  | Espacements des pages système (`px-8 py-3` rendus 8/3px, `mb-8` 8px, `p-4` 4px...)                                                                                           | Conversion x4 (intention probable) ou maquette dédiée                           | Maquette Figma des pages système, ou validation explicite de la conversion x4 |
-| O2  | Icônes menu rendues 6x6px dans un bouton de 90px                                                                                                                             | Plein bouton (~90px, cohérent avec le dessin SVG 88-90) ou taille intermédiaire | Vérification visuelle sous 1024px après correctif                             |
-| O3  | Tailles du logo et de la baseline header (code 48/60/36px, Figma 50/60/35px, leadings divergents)                                                                            | Aligner sur Figma ou entériner le code                                          | Revalidation du header en maquette (nœuds I140:599, 148:461)                  |
-| O4  | Texte de lecture projet : 18px code contre 20px Figma (175:832)                                                                                                              | Aligner sur Figma                                                               | Validation de la page projet en maquette                                      |
-| O5  | Footer : 15px et © Amalfi 20px en Figma, 16px hérité dans le code ; icônes 34px code contre 36px Figma                                                                      | Aligner sur Figma                                                               | Validation du footer en maquette                                              |
-| O6  | Bordure et rayon du tooltip (`line-muted` 1,48:1 non conforme 1.4.11, rounded-lg 8px hors système)                                                                           | Remplacer par le composant InfoCard de la maquette (34:417)                     | Implémentation d'InfoCard                                                     |
-| O7  | Breakpoint 899px absorbé par lg (1024px)                                                                                                                                     | Absorption (recommandée : la bascule menu est déjà à 1024)                      | Contrôle visuel de la bande 900-1024                                          |
-| O8  | État « page courante » de la navigation                                                                                                                                      | Implémenter les variantes \*-active de Figma (85:760) via aria-current          | Décision produit sur la nav (routes /missions et /contact encore vides)       |
-| O9  | Micro-espacement 2px contre module 5px Figma (nav projet, galerie)                                                                                                           | Aligner sur 5 ou conserver 2                                                    | Validation de la page projet en maquette                                      |
-| O10 | `pr-24` contre 22.5px Figma (description projet)                                                                                                                             | Aligner ou entériner                                                            | Validation de la page projet en maquette                                      |
-| O11 | Composition de ProjectNavigation : le code rend deux liens pleine largeur avec flèches texte, la maquette deux boutons 180x45 centrés avec flèches image 24px (nœud 175:959) | Aligner sur la maquette ou entériner le code                                    | Validation de la page projet en maquette                                      |
+| Id  | Sujet                                                                                                                                                                        | Options en présence                                                             | Déclencheur de fermeture                                                                                                                                                                                                                                                                                                                                                                                 |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| O1  | Espacements des pages système (`px-8 py-3` rendus 8/3px, `mb-8` 8px, `p-4` 4px...)                                                                                           | Conversion x4 (intention probable) ou maquette dédiée                           | **Fermée le 18/08/2026** : conversion x4 validée par l'owner et appliquée au lot 3                                                                                                                                                                                                                                                                                                                       |
+| O2  | Icônes menu rendues 6x6px dans un bouton de 90px                                                                                                                             | Plein bouton (~90px, cohérent avec le dessin SVG 88-90) ou taille intermédiaire | **Fermée le 18/08/2026** : rendu plein bouton appliqué au lot 3, vérifié sous 1024px                                                                                                                                                                                                                                                                                                                     |
+| O3  | Tailles du logo et de la baseline header (code 48/60/36px, Figma 50/60/35px, leadings divergents)                                                                            | Aligner sur Figma ou entériner le code                                          | Revalidation du header en maquette (nœuds I140:599, 148:461)                                                                                                                                                                                                                                                                                                                                             |
+| O4  | Texte de lecture projet : 18px code contre 20px Figma (175:832)                                                                                                              | Aligner sur Figma                                                               | Validation de la page projet en maquette                                                                                                                                                                                                                                                                                                                                                                 |
+| O5  | Footer : 15px et © Amalfi 20px en Figma, 16px hérité dans le code ; icônes 34px code contre 36px Figma                                                                      | Aligner sur Figma                                                               | Validation du footer en maquette                                                                                                                                                                                                                                                                                                                                                                         |
+| O6  | Bordure et rayon du tooltip (`line-muted` 1,48:1 non conforme 1.4.11, rounded-lg 8px hors système)                                                                           | Remplacer par le composant InfoCard de la maquette (34:417)                     | **Fermée le 18/08/2026** : l'info_card de la maquette s'est révélée être une annotation interne du fichier Figma (couleurs #279fd2/#d8594d, polices Inconsolata/Imprima étrangères à l'identité), pas un composant produit. Tooltip corrigé dans le système au lot 5 : bordure line (21:1), rounded-ui, padding 12, accès clavier (focus + Escape, role tooltip) ; token line-muted retiré faute d'usage |
+| O7  | Breakpoint 899px absorbé par lg (1024px)                                                                                                                                     | Absorption (recommandée : la bascule menu est déjà à 1024)                      | **Fermée le 18/08/2026** : absorption validée et appliquée au lot 4, bande 900-1024 contrôlée                                                                                                                                                                                                                                                                                                            |
+| O8  | État « page courante » de la navigation                                                                                                                                      | Implémenter les variantes \*-active de Figma (85:760) via aria-current          | Décision produit sur la nav (routes /missions et /contact encore vides)                                                                                                                                                                                                                                                                                                                                  |
+| O9  | Micro-espacement 2px contre module 5px Figma (nav projet, galerie)                                                                                                           | Aligner sur 5 ou conserver 2                                                    | Validation de la page projet en maquette                                                                                                                                                                                                                                                                                                                                                                 |
+| O10 | `pr-24` contre 22.5px Figma (description projet)                                                                                                                             | Aligner ou entériner                                                            | Validation de la page projet en maquette                                                                                                                                                                                                                                                                                                                                                                 |
+| O11 | Composition de ProjectNavigation : le code rend deux liens pleine largeur avec flèches texte, la maquette deux boutons 180x45 centrés avec flèches image 24px (nœud 175:959) | Aligner sur la maquette ou entériner le code                                    | Validation de la page projet en maquette                                                                                                                                                                                                                                                                                                                                                                 |
 
 Chaque décision ouverte a un déclencheur concret : aucun report sans condition.
 
@@ -124,7 +129,7 @@ Chaque décision ouverte a un déclencheur concret : aucun report sans condition
 - Écrire les espacements en px de la liste blanche ; documenter toute valeur de composition.
 - Donner un état `focus-visible` et un état vide à tout nouveau composant interactif ou piloté par données.
 - Dessiner toute nouvelle icône en `currentColor`, sans fond intégré.
-- Modifier `tokens.json` et `tokens.css` ensemble, dans le même commit, avec la ligne de correspondance MIGRATION.md à jour.
+- Modifier `tokens.css` (source unique) avec la ligne de correspondance MIGRATION.md à jour, dans le même commit.
 
 **Don't**
 

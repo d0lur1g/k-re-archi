@@ -21,17 +21,18 @@ npm run structure # régénère docs/STRUCTURE.md depuis les fichiers suivis par
 
 ## Architecture
 
-| Dossier                   | Rôle                                                            |
-| ------------------------- | --------------------------------------------------------------- |
-| `src/app`                 | Routes App Router, pages d'erreur, layout racine                |
-| `src/components/layouts`  | Header, Footer, menu responsive — présents sur toutes les pages |
-| `src/components/sections` | Blocs de page, rangés par route (`homepage/`, `projects/`)      |
-| `src/data`                | Données de la maquette                                          |
-| `src/lib`                 | Accès aux données, calculs de layout, constantes                |
-| `src/types`               | Types métier partagés                                           |
-| `src/hooks`               | Hooks React réutilisables                                       |
-| `src/assets`              | Polices et images importées par le bundler                      |
-| `public/images`           | Images servies telles quelles (photos de projets)               |
+| Dossier                   | Rôle                                                                         |
+| ------------------------- | ---------------------------------------------------------------------------- |
+| `src/app`                 | Routes App Router, pages d'erreur, layout racine                             |
+| `src/components/layouts`  | Header, Footer, menu responsive — présents sur toutes les pages              |
+| `src/components/ui`       | Composants d'interface réutilisables (NavLink, ActionInverse, BoutonSysteme) |
+| `src/components/sections` | Blocs de page, rangés par route (`homepage/`, `projects/`)                   |
+| `src/data`                | Données de la maquette                                                       |
+| `src/lib`                 | Accès aux données, calculs de layout, constantes                             |
+| `src/types`               | Types métier partagés                                                        |
+| `src/hooks`               | Hooks React réutilisables                                                    |
+| `src/assets`              | Polices et images importées par le bundler                                   |
+| `public/images`           | Images servies telles quelles (photos de projets)                            |
 
 Alias d'import : `@/*` → `src/*`.
 
@@ -55,12 +56,14 @@ Chaque page doit tenir dans le budget de 855 px du `<main>` :
 
 Tailwind v4 est configuré avec `--spacing: 1px` dans `design-system/tokens.css`. Les classes
 numériques valent donc des pixels : `h-855` = 855 px, `w-540` = 540 px, `px-12` = 12 px.
-Le breakpoint `2xl` est redéfini à 1080 px (`max-2xl:` = sous le canvas).
+Deux breakpoints projet, tous deux en px (règle : jamais de rem dans `--breakpoint-*`) :
+`canvas` à 1080 px (`max-canvas:` = sous le canvas fixe) et `lg` redéclaré à 1024 px
+(bascule du menu mobile, alignée avec la media query de `custom.css`).
 
 ## Styles
 
 - `src/styles/global.css` : `@import "tailwindcss"` + `@import "../../design-system/tokens.css"`
-  (le bloc `@theme` vit dans les tokens du design system, source : `design-system/tokens.json`).
+  (le bloc `@theme` de `design-system/tokens.css` est la source de vérité unique des tokens).
   Les composants consomment la couche sémantique : `bg-surface`, `text-ink`, `border-line`,
   jamais `bg-black`, `text-white` ni un hex.
 - `src/styles/custom.css` : chargé **après**, peut écraser Tailwind (reset, scrollbar, réseaux sociaux).

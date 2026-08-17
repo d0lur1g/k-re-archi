@@ -36,8 +36,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr" className={`${amalfi.variable} ${baiti.variable} scroll-smooth`}>
       {/* ✅ scroll-smooth pour une navigation fluide */}
-      <body className="bg-surface-inverse p-4">
-        <div className="flex min-h-[calc(100dvh-2rem)] items-start justify-center">
+      <body className="bg-surface-inverse p-16">
+        <div className="flex min-h-[calc(100dvh-32px)] items-start justify-center">
           {/* ✅ dvh pour meilleure compatibilité mobile */}
           <div className="bg-surface my-auto w-full max-w-1080">
             <Header />

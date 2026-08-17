@@ -1,6 +1,6 @@
 // src/components/sections/projects/ProjectNavigation.tsx
 
-import Link from "next/link";
+import ActionInverse from "@/components/ui/ActionInverse";
 
 interface ProjectNavigationProps {
   previousSlug?: string;
@@ -9,27 +9,34 @@ interface ProjectNavigationProps {
 
 export default function ProjectNavigation({ previousSlug, nextSlug }: ProjectNavigationProps) {
   return (
-    <nav className="font-body bg-surface text-subtitle flex h-45 items-center">
+    <nav
+      aria-label="Navigation entre projets"
+      className="font-body bg-surface text-subtitle flex h-45 items-center"
+    >
       {previousSlug ? (
-        <Link
+        <ActionInverse
           href={`/projects/${previousSlug}`}
-          className="hover:bg-surface-inverse hover:text-ink-inverse flex h-full w-full items-center justify-center gap-2 px-12 transition-colors duration-300 ease-in-out"
+          className="flex h-full w-full items-center justify-center gap-2 px-12"
         >
-          <span className="block -translate-y-2">←</span>
+          <span aria-hidden="true" className="block -translate-y-2">
+            ←
+          </span>
           <span className="block -translate-y-2">Projet précédent</span>
-        </Link>
+        </ActionInverse>
       ) : (
         <div className="w-full" />
       )}
 
       {nextSlug ? (
-        <Link
+        <ActionInverse
           href={`/projects/${nextSlug}`}
-          className="hover:bg-surface-inverse hover:text-ink-inverse flex h-full w-full items-center justify-center gap-2 px-12 transition-colors duration-300 ease-in-out"
+          className="flex h-full w-full items-center justify-center gap-2 px-12"
         >
           <span className="block -translate-y-2">Projet suivant</span>
-          <span className="block -translate-y-2">→</span>
-        </Link>
+          <span aria-hidden="true" className="block -translate-y-2">
+            →
+          </span>
+        </ActionInverse>
       ) : (
         <div className="w-full" />
       )}

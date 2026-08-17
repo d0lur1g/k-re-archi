@@ -1,5 +1,7 @@
 "use client";
 
+import BoutonSysteme from "@/components/ui/BoutonSysteme";
+
 export default function GlobalError({
   error,
   reset,
@@ -10,14 +12,12 @@ export default function GlobalError({
   return (
     <html lang="fr">
       <body className="bg-surface-inverse text-ink-inverse">
-        <div className="flex min-h-screen flex-col items-center justify-center px-4">
-          <h1 className="text-heading mb-4">Erreur critique</h1>
-          <p className="mb-4 max-w-md text-center opacity-80">
+        <div className="flex min-h-screen flex-col items-center justify-center px-16">
+          <h1 className="text-heading mb-16">Erreur critique</h1>
+          <p className="mb-16 max-w-448 text-center opacity-80">
             {error.message || "Le site a rencontré une erreur critique."}
           </p>
-          <button onClick={reset} className="bg-surface text-ink rounded-ui px-6 py-2">
-            Recharger la page
-          </button>
+          <BoutonSysteme onClick={reset}>Recharger la page</BoutonSysteme>
         </div>
       </body>
     </html>

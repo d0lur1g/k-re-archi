@@ -2,9 +2,9 @@
   Point d'entrée CSS - K-Ré Architecture
   Tailwind CSS 4 + tokens du design system.
 
-  Les tokens vivent dans design-system/tokens.css, projection de
-  design-system/tokens.json (source de vérité). Ne rien redéclarer ici :
-  tout ajout de token passe par la règle de design-system/GOVERNANCE.md.
+  Les tokens vivent dans design-system/tokens.css (source de vérité unique,
+  décision D9). Ne rien redéclarer ici : tout ajout de token passe par la
+  règle de design-system/GOVERNANCE.md.
 */
 @import "tailwindcss";
 @import "../../design-system/tokens.css";

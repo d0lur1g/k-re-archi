@@ -34,8 +34,7 @@ k-re-archi/
 │   ├── DESIGN-SYSTEM.md
 │   ├── GOVERNANCE.md
 │   ├── MIGRATION.md
-│   ├── tokens.css
-│   └── tokens.json
+│   └── tokens.css
 ├── docs/
 │   ├── ROADMAP.md
 │   └── STRUCTURE.md
@@ -84,17 +83,21 @@ k-re-archi/
 │   │   │   ├── Footer.tsx
 │   │   │   ├── Header.tsx
 │   │   │   └── MenuResponsive.tsx
-│   │   └── sections/
-│   │       ├── homepage/
-│   │       │   ├── Gallery.tsx
-│   │       │   ├── Hero.tsx
-│   │       │   └── Presentation.tsx
-│   │       └── projects/
-│   │           ├── ProjectCard.tsx
-│   │           ├── ProjectGallery.tsx
-│   │           ├── ProjectHeader.tsx
-│   │           ├── ProjectNavigation.tsx
-│   │           └── ProjectsGrid.tsx
+│   │   ├── sections/
+│   │   │   ├── homepage/
+│   │   │   │   ├── Gallery.tsx
+│   │   │   │   ├── Hero.tsx
+│   │   │   │   └── Presentation.tsx
+│   │   │   └── projects/
+│   │   │       ├── ProjectCard.tsx
+│   │   │       ├── ProjectGallery.tsx
+│   │   │       ├── ProjectHeader.tsx
+│   │   │       ├── ProjectNavigation.tsx
+│   │   │       └── ProjectsGrid.tsx
+│   │   └── ui/
+│   │       ├── ActionInverse.tsx
+│   │       ├── BoutonSysteme.tsx
+│   │       └── NavLink.tsx
 │   ├── data/
 │   │   └── projects.ts
 │   ├── hooks/
