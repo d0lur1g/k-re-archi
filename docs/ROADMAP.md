@@ -3,7 +3,7 @@
 Plan d'exécution du site vitrine. Ce document est la ligne directrice du projet : il fixe l'ordre
 des chantiers, ce qui est considéré comme terminé, et garde la trace des décisions prises.
 
-_Dernière mise à jour : 16 août 2026._
+_Dernière mise à jour : 18 août 2026._
 
 ## 1. Contexte
 
@@ -55,9 +55,8 @@ arrive en dernier car elle est orthogonale au rendu.
       avec `main`) traité : son seul contenu absent de `main` — commitlint et
       `.vscode/settings.json` — a été repris, et l'historique est conservé sous le tag
       `archive/header-responsive-menu`. La branche n'existait déjà plus côté GitHub.
-- [ ] Ménage des branches restantes : les branches locales `feature/footer`, `feature/header`,
-      `feature/homepage-gallery`, `feature/projects`, `feature/projects-project` sont fusionnées et
-      peuvent être supprimées, en local comme sur GitHub pour les deux dernières.
+- Ménage des branches restantes : suivi déplacé dans la section « 8. Nettoyage » en fin
+  de document.
 
 **Terminé quand :** la CI s'exécute et passe sur une PR ouverte vers `main`.
 
@@ -87,7 +86,8 @@ s'affichent dans le gabarit avec leur habillage noir et blanc.
 - `error.tsx` et `not-found.tsx` imbriquaient un second `<main>` dans celui du layout ;
 - déclarer les tokens de marque a rendu visible un contraste blanc sur blanc sur les boutons des
   pages d'erreur : `custom.css` n'étant dans aucun cascade layer, ses règles d'élément battent les
-  utilitaires Tailwind. Contourné par le suffixe `!`, voir la Phase 3 pour le traitement de fond ;
+  utilitaires Tailwind. Contourné par le suffixe `!` ; traitement de fond réalisé le 18/08/2026 par
+  le lot 0 du chantier design system (règles sous cascade layers, suffixes retirés, voir section 5) ;
 - la page d'accueil et la liste de projets n'avaient aucun `h1` une fois celui du `Header`
   ramené à un `<p>` : un titre réservé aux lecteurs d'écran a été ajouté à chacune.
 
@@ -132,10 +132,9 @@ Points spécifiques :
   sous le palier mobile au profit d'un défilement vertical naturel, et respecter
   `prefers-reduced-motion` ;
 - galerie projet : même traitement ;
-- `custom.css` : déplacer ses règles de reset dans `@layer base` pour qu'elles cessent de battre
-  les utilitaires Tailwind. C'est le traitement de fond du contournement par `!` introduit en
-  Phase 1 ; le faire ici, où les styles sont de toute façon repris, plutôt qu'isolément — la portée
-  touche tous les liens et boutons du site ;
+- `custom.css` : déjà traité le 18/08/2026 par le lot 0 du chantier design system (section 5) :
+  règles sous `@layer base` et `@layer components`, suffixes `!` retirés, focus visible restauré.
+  Rien à refaire ici ;
 - vérification aux largeurs 360, 768, 1024 et 1440 px.
 
 **Terminé quand :** aucun débordement horizontal ni texte tronqué aux quatre largeurs de contrôle,
@@ -199,7 +198,38 @@ Traitement :
   avant fusion ;
 - committer le `package-lock.json` mis à jour et vérifier que la CI reste verte.
 
-## 5. Journal des décisions
+Mise à jour du 18/08/2026 : la montée Next 16.0.0 vers 16.3.1 (et la résolution de `sharp`)
+est passée par le merge Dependabot du 17/08 (PR #9). Rejouer `npm audit` pour constater le
+nouvel état : suivi en section « 8. Nettoyage ».
+
+## 5. Design system · chantier transverse
+
+Chantier mené hors séquence des phases (17 et 18/08/2026), déclenché par un audit complet du
+système de design (couverture code 100 %, Figma en échantillon). Toute la matière vit dans le
+dossier `design-system/` : registre des décisions (`DESIGN-SYSTEM.md`, D1 à D10 et décisions
+ouvertes O\*), tokens (`tokens.css`, source de vérité unique importée par `global.css`),
+composants (`COMPONENTS.md`), plan de migration par lots avec ligne de base mesurée
+(`MIGRATION.md`), gouvernance et checklist de recette.
+
+État :
+
+- [x] Audit outillé et livrables (PR #10, mergée le 17/08/2026).
+- [x] Lots 0 à 2 : `custom.css` sous cascade layers et focus visible (WCAG 2.4.7 levée),
+      migration des couleurs puis de la typographie et des rayons vers les tokens
+      sémantiques (PR #11, mergée le 18/08/2026).
+- [x] Arbitrages du 18/08/2026 : O1 (espacements des pages système convertis x4),
+      O7 (seuil 899px absorbé par lg 1024px), tokens en `@theme` unique sans fichier DTCG.
+- [ ] Lots 3 à 5 : espacements, breakpoints, factorisation des composants
+      (branche `feature/migration-lots-3-5`).
+- [ ] Revue design avec Delphine : ferme O3, O4, O5, O9, O10, O11 et le nommage des
+      variables Figma (Primary/Secondary), puis passe d'alignement des valeurs.
+
+Règles héritées du chantier, valables pour toutes les phases suivantes : couche sémantique
+des tokens obligatoire (jamais `bg-black`, `text-white` ni un hex), échelle rem par défaut
+interdite, liste blanche d'espacements, focus-visible centralisé. Détail dans `CLAUDE.md`
+et `design-system/DESIGN-SYSTEM.md`.
+
+## 6. Journal des décisions
 
 | Date       | Décision                                                                                                          | Motif                                                                                                                                                                                      |
 | ---------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -210,12 +240,28 @@ Traitement :
 | 16/08/2026 | **Vulnérabilités des dépendances traitées comme un chantier de maintenance isolé.**                               | Aucune n'est atteignable à l'exécution ; la seule correction risquée est une montée de version de Next, qui doit être testable seule et non noyée dans une PR fonctionnelle.               |
 | 17/08/2026 | **commitlint repris de l'historique orphelin, avec `subject-case` désactivée et les longueurs en avertissement.** | Le format conventionnel décrit dans CONTRIBUTING.MD devient vérifiable automatiquement, sans rejeter la façon d'écrire en place (majuscule initiale, en-têtes longs).                      |
 | 17/08/2026 | **Historique orphelin conservé sous le tag `archive/header-responsive-menu` plutôt qu'en branche.**               | La trace reste récupérable sans encombrer la liste des branches ni suggérer une fusion impossible.                                                                                         |
+| 18/08/2026 | **Design system mené comme chantier transverse, avant la Phase 2.**                                               | La dette de style (deux échelles d'espacement concurrentes, 7 notations du noir, focus absent) se serait propagée dans chaque nouvelle page ; l'assainir d'abord coûte moins cher.         |
+| 18/08/2026 | **O1 : espacements des pages système convertis x4 (px-8 py-3 devient px-32 py-12, etc.).**                        | Valeurs héritées de l'échelle rem par défaut, rendues 4 fois trop petites par `--spacing: 1px` ; aucune maquette des pages système n'existe pour arbitrer autrement.                       |
+| 18/08/2026 | **O7 : seuil responsive 899px absorbé par lg (1024px).**                                                          | La bascule du menu mobile est déjà à 1024px ; un seul seuil mobile au lieu de deux, vérification visuelle de la bande 900-1024 au lot 4.                                                   |
+| 18/08/2026 | **Tokens : le bloc @theme de design-system/tokens.css est la source de vérité unique, tokens.json supprimé.**     | Une seule méthode sans script de contrôle : le fichier consommé par le build ne peut pas diverger. Un JSON sera régénéré si un outillage DTCG ou une synchro Figma arrive.                 |
 
-## 6. Points ouverts
+## 7. Points ouverts
 
 - Hébergement cible (Vercel ou hébergeur imposé) — conditionne la Phase 5.
 - Autonomie d'édition de la cliente : si elle est requise, prévoir un CMS après validation de la maquette.
 - Données légales réelles (SIRET, Ordre des architectes, assurance, hébergeur) — à fournir par l'agence.
 - Formulaire de contact : simple `mailto:` ou envoi applicatif.
 - Photos et textes réels des projets ; les visuels actuels sont des images libres de droits de démonstration.
-- Suppression des branches fusionnées restantes, en local et sur GitHub.
+- Décisions design ouvertes O3, O4, O5, O9, O10, O11 (voir `design-system/DESIGN-SYSTEM.md`) — à fermer en revue avec Delphine.
+
+## 8. Nettoyage
+
+Tâches d'hygiène, à traiter opportunément, jamais glissées dans une PR fonctionnelle.
+
+- [ ] Supprimer les branches locales fusionnées : `feature/footer`, `feature/header`,
+      `feature/homepage-gallery`, `feature/projects`, `feature/projects-project`
+      (les deux dernières aussi côté GitHub). Reprise de la case restante de la Phase 0.
+- [ ] Rejouer `npm audit` après le merge Dependabot du 17/08/2026 (PR #9, Next 16.3.1) et
+      consigner le nouvel état en section 4.
+- [ ] Au moment de l'injection du contenu réel : vérifier puis purger les images de
+      démonstration non référencées de `public/images/` et `src/assets/images/`.
