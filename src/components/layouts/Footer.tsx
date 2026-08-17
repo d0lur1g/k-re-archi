@@ -42,7 +42,7 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="flex h-full w-180 items-center justify-around text-black transition-colors duration-300 ease-in-out hover:bg-black hover:text-white"
+                className="text-ink hover:bg-surface-inverse hover:text-ink-inverse flex h-full w-180 items-center justify-around transition-colors duration-300 ease-in-out"
               >
                 {link.label}
               </Link>

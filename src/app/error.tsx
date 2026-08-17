@@ -15,7 +15,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <section className="bg-kre-black text-kre-white flex h-full flex-col items-center justify-center px-4">
+    <section className="bg-surface-inverse text-ink-inverse flex h-full flex-col items-center justify-center px-4">
       <h1 className="font-amalfi mb-4 text-6xl">Erreur</h1>
       <h2 className="font-baiti mb-2 text-2xl">{"Une erreur s'est produite"}</h2>
       <p className="font-baiti mb-8 max-w-md text-center text-sm opacity-60">
@@ -23,7 +23,7 @@ export default function Error({
       </p>
       <button
         onClick={reset}
-        className="bg-kre-white text-kre-black font-baiti rounded-sm px-8 py-3 transition-opacity hover:opacity-90"
+        className="bg-surface text-ink font-baiti rounded-sm px-8 py-3 transition-opacity hover:opacity-90"
       >
         Réessayer
       </button>

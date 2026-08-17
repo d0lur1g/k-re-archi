@@ -36,10 +36,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr" className={`${amalfi.variable} ${baiti.variable} scroll-smooth`}>
       {/* ✅ scroll-smooth pour une navigation fluide */}
-      <body className="bg-black p-4">
+      <body className="bg-surface-inverse p-4">
         <div className="flex min-h-[calc(100dvh-2rem)] items-start justify-center">
           {/* ✅ dvh pour meilleure compatibilité mobile */}
-          <div className="my-auto w-full max-w-1080 bg-white">
+          <div className="bg-surface my-auto w-full max-w-1080">
             <Header />
             <main className="flex h-855 flex-1 flex-col">{children}</main>
             <Footer />

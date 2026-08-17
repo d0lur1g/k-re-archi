@@ -53,13 +53,16 @@ Chaque page doit tenir dans le budget de 855 px du `<main>` :
 - accueil : Hero 270 + Présentation 180 + Gallery 405
 - page projet : ProjectHeader 180 + ProjectGallery 630 + ProjectNavigation 45
 
-Tailwind v4 est configuré avec `--spacing: 1px` dans `src/styles/global.css`. Les classes
+Tailwind v4 est configuré avec `--spacing: 1px` dans `design-system/tokens.css`. Les classes
 numériques valent donc des pixels : `h-855` = 855 px, `w-540` = 540 px, `px-12` = 12 px.
 Le breakpoint `2xl` est redéfini à 1080 px (`max-2xl:` = sous le canvas).
 
 ## Styles
 
-- `src/styles/global.css` : `@import "tailwindcss"` + bloc `@theme` (polices, spacing, breakpoint).
+- `src/styles/global.css` : `@import "tailwindcss"` + `@import "../../design-system/tokens.css"`
+  (le bloc `@theme` vit dans les tokens du design system, source : `design-system/tokens.json`).
+  Les composants consomment la couche sémantique : `bg-surface`, `text-ink`, `border-line`,
+  jamais `bg-black`, `text-white` ni un hex.
 - `src/styles/custom.css` : chargé **après**, peut écraser Tailwind (reset, scrollbar, réseaux sociaux).
 - Une classe utilitaire dont le token n'existe pas dans `@theme` n'est **pas** générée et échoue
   en silence. Vérifier que la couleur ou la taille utilisée est bien déclarée.

@@ -13,7 +13,7 @@ export default function ProjectHeader({ project }: ProjectHeaderProps) {
   const [showTooltip, setShowTooltip] = useState(false);
 
   return (
-    <section className="flex h-180 items-center bg-white">
+    <section className="bg-surface flex h-180 items-center">
       {/* Description à gauche - 720px */}
       <div className="font-baiti h-full w-720 content-around border-b pr-24 pb-12 pl-12 text-justify">
         <h1 className="mb-4 text-5xl">{title}</h1>
@@ -33,8 +33,8 @@ export default function ProjectHeader({ project }: ProjectHeaderProps) {
           </p>
           {/* Tooltip au survol */}
           {showTooltip && description && (
-            <div className="absolute z-50 mt-2 w-full rounded-lg border border-neutral-300 bg-white p-4">
-              <p className="text-[18px] leading-[100%] text-neutral-700">{description}</p>
+            <div className="border-line-muted bg-surface absolute z-50 mt-2 w-full rounded-lg border p-4">
+              <p className="text-ink-muted text-[18px] leading-[100%]">{description}</p>
             </div>
           )}
         </div>

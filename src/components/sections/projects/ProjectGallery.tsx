@@ -17,7 +17,7 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
   return (
     <section
       ref={scrollRef}
-      className="scrollbar-hide h-630 overflow-x-auto overflow-y-hidden scroll-smooth bg-white py-12"
+      className="scrollbar-hide bg-surface h-630 overflow-x-auto overflow-y-hidden scroll-smooth py-12"
     >
       <div
         className={`flex h-full gap-6 px-12 ${
@@ -28,7 +28,7 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
         {images.map((image) => (
           <div
             key={image.id}
-            className="relative h-full shrink overflow-hidden bg-neutral-100"
+            className="bg-placeholder relative h-full shrink overflow-hidden"
             style={{ width: "auto", aspectRatio: "4/3" }}
           >
             <Image

@@ -1,22 +1,10 @@
 /*
-  Configuration Tailwind CSS 4.1 - K-Ré Architecture
+  Point d'entrée CSS - K-Ré Architecture
+  Tailwind CSS 4 + tokens du design system.
+
+  Les tokens vivent dans design-system/tokens.css, projection de
+  design-system/tokens.json (source de vérité). Ne rien redéclarer ici :
+  tout ajout de token passe par la règle de design-system/GOVERNANCE.md.
 */
 @import "tailwindcss";
-
-@theme {
-  /* === Couleurs de marque ===
-     Utilisées par les pages d'erreur et de chargement. Sans ces tokens, les
-     classes bg-kre-black / text-kre-white ne sont tout simplement pas générées. */
-  --color-kre-black: #000000;
-  --color-kre-white: #ffffff;
-
-  /* === Polices personnalisées === */
-  --font-amalfi: var(--font-family-amalfi), "Courier New", sans-serif;
-  --font-baiti: var(--font-family-baiti), "Courier New", sans-serif;
-
-  /* Espacements */
-  --spacing: 1px;
-
-  /* Breakpoints */
-  --breakpoint-2xl: 1080px;
-}
+@import "../../design-system/tokens.css";

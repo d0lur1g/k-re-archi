@@ -94,18 +94,18 @@
   }
 
   .social-facebook:hover {
-    color: #1877f2;
+    color: var(--color-social-facebook);
   }
 
   .social-instagram:hover {
-    color: #e4405f;
+    color: var(--color-social-instagram);
   }
 
   .social-pinterest:hover {
-    color: #e60023;
+    color: var(--color-social-pinterest);
   }
 
   .social-linkedin:hover {
-    color: #0a66c2;
+    color: var(--color-social-linkedin);
   }
 }
