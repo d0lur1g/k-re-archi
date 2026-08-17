@@ -36,7 +36,7 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
               alt={image.alt}
               fill
               className="object-cover"
-              sizes="(max-width: 1200px) 100vw, 800px"
+              sizes="(max-width: 1080px) 100vw, 800px"
             />
           </div>
         ))}

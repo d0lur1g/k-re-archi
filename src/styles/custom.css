@@ -61,7 +61,8 @@
     outline-offset: 2px;
   }
 
-  @media (max-width: 899px) {
+  /* Aligné sur le breakpoint lg (bascule menu mobile) : un seul seuil mobile (O7) */
+  @media (width < 1024px) {
     html,
     body {
       display: block;

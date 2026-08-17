@@ -80,8 +80,6 @@
      Règle : une seule unité (px) pour tout le namespace --breakpoint-*. Tailwind
      ordonne les variantes en comparant l'unité avant la valeur : mélanger px et rem
      inverserait l'ordre des variantes min-width empilées. */
-  --breakpoint-canvas: 1080px; /* sous le canvas fixe ; remplace le 2xl redéfini */
+  --breakpoint-canvas: 1080px; /* sous le canvas fixe (max-canvas:) */
   --breakpoint-lg: 1024px; /* bascule menu mobile ; iso-valeur avec le défaut 64rem */
-  /* Déprécié : à supprimer en fin de lot 4, après grep confirmant zéro max-2xl:. */
-  --breakpoint-2xl: 1080px;
 }

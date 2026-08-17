@@ -55,7 +55,9 @@ Chaque page doit tenir dans le budget de 855 px du `<main>` :
 
 Tailwind v4 est configuré avec `--spacing: 1px` dans `design-system/tokens.css`. Les classes
 numériques valent donc des pixels : `h-855` = 855 px, `w-540` = 540 px, `px-12` = 12 px.
-Le breakpoint `2xl` est redéfini à 1080 px (`max-2xl:` = sous le canvas).
+Deux breakpoints projet, tous deux en px (règle : jamais de rem dans `--breakpoint-*`) :
+`canvas` à 1080 px (`max-canvas:` = sous le canvas fixe) et `lg` redéclaré à 1024 px
+(bascule du menu mobile, alignée avec la media query de `custom.css`).
 
 ## Styles
 
