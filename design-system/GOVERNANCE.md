@@ -49,8 +49,11 @@ Un composant entre dans COMPONENTS.md si :
 options, décision à acter par l'owner :
 
 - **A. Conserver DTCG** : prêt pour un outillage futur et pour la synchronisation
-  Figma Variables (non extraites à ce jour, l'outil MCP exige une sélection dans
-  l'app de bureau) ; coût : double maintenance manuelle.
+  Figma Variables. Relevé du 18/08/2026 (fichier ouvert dans l'app de bureau) : le
+  fichier Figma définit 2 variables, `Primary` #000000 et `Secondary` #ffffff,
+  consommées sur la page Design System (nœud 67:379) mais non liées sur les écrans ;
+  leur nommage ne porte pas les rôles d'usage du registre (voir tokens.json,
+  color.black et color.white). Coût de l'option : double maintenance manuelle.
 - **B. Format maison** : le bloc `@theme` devient l'unique source, tokens.json est
   supprimé ; coût : perte du pivot outillable et des $description.
 
