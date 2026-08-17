@@ -67,9 +67,10 @@
 
   /* === Espacement (décision D3 : utilitaires numériques px conservés) ===
      Base 1px : les classes numériques valent des pixels (px-12 = 12px).
-     Liste blanche des valeurs d'échelle : 2, 5, 6, 10, 12, 15, 24, 30.
+     Liste blanche des valeurs d'échelle : 2, 5, 6, 10, 12, 15, 16, 24, 30, 32
+     (16 et 32 ajoutés le 18/08/2026 à la fermeture d'O1, pages système).
      Valeurs de composition hors échelle : 2.5 et 4 (constants.ts), 195 (hero),
-     module dimensionnel 45 pour les tailles de cellules. */
+     448 (largeur des textes des pages système), module dimensionnel 45. */
   --spacing: 1px;
 
   /* === Rayon === */
