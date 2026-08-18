@@ -95,22 +95,54 @@ s'affichent dans le gabarit avec leur habillage noir et blanc.
 
 ### Phase 2 — Pages institutionnelles · `feature/pages-institutionnelles`
 
-**Objectif :** plus aucun lien mort dans la navigation. Contenu en **placeholder structuré** :
-la mise en page est définitive, les textes sont des marqueurs explicites à remplacer.
+**Objectif :** supprimer les liens morts de la navigation, **d'après la maquette Figma** et non
+d'après une structure supposée.
 
-- `/missions` — l'offre de l'agence, découpée dans le budget 855 px.
-- `/contact` — coordonnées, adresse, lien `mailto:`. Le formulaire avec envoi réel est hors
-  périmètre (il suppose un service d'envoi et une protection anti-spam) : voir Phase 5.
-- `/faq` — questions/réponses, structure repliable ou liste simple selon le volume.
-- `/legal-notice` — trame légale avec emplacements à compléter : raison sociale, SIRET, numéro
-  d'inscription à l'Ordre des architectes, assurance RCP, directeur de publication, hébergeur,
-  traitement des données personnelles.
+Fichier de référence : [K-Ré - Archi](https://www.figma.com/design/V7qN19dJf14nHH3X0MCGDD/K-R%C3%A9---Archi),
+page « k-Ré Design & Architecture » (`1:2`). Il couvre `home`, `projects`, `project` et
+`contact` — **rien pour Missions, FAQ et Mentions légales**.
+
+- [x] `/contact` — d'après le node `193:921`, la plus récente des trois variantes du fichier,
+      exprimé dans le design system : couche sémantique, échelle de rôle, aucun suffixe `!`.
+- [ ] `/missions` — sans maquette : la page attend son écran Figma. Le lien du header reste
+      mort d'ici là.
+- [ ] `/faq` et `/legal-notice` — sans maquette non plus ; les deux liens du footer restent morts.
+
+Correspondances de rôle relevées sur le contact (écarts Figma, cf. l'échelle de `tokens.css`) :
+
+| Figma             | Rôle retenu            | Note                                                                |
+| ----------------- | ---------------------- | ------------------------------------------------------------------- |
+| 50 px (capitales) | `text-heading` (48)    | même mappage que la baseline du header                              |
+| 35 px             | `text-tagline` (36)    | idem                                                                |
+| 20 px             | `text-meta` (20)       | exact                                                               |
+| 30 px (nom)       | `text-nav` (30, exact) | l'accueil compose le même nom en `text-name` (40) : rôle à arbitrer |
+| 15 px (téléphone) | `text-body` (16)       | pas de rôle à 15 px                                                 |
+| 10 px (mention)   | `text-caption` (14)    | pas de rôle sous 14 px                                              |
 
 Chaque page exporte ses propres `metadata` (titre + description), comme `projects/page.tsx`.
-Si un motif de mise en page se répète, le factoriser dans `src/components/layouts`.
 
 **Terminé quand :** tous les liens du `Header`, du `MenuResponsive` et du `Footer` mènent à une
 page réelle, et chaque page respecte le gabarit vertical.
+
+**État au 18/08/2026 : contact livré, le reste en attente de maquette.** La page reprend le
+découpage du node `193:930` — punchline 180, formulaire 154 puis bouton, double filet, bloc
+identité 270 — répartis par `justify-between` dans un cadre à 45 px de marge, comme dans Figma.
+Le portrait vient de l'export Figma ; le contenu (coordonnées, qualifications, zone
+d'intervention) est le contenu réel de l'agence. L'envoi du formulaire reste neutralisé
+(service d'expédition et anti-spam en Phase 5).
+
+Historique de la branche : une première version avait inventé quatre pages en « placeholder
+structuré » avant consultation du fichier Figma ; une deuxième suivait la maquette mais
+précédait les conventions du design system (suffixes `!`, couleurs en dur, polices brutes).
+La branche a été reconstruite depuis `main` avec les règles actuelles. **Leçon actée : la
+maquette d'abord, les conventions de `main` au moment où l'on code.**
+
+Relevés faits sur le fichier Figma, à traiter ailleurs :
+
+- le libellé du bouton d'envoi et les deux liens du footer s'affichent « FAQ » dans certaines
+  frames — instances de composant non surchargées, pas une intention de design ;
+- la maquette rend l'entrée de navigation de la page courante en amalfi : un **état actif**,
+  que le code n'exprime aujourd'hui qu'au survol. À traiter en Phase 3.
 
 ---
 
@@ -244,6 +276,9 @@ et `design-system/DESIGN-SYSTEM.md`.
 | 18/08/2026 | **O1 : espacements des pages système convertis x4 (px-8 py-3 devient px-32 py-12, etc.).**                        | Valeurs héritées de l'échelle rem par défaut, rendues 4 fois trop petites par `--spacing: 1px` ; aucune maquette des pages système n'existe pour arbitrer autrement.                       |
 | 18/08/2026 | **O7 : seuil responsive 899px absorbé par lg (1024px).**                                                          | La bascule du menu mobile est déjà à 1024px ; un seul seuil mobile au lieu de deux, vérification visuelle de la bande 900-1024 au lot 4.                                                   |
 | 18/08/2026 | **Tokens : le bloc @theme de design-system/tokens.css est la source de vérité unique, tokens.json supprimé.**     | Une seule méthode sans script de contrôle : le fichier consommé par le build ne peut pas diverger. Un JSON sera régénéré si un outillage DTCG ou une synchro Figma arrive.                 |
+
+| 18/08/2026 | **La maquette Figma fait foi : aucune page n'est produite sans écran correspondant.** | Les quatre pages inventées avant consultation du fichier ne correspondaient à rien. Mieux vaut un lien mort assumé qu'une structure à jeter. |
+| 18/08/2026 | **Variante `193:921` retenue pour le contact ; branche reconstruite depuis `main` après le chantier design system.** | C'est la plus récente des trois itérations du fichier, et le code antérieur violait D4/D5 et la couche sémantique. |
 
 ## 7. Points ouverts
 
