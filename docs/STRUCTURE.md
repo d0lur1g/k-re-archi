@@ -75,7 +75,7 @@ k-re-archi/
 │   │   │   └── fonts.ts
 │   │   └── images/
 │   │       ├── icons/ … 2 fichiers
-│   │       ├── images/ … 10 fichiers
+│   │       ├── images/ … 11 fichiers
 │   │       ├── socials/ … 4 fichiers
 │   │       └── logo-order-architects.svg
 │   ├── components/
